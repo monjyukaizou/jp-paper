@@ -53,14 +53,14 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .sticky .li{font-size:8.6pt;white-space:nowrap;border-bottom:.3mm solid var(--blue-d);margin-top:1.2mm;padding-bottom:.3mm}
 .anno{font-family:"Klee One",cursive;color:var(--blue-d);font-size:10pt;line-height:1.55}
 .anno.dot{border-top:.5mm dotted var(--blue-d);border-bottom:.5mm dotted var(--blue-d);padding:1.5mm 0}
-.contact-band{position:absolute;left:0;right:0;bottom:0;height:calc(var(--bleed) + 46mm);background:var(--cream);padding:8mm 12mm 0 14mm;border-top:1.2mm solid var(--orange)}
+.contact-band{position:absolute;left:0;right:0;bottom:0;height:calc(var(--bleed) + 46mm);background:var(--cream);padding:5mm 12mm 0 14mm;border-top:1.2mm solid var(--orange)}
 .contact-band h4{font-size:10pt;font-weight:900;letter-spacing:.25em;color:var(--orange)}
-.contact-band dl{display:grid;grid-template-columns:auto auto auto 1fr;column-gap:5mm;row-gap:3mm;margin-top:5mm;align-items:baseline}
-.contact-band dd:nth-of-type(odd){padding-right:8mm}
+.contact-band dl{display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:1mm;margin-top:3mm;align-items:baseline;max-width:120mm}
+.contact-band dl.sub2{position:absolute;left:112mm;bottom:calc(var(--bleed) + 11mm);margin:0;row-gap:2mm}
 .contact-band dt{font-size:9pt;color:var(--gray);letter-spacing:.1em}
 .contact-band dd{font-size:12pt;font-weight:700}
 .contact-band dd strong{font-size:14pt}
-.contact-band dd.tel{font-size:26pt;letter-spacing:.04em;font-weight:900}
+.contact-band dd.tel{font-size:24pt;letter-spacing:.04em;font-weight:900}
 .footer-band{position:absolute;left:0;right:0;bottom:var(--bleed);height:16mm;background:var(--cream);display:flex;align-items:center;gap:4mm;padding-left:14mm}
 .footer-band .face{width:11mm;height:11mm;border-radius:50%;background:#f6e9a4;display:flex;align-items:center;justify-content:center;flex:none}
 .footer-band p{font-size:10pt;color:var(--blue-d);line-height:1.45}
@@ -98,33 +98,33 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .cover .lab{position:absolute;top:calc(var(--bleed) + 109mm);left:47mm;color:#fff;font-family:"Klee One",cursive;font-size:12pt;letter-spacing:.1em;border-bottom:.3mm dashed rgba(255,255,255,.7);padding-bottom:1mm;z-index:2}
 .cover .lab span{color:var(--mustard)}
 .cover .vol span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:13pt;letter-spacing:.04em}
-.cover .sub{position:absolute;top:calc(var(--bleed) + 69mm);left:15mm;right:8mm;color:var(--ink);font-size:26pt;line-height:1.42;letter-spacing:.06em;font-weight:900;z-index:3}
+.cover .sub{position:absolute;top:calc(var(--bleed) + 68mm);left:15mm;right:8mm;color:var(--ink);font-size:21pt;line-height:1.45;letter-spacing:.06em;font-weight:900;z-index:3}
 .cover .sub em{font-style:normal;color:var(--orange)}
-.cover .bubble{position:absolute;top:150mm;right:10mm;width:48mm;height:30mm;z-index:4}
+.cover .bubble{position:absolute;top:112mm;right:9mm;width:48mm;height:30mm;z-index:4}
 .cover svg.bubble path{stroke:var(--ink);stroke-width:.4px;fill:#fff}
 svg.bubble{transform:scaleX(-1)}
-.cover .nyao{position:absolute;top:177mm;right:12mm;width:26mm;z-index:3}
+.cover .nyao{position:absolute;top:138mm;right:12mm;width:26mm;z-index:3}
 .cover .bubble span{position:absolute;inset:0 0 5mm;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Klee One",cursive;color:var(--ink);font-size:10.5pt;line-height:1.7;letter-spacing:.12em}
-.cover .when{position:absolute;left:15mm;right:16mm;top:122mm;color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:2mm;align-items:baseline}
+.cover .when{position:absolute;left:15mm;right:16mm;top:149mm;color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:2mm;align-items:baseline}
 .cover .when dt{font-size:11pt;letter-spacing:.3em;border:.3mm solid rgba(255,255,255,.8);padding:.5mm 2mm}
 .cover .when dd{font-size:15pt;letter-spacing:.04em;line-height:1.45;font-weight:700}
 .cover .when .time{font-size:17pt;margin-left:3mm}
 .cover .when .date{font-size:34pt;font-weight:700;letter-spacing:.06em}
 .cover .when .date small{font-size:16pt}
-.cover .files{position:absolute;left:15mm;right:16mm;top:179mm;color:#fff;display:flex;flex-direction:column;gap:5mm;border-top:.3mm solid rgba(255,255,255,.5);padding-top:5mm}
+.cover .files{position:absolute;left:15mm;right:16mm;top:203mm;color:#fff;display:flex;flex-direction:column;gap:5mm;border-top:.3mm solid rgba(255,255,255,.5);padding-top:5mm}
 .cover .files li{list-style:none;display:grid;grid-template-columns:31mm 1fr;align-items:baseline}
 .cover .files .n{font-size:10pt;letter-spacing:.14em;font-weight:500}
 .cover .files .n small{display:block;font-size:8pt;opacity:.8;letter-spacing:.06em;margin-top:.6mm}
 .cover .files .t{font-size:13.5pt;letter-spacing:.12em;line-height:1.55;font-weight:500}
 .cover .files .t small{display:block;font-size:9pt;margin-bottom:.8mm;letter-spacing:.04em;opacity:.85;font-weight:400}
 .cover .files .t small::before{content:"＜"}.cover .files .t small::after{content:"＞"}
-.cover .ura{position:absolute;top:88mm;right:7mm;width:31mm;z-index:4}
-.cover .ura-say{position:absolute;top:101mm;left:15mm;right:44mm;background:#fff;border:.4mm solid var(--ink);border-radius:5mm;padding:2.6mm 4mm;font-weight:900;font-size:12.5pt;letter-spacing:.03em;line-height:1.4;color:var(--ink);z-index:4}
-.cover .ura-say::before{content:"";position:absolute;right:-4.2mm;top:2.6mm;border:2.2mm solid transparent;border-left:4mm solid var(--ink)}
-.cover .ura-say::after{content:"";position:absolute;right:-3.4mm;top:3mm;border:1.8mm solid transparent;border-left:3.5mm solid #fff}
+.cover .ura{position:absolute;top:93mm;left:11mm;width:27mm;z-index:4}
+.cover .ura-say{position:absolute;top:103mm;left:43mm;right:50mm;background:#fff;border:.4mm solid var(--ink);border-radius:5mm;padding:2.6mm 4mm;font-weight:900;font-size:12pt;letter-spacing:.02em;line-height:1.4;color:var(--ink);z-index:4;white-space:nowrap}
+.cover .ura-say::before{content:"";position:absolute;left:-4.2mm;top:2.6mm;border:2.2mm solid transparent;border-right:4mm solid var(--ink)}
+.cover .ura-say::after{content:"";position:absolute;left:-3.4mm;top:3mm;border:1.8mm solid transparent;border-right:3.5mm solid #fff}
 .cover .ura-say em{font-style:normal;color:var(--orange);font-size:15pt}
 .cover .ura-say small{font-size:10pt;color:var(--orange);margin-left:.5mm}
-.cover .access{position:absolute;top:155mm;left:35mm;right:58mm;color:#fff;font-size:9pt;line-height:1.6;opacity:.92}
+.cover .access{position:absolute;top:182mm;left:35mm;right:58mm;color:#fff;font-size:9pt;line-height:1.6;opacity:.92}
 .cover .contact{position:absolute;left:15mm;right:52mm;bottom:calc(var(--bleed) + 8mm);background:rgba(255,255,255,.94);color:var(--ink);border-radius:2mm;padding:3mm 4mm;display:grid;grid-template-columns:auto 1fr;column-gap:4mm;row-gap:.5mm;align-items:baseline}
 .cover .contact h4{grid-column:1/-1;font-size:8.5pt;letter-spacing:.2em;color:var(--orange);font-weight:900}
 .cover .contact dt{font-size:8.5pt;color:#555}
@@ -176,9 +176,16 @@ svg.bubble{transform:scaleX(-1)}
 .back .msg{position:absolute;top:calc(var(--bleed) + 123mm);left:14mm;right:12mm;font-size:10.3pt;line-height:1.95;text-align:justify}
 .back .closing{position:absolute;top:calc(var(--bleed) + 155mm);left:0;right:0;text-align:center;font-family:"Yusei Magic",sans-serif;font-size:27pt;letter-spacing:.06em}
 .back .closing .ul{background:linear-gradient(transparent 68%, var(--yellow) 68%)}
-.back .gift{position:absolute;top:calc(var(--bleed) + 182mm);left:14mm;right:12mm;background:var(--cream);border-radius:2.5mm;padding:5mm 5mm 5mm 0;display:grid;grid-template-columns:33mm 1fr 30mm;gap:3mm;min-height:50mm}
+.back .gift{position:absolute;top:calc(var(--bleed) + 180mm);left:14mm;right:12mm;height:64mm;background:var(--cream);border-radius:2.5mm}
+.back .gift h3{position:absolute;left:36mm;top:6mm}
+.back .gift .man-say{position:absolute;left:35mm;bottom:4mm;width:82mm;background:#fff;border:.35mm solid var(--ink);border-radius:4mm;padding:2mm 3.5mm;font-size:9.5pt;line-height:1.5;font-weight:500;margin:0}
+.back .gift .man-say::before{content:"";position:absolute;left:-3.6mm;bottom:5mm;border:1.8mm solid transparent;border-right:3.4mm solid var(--ink)}
+.back .gift .man-say::after{content:"";position:absolute;left:-2.9mm;bottom:5.35mm;border:1.45mm solid transparent;border-right:3mm solid #fff}
+.back .gift .cat-say{position:absolute;right:40mm;top:22mm;background:#fff;border:.35mm solid var(--blue-d);border-radius:5mm;padding:2mm 4mm;font-family:"Klee One",cursive;font-size:10.5pt;line-height:1.55;color:var(--blue-d);margin:0}
+.back .gift .cat-say::before{content:"";position:absolute;right:-3.6mm;bottom:4mm;border:1.8mm solid transparent;border-left:3.4mm solid var(--blue-d)}
+.back .gift .cat-say::after{content:"";position:absolute;right:-2.9mm;bottom:4.35mm;border:1.45mm solid transparent;border-left:3mm solid #fff}
 .back .gift .man{position:absolute;left:0;bottom:0;width:31mm}
-.back .gift .catb{position:absolute;right:2mm;bottom:0;width:33mm}
+.back .gift .catb{position:absolute;right:3mm;bottom:-7mm;width:36mm;z-index:3}
 .back .gift .badge{position:absolute;top:-3.5mm;left:36mm;background:var(--orange);color:#fff;font-weight:700;font-size:9pt;padding:1mm 3.5mm;border-radius:4mm;letter-spacing:.12em}
 .mini{width:28mm;height:39mm;background:#fff;box-shadow:1mm 1.2mm 0 rgba(0,0,0,.15);position:relative;overflow:hidden}
 .mini .t{position:absolute;top:2.5mm;left:2mm;right:2mm;font-family:"Yusei Magic";font-size:8.6pt;line-height:1}
@@ -229,19 +236,19 @@ svg.bubble{transform:scaleX(-1)}
       <span class="badge">ご来場者プレゼント</span>
       <img class="man" src="assets/man.png" alt="室長（キャラクター）">
       <img class="catb" src="assets/cat_book.png" alt="本を持つにゃお（キャラクター）">
-      <div style="grid-column:2">
-        <h3><small>印刷技術情報誌</small>『ブック印刷のコト』総集編を<br>もれなくプレゼントいたします</h3>
-        <div class="qs"><span>紙はなぜ焼けるの？</span><span>インキの匂いって？</span><span>ズレはどうして起きるの？</span></div>
-        <p>本づくりにまつわる、あれこれの疑問を科学的に解説しています。</p>
-      </div>
+      <h3><small>印刷技術情報誌</small>『ブック印刷のコト』総集編を<br>もれなくプレゼントいたします</h3>
+      <p class="man-say">本づくりにまつわる、あれこれの疑問を科学的に解説しています。</p>
+      <p class="cat-say">紙はなぜ焼けるの？<br>インキの匂いって？<br>ズレはどうして起きるの？</p>
     </div>
 
     <div class="contact-band">
       <h4>お申込み・お問い合わせ</h4>
       <dl>
         <dt>主催</dt><dd><strong>株式会社アイワード</strong></dd>
-        <dt>MAIL</dt><dd>tokyogyomu@iword.co.jp</dd>
         <dt>TEL</dt><dd class="tel">03-3239-3939</dd>
+      </dl>
+      <dl class="sub2">
+        <dt>MAIL</dt><dd>tokyogyomu@iword.co.jp</dd>
         <dt>WEB</dt><dd>https://www.iword.co.jp</dd>
       </dl>
     </div>
