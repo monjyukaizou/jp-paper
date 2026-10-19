@@ -91,15 +91,16 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .cover .vol span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:13pt;letter-spacing:.04em}
 .cover .sub{position:absolute;top:calc(var(--bleed) + 68mm);left:15mm;right:12mm;color:var(--ink);font-size:20pt;line-height:1.5;letter-spacing:.08em;font-weight:900;z-index:3}
 .cover .sub em{font-style:normal;color:var(--orange)}
-.cover .bubble{position:absolute;top:117mm;right:40mm;width:52mm;height:32mm;z-index:2}
+.cover .bubble{position:absolute;top:calc(var(--bleed) + 62mm);right:13mm;width:50mm;height:31mm;z-index:4}
+.cover svg.bubble path{stroke:var(--ink);stroke-width:.4px;fill:#fff}
 svg.bubble{transform:scaleX(-1)}
-.cover .nyao{position:absolute;top:119mm;right:12mm;width:27mm;z-index:2}
-.cover .bubble span{position:absolute;inset:0 0 5mm;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Klee One",cursive;color:#fff;font-size:10.5pt;line-height:1.7;letter-spacing:.12em}
-.cover .when{position:absolute;left:15mm;right:16mm;top:152mm;color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:2mm;align-items:baseline}
-.cover .when dt{font-size:9pt;letter-spacing:.3em;border:.3mm solid rgba(255,255,255,.8);padding:.5mm 2mm}
-.cover .when dd{font-size:10.5pt;letter-spacing:.06em;line-height:1.5}
-.cover .when .date{font-size:21pt;font-weight:700;letter-spacing:.06em}
-.cover .when .date small{font-size:11pt}
+.cover .nyao{position:absolute;top:98mm;right:10mm;width:28mm;z-index:3}
+.cover .bubble span{position:absolute;inset:0 0 5mm;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Klee One",cursive;color:var(--ink);font-size:10.5pt;line-height:1.7;letter-spacing:.12em}
+.cover .when{position:absolute;left:15mm;right:16mm;top:140mm;color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:2mm;align-items:baseline}
+.cover .when dt{font-size:11pt;letter-spacing:.3em;border:.3mm solid rgba(255,255,255,.8);padding:.5mm 2mm}
+.cover .when dd{font-size:13pt;letter-spacing:.04em;line-height:1.5;font-weight:700}
+.cover .when .date{font-size:28pt;font-weight:700;letter-spacing:.06em}
+.cover .when .date small{font-size:14pt}
 .cover .files{position:absolute;left:15mm;right:16mm;top:182mm;color:#fff;display:flex;flex-direction:column;gap:5mm;border-top:.3mm solid rgba(255,255,255,.5);padding-top:5mm}
 .cover .files li{list-style:none;display:grid;grid-template-columns:31mm 1fr;align-items:baseline}
 .cover .files .n{font-size:10pt;letter-spacing:.14em;font-weight:500}
@@ -114,12 +115,12 @@ svg.bubble{transform:scaleX(-1)}
 
 /* ===== 中面 ===== */
 .inner .panel{top:calc(var(--bleed) + 44mm);bottom:calc(var(--bleed) + 22mm)}
-.inner .lead{position:absolute;top:calc(var(--bleed) + 52mm);font-weight:900;font-size:17pt;line-height:1.6;letter-spacing:.06em}
+.inner .lead{position:absolute;top:calc(var(--bleed) + 50mm);font-weight:900;font-size:21pt;line-height:1.55;letter-spacing:.04em}
 .inner .lead em{font-style:normal;color:var(--orange)}
-.page.left .lead{left:14mm;right:84mm}.page.right .lead{left:12mm;right:84mm}
-.inner .sticky{top:calc(var(--bleed) + 38mm);right:11mm;width:70mm;padding:6mm 6mm 5mm}
+.page.left .lead{left:14mm;right:80mm}.page.right .lead{left:12mm;right:80mm}
+.inner .sticky{top:calc(var(--bleed) + 11mm);right:11mm;width:70mm;padding:6mm 6mm 5mm}
 .inner .sticky .q{font-size:17pt}.inner .sticky .big{font-size:44pt}.inner .sticky .big small{font-size:16pt}.inner .sticky .li{font-size:10.5pt;margin-top:1.8mm}
-.cards{position:absolute;top:calc(var(--bleed) + 112mm);display:flex;flex-direction:column;gap:3.5mm}
+.cards{position:absolute;top:calc(var(--bleed) + 108mm);display:flex;flex-direction:column;gap:3.5mm}
 .page.left .cards{left:14mm;right:12mm}.page.right .cards{left:12mm;right:16mm}
 .card{background:#fff;border-radius:2.5mm;padding:4.5mm 5mm;display:grid;grid-template-columns:17mm 1fr;gap:4mm;align-items:start}
 .card .num{font-family:"Klee One",cursive;text-align:center;line-height:1.1;padding-top:.5mm}
