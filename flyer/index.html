@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ブック印刷のコトセミナー チラシ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+/*
+  仕様：A3二つ折り（仕上がりA4）
+  1枚目＝外面（左：裏表紙 p4／右：表紙 p1）
+  2枚目＝中面（左：Before p2／右：After p3）
+  用紙サイズ 426×303mm ＝ A3（420×297）＋塗り足し各3mm
+*/
+:root{
+  --paper:#f6f1e6;   /* 生成り */
+  --paper2:#ece4d2;
+  --ink:#1e2a44;     /* 紺 */
+  --ink2:#3a4560;
+  --shu:#b2452c;     /* 朱 */
+  --gold:#a2864a;
+  --gray:#6c6a64;
+  --bleed:3mm;
+}
+@page{size:426mm 303mm;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#888}
+body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet{width:426mm;height:303mm;position:relative;overflow:hidden;background:var(--paper);display:flex;page-break-after:always;margin:0 auto 10mm}
+@media print{.sheet{margin:0}}
+/* 1ページ分（塗り足し込み 213×303mm、内側に安全域） */
+.page{width:213mm;height:303mm;position:relative;overflow:hidden}
+.page .safe{position:absolute;top:calc(var(--bleed) + 12mm);bottom:calc(var(--bleed) + 12mm)}
+.page.left .safe{left:calc(var(--bleed) + 14mm);right:12mm}
+.page.right .safe{left:12mm;right:calc(var(--bleed) + 14mm)}
+.serif{font-family:"Noto Serif JP",serif}
+/* 中央の折り位置 */
+.fold{position:absolute;left:213mm;top:0;bottom:0;width:0;border-left:.2mm dashed rgba(30,42,68,.0)}
+.screen-only .fold{border-left-color:rgba(30,42,68,.25)}
+
+/* ===== 表紙 ===== */
+.cover{background:var(--ink);color:var(--paper)}
+.cover::before{content:"";position:absolute;inset:0;background:
+  repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 7mm);}
+.cover .band{position:absolute;left:0;right:0;top:0;height:calc(var(--bleed) + 8mm);background:var(--shu)}
+.cover .safe{display:flex;flex-direction:column}
+.cover .label{font-size:9.5pt;letter-spacing:.35em;color:var(--gold);margin-top:6mm}
+.cover h1{font-family:"Noto Serif JP",serif;font-weight:900;font-size:50pt;line-height:1.18;letter-spacing:.04em;margin-top:5mm}
+.cover h1 .small{display:block;font-size:22pt;letter-spacing:.2em;font-weight:700;color:var(--paper2)}
+.cover h1 .koto{color:#fff;border-bottom:1.6mm solid var(--shu)}
+.cover .sub{font-family:"Noto Serif JP",serif;font-size:16pt;font-weight:700;line-height:1.6;margin-top:7mm;padding-left:5mm;border-left:1.2mm solid var(--gold)}
+.cover .when{margin-top:12mm;display:grid;grid-template-columns:20mm 1fr;row-gap:2.5mm;font-size:10pt;align-items:baseline}
+.cover .when dt{font-size:8.5pt;color:var(--ink);background:var(--gold);text-align:center;padding:.6mm 0;letter-spacing:.2em}
+.cover .when dd{padding-left:4mm;line-height:1.5}
+.cover .when .date{font-family:"Noto Serif JP",serif;font-size:19pt;font-weight:900;letter-spacing:.02em}
+.cover .when .date small{font-size:11pt}
+.cover .seminars{margin-top:auto;display:flex;flex-direction:column;gap:2.6mm}
+.sem{background:var(--paper);color:var(--ink);display:grid;grid-template-columns:23mm 1fr;min-height:24mm}
+.sem .no{background:var(--shu);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:"Noto Serif JP",serif}
+.sem .no b{font-size:22pt;line-height:1}
+.sem .no span{font-size:8pt;margin-top:1mm;letter-spacing:.05em}
+.sem .no em{font-style:normal;font-size:7pt;letter-spacing:.2em;opacity:.85}
+.sem .body{padding:2.6mm 4mm}
+.sem h3{font-family:"Noto Serif JP",serif;font-size:12.5pt;line-height:1.4;font-weight:900}
+.sem h3 + h3{margin-top:1.6mm}
+.sem p{font-size:8.8pt;color:var(--ink2);line-height:1.5;margin-top:.6mm}
+.sem p::before{content:"＜";}.sem p::after{content:"＞"}
+.cover .co{margin-top:4mm;display:flex;justify-content:space-between;align-items:flex-end;font-size:8pt;color:var(--paper2)}
+.cover .co strong{font-family:"Noto Serif JP",serif;font-size:13pt;color:#fff;letter-spacing:.15em}
+
+/* ===== 中面共通 ===== */
+.inner .kicker{display:inline-block;font-family:"Noto Serif JP",serif;font-weight:900;font-size:30pt;letter-spacing:.08em;line-height:1}
+.inner .kicker small{font-size:10pt;letter-spacing:.3em;margin-left:3mm;vertical-align:middle}
+.inner h2{font-family:"Noto Serif JP",serif;font-weight:900;font-size:17pt;line-height:1.55;margin-top:6mm;letter-spacing:.02em}
+.inner .safe{display:flex;flex-direction:column}
+.cards{margin-top:8mm;display:flex;flex-direction:column;justify-content:space-between;flex:1;gap:5mm}
+.before .cards{margin-bottom:16mm}.after .cards{margin-bottom:36mm}
+.card{display:grid;grid-template-columns:24mm 1fr;gap:5mm;align-items:center;padding:6mm 5mm;border-radius:1.5mm;flex:1}
+.card .ico{width:24mm;height:24mm;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.card .ico svg{width:14mm;height:14mm}
+.card h4{font-family:"Noto Serif JP",serif;font-size:13.5pt;font-weight:900;line-height:1.4}
+.card p{font-size:10pt;line-height:1.8;margin-top:2mm;text-align:justify}
+.card .tag{display:inline-block;font-size:8.5pt;padding:.3mm 2mm;margin-top:2mm;border-radius:5mm;letter-spacing:.05em}
+
+/* Before */
+.before{background:var(--paper2)}
+.before .kicker{color:var(--gray)}
+.before h2{color:var(--ink2)}
+.before .card{background:rgba(255,255,255,.55);border:.3mm solid #cfc5ae}
+.before .card .ico{background:#d8cfbb}
+.before .card .ico svg{stroke:#6c6a64}
+.before .card h4{color:var(--ink2)}
+.before .card p{color:#4c4a45}
+.before .sigh{position:absolute;left:0;right:0;bottom:0;font-family:"Noto Serif JP",serif;font-size:11pt;color:var(--gray);text-align:center;letter-spacing:.1em;border-top:.3mm solid #cfc5ae;padding-top:4mm}
+
+/* After */
+.after{background:var(--paper)}
+.after .kicker{color:var(--shu)}
+.after h2{color:var(--ink)}
+.after .card{background:#fff;border:.3mm solid #e3d9c3;box-shadow:0 .6mm 0 #e3d9c3}
+.after .card .ico{background:var(--ink)}
+.after .card .ico svg{stroke:#fff}
+.after .card h4{color:var(--ink)}
+.after .card p{color:#2e3445}
+.after .card .tag{background:var(--shu);color:#fff}
+.flow{position:absolute;left:0;right:0;bottom:0;background:var(--ink);color:var(--paper);padding:5mm 6mm;display:grid;grid-template-columns:1fr 8mm 1fr 8mm 1fr;align-items:center;text-align:center}
+.flow div{font-family:"Noto Serif JP",serif;font-weight:700;font-size:10.5pt;line-height:1.45}
+.flow div small{display:block;font-family:"Noto Sans JP";font-weight:400;font-size:7.5pt;color:var(--paper2);margin-top:1mm}
+.flow i{font-style:normal;color:var(--gold);font-size:14pt}
+.flow .goal{color:#fff;border:.4mm solid var(--gold);padding:2mm 1mm}
+/* 中央の矢印（折り目をまたぐ） */
+.bridge{position:absolute;left:213mm;top:43mm;transform:translateX(-50%);width:18mm;height:18mm;border-radius:50%;background:var(--shu);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13pt;z-index:3;font-weight:900;box-shadow:0 0 0 1.5mm var(--paper)}
+
+/* ===== 裏表紙 ===== */
+.back{background:var(--paper)}
+.back .safe{display:flex;flex-direction:column}
+.back .msg-label{font-size:9pt;letter-spacing:.35em;color:var(--gold)}
+.back h2{font-family:"Noto Serif JP",serif;font-weight:900;font-size:21pt;line-height:1.55;margin-top:3mm}
+.back h2 em{font-style:normal;color:var(--shu)}
+.steps{margin-top:8mm;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:.4mm solid var(--ink)}
+.steps div{padding:3.5mm 3mm;border-right:.4mm solid var(--ink);position:relative}
+.steps div:last-child{border-right:0}
+.steps b{display:block;font-family:"Noto Serif JP",serif;color:var(--shu);font-size:16pt;line-height:1}
+.steps span{display:block;font-size:7.5pt;color:var(--gray);margin-top:1mm;letter-spacing:.1em}
+.steps p{font-size:9.5pt;line-height:1.6;margin-top:1.6mm;font-weight:500}
+.back .lead{font-size:10.5pt;line-height:1.95;margin-top:7mm;text-align:justify}
+.back .closing{font-family:"Noto Serif JP",serif;font-weight:900;font-size:27pt;color:var(--ink);text-align:center;margin-top:11mm;letter-spacing:.06em}
+.back .closing::after{content:"";display:block;width:24mm;height:1mm;background:var(--shu);margin:3.5mm auto 0}
+.gift{margin-top:14mm;background:var(--ink);color:var(--paper);display:grid;grid-template-columns:30mm 1fr;gap:5mm;padding:5mm;position:relative}
+.gift .badge{position:absolute;top:-4mm;left:5mm;background:var(--shu);color:#fff;font-size:8.5pt;font-weight:700;padding:1mm 3mm;letter-spacing:.15em}
+.gift .book{width:30mm;height:40mm;background:linear-gradient(90deg,#8d2f1c 0 2.5mm,var(--shu) 2.5mm);color:#fff;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font-family:"Noto Serif JP",serif;font-weight:900;font-size:11pt;letter-spacing:.15em;box-shadow:1.5mm 1.5mm 0 rgba(0,0,0,.3)}
+.gift h3{font-family:"Noto Serif JP",serif;font-size:13pt;line-height:1.45;margin-top:2mm}
+.gift h3 small{display:block;font-size:8.5pt;font-weight:500;color:var(--gold);letter-spacing:.1em}
+.gift ul{list-style:none;margin-top:2.5mm;display:flex;flex-wrap:wrap;gap:1.5mm}
+.gift li{font-size:8pt;border:.3mm solid var(--gold);padding:.5mm 2mm;border-radius:4mm}
+.gift p{font-size:9pt;line-height:1.6;margin-top:2mm;color:var(--paper2)}
+.info{margin-top:auto;border-top:.4mm solid var(--ink);padding-top:4mm;display:grid;grid-template-columns:1.2fr 1fr;gap:5mm;font-size:8.8pt;line-height:1.6}
+.info h4{font-size:8.5pt;letter-spacing:.2em;color:var(--shu);margin-bottom:1mm}
+.info strong{font-family:"Noto Serif JP",serif;font-size:10.5pt}
+.ph{background:#fde7e1;outline:.3mm dashed var(--shu);padding:0 1mm}
+.co-foot{margin-top:3mm;display:flex;justify-content:space-between;align-items:baseline}
+.co-foot strong{font-family:"Noto Serif JP",serif;font-size:14pt;letter-spacing:.15em}
+.co-foot span{font-size:7.5pt;color:var(--gray)}
+</style>
+</head>
+<body>
+
+<!-- ============ 1枚目：外面（左＝裏表紙 / 右＝表紙） ============ -->
+<section class="sheet">
+  <!-- 裏表紙 p4 -->
+  <div class="page left back">
+    <div class="safe">
+      <div class="msg-label">MESSAGE</div>
+      <h2>3つのセミナーは、<br><em>ひとつながりの本づくり</em>です。</h2>
+      <div class="steps">
+        <div><b>①</b><span>編集・校正</span><p>機械の目と事前修正で、確認作業の時間を減らす</p></div>
+        <div><b>②</b><span>制作</span><p>AIとノウハウで、手間のかかる記念誌も仕組みで作る</p></div>
+        <div><b>③</b><span>造本</span><p>浮いた予算を、手に取りたくなる一冊に変える</p></div>
+      </div>
+      <p class="lead">
+        工数を減らす「仕組み」と、浮いたコストを価値に変える「造本」。どちらか一方では、本づくりは変わりません。①から③まで通してお聞きいただくことで、編集の効率化から仕上がりの品質まで、一冊の流れが見えてきます。人手と時間を価値ある本に注ぎ込む。それが、御社の新しい強みになります。
+      </p>
+      <p class="closing">一緒に本づくりをやりましょう。</p>
+
+      <div class="gift">
+        <span class="badge">ご来場者プレゼント</span>
+        <div class="book">ブック印刷のコト</div>
+        <div>
+          <h3><small>印刷技術情報誌</small>『ブック印刷のコト』総集編を<br>もれなくプレゼントいたします</h3>
+          <ul><li>紙はなぜ焼けるのか？</li><li>インキの匂いって？</li><li>ズレはどうして起きるの？</li></ul>
+          <p>本づくりにまつわる、あれこれの疑問を科学的に解説しています。</p>
+        </div>
+      </div>
+
+      <div class="info">
+        <div>
+          <h4>会場</h4>
+          <strong>日本教育会館 703号室</strong><br>
+          東京都千代田区一ツ橋2丁目6−2<br>
+          都営新宿線・三田線、東京メトロ半蔵門線「神保町」駅 A8出口 徒歩約3分<br>
+          東京メトロ東西線「竹橋」駅 北の丸公園側出口 徒歩約5分
+        </div>
+        <div>
+          <h4>お申込み・お問い合わせ</h4>
+          <span class="ph">TEL：000-000-0000</span><br>
+          <span class="ph">MAIL：xxxx@iword.co.jp</span><br>
+          <span class="ph">担当：〇〇</span><br>
+          <span class="ph">［QRコード配置スペース］</span>
+        </div>
+      </div>
+      <div class="co-foot"><strong>株式会社アイワード</strong><span>https://iword.co.jp/</span></div>
+    </div>
+  </div>
+
+  <!-- 表紙 p1 -->
+  <div class="page right cover">
+    <div class="band"></div>
+    <div class="safe">
+      <div class="label">IWORD SEMINAR IN TOKYO</div>
+      <h1><span class="small">ブック印刷の</span><span class="koto">コト</span>セミナー</h1>
+      <p class="sub">編集工数を減らして<br>こだわりの本づくり、しませんか？</p>
+
+      <dl class="when">
+        <dt>日時</dt>
+        <dd><span class="date">2026.11.26<small>（木）</small></span><br>10:00〜18:00</dd>
+        <dt>会場</dt>
+        <dd>日本教育会館 703号室<br>東京都千代田区一ツ橋2丁目6−2</dd>
+      </dl>
+
+      <div class="seminars">
+        <div class="sem">
+          <div class="no"><em>SEMINAR</em><b>①</b><span>10:30–11:30</span></div>
+          <div class="body">
+            <h3>その校正作業、まだ目で追っていませんか？</h3>
+            <p>カタログ改版（差分検証）を機械の目でチェックします</p>
+            <h3>デザイナーに負担をかけていませんか？</h3>
+            <p>その原稿、レイアウト前に直せますよ</p>
+          </div>
+        </div>
+        <div class="sem">
+          <div class="no"><em>SEMINAR</em><b>②</b><span>13:30–14:30</span></div>
+          <div class="body">
+            <h3>制作が大変な記念誌、受注しても大丈夫ですよ！</h3>
+            <p>アイワードが培ったノウハウを入れ込んだAIを駆使して、システマチックに作成できます</p>
+          </div>
+        </div>
+        <div class="sem">
+          <div class="no"><em>SEMINAR</em><b>③</b><span>15:30–16:30</span></div>
+          <div class="body">
+            <h3>実物15冊が語る<br>こだわりの印刷と造本設計のすべて</h3>
+          </div>
+        </div>
+      </div>
+      <div class="co"><span>ご来場の皆さまに『ブック印刷のコト』総集編をプレゼント</span><strong>IWORD</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2枚目：中面（左＝Before / 右＝After） ============ -->
+<section class="sheet">
+  <div class="bridge">▶</div>
+
+  <!-- 中面1 Before p2 -->
+  <div class="page left inner before">
+    <div class="safe">
+      <span class="kicker">BEFORE<small>これまでの本づくり</small></span>
+      <h2>今までの本づくりは、正確なものを作るのに<br>大変な時間と労力がかかりました。</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5 21 21"/></svg></div>
+          <div><h4>目で追う校正・索引・改訂</h4>
+          <p>人間が目でチェックをし、索引はアナログ的に手で拾ってマーカーをつけていました。カタログ等の改訂も、原著との差分を目で追って調べていました。中には修正していない箇所まで手を加えられ、刷り直しになることも…。</p></div>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="6" width="18" height="12"/><path d="m3 7 9 6 9-6"/></svg></div>
+          <div><h4>紙のゲラ郵送と赤字の取りまとめ</h4>
+          <p>著者や複数の意思決定者に紙でゲラを郵送し、編集者が集約して赤字を取りまとめていました。中には転記ミスによってトラブルになることも…。</p></div>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 4h10l6 6v10H4z"/><path d="M14 4v6h6M8 14h8M8 17h5"/></svg></div>
+          <div><h4>膨大な資料に向き合う記念誌</h4>
+          <p>膨大な資料データを整理することになる記念誌は、仕事を始める前からすでに精神的な負担が…。</p></div>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M9 10h5a2 2 0 0 1 0 4H9"/></svg></div>
+          <div><h4>人件費がかさみ、本に予算が回らない</h4>
+          <p>大変な思いをして整理・作成したデータは、この段階ですでに人件費がかさみ、肝心の本そのものに予算を割けず、よくある見た目の本にしかなりませんでした。</p></div>
+        </div>
+      </div>
+      <p class="sigh">手間をかけたのに、仕上がりは「よくある本」。</p>
+    </div>
+  </div>
+
+  <!-- 中面2 After p3 -->
+  <div class="page right inner after">
+    <div class="safe">
+      <span class="kicker">AFTER<small>これからの本づくり</small></span>
+      <h2>これからの本づくりは、人が目で追うような労力を<br>極力かけず、その分の費用を装丁などの<br>最終成果物に落とし込みます。</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="4" width="8" height="16"/><rect x="13" y="4" width="8" height="16"/><path d="M15 9h4M15 13h4"/></svg></div>
+          <div><h4>索引は自動抽出、改版の差分もデジタルで</h4>
+          <p>索引は事前にマーカーしておけば自動的に抽出。改版するカタログも、どの部分が変わっているのかデジタル上でわかります。</p>
+          <span class="tag">→ セミナー①</span></div>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/></svg></div>
+          <div><h4>赤字がそのまま修正指示に</h4>
+          <p>著者への赤字伺いが確定すると、その指示をそのまま印刷会社への修正指示にすることもできます。</p>
+          <span class="tag">→ セミナー①</span></div>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></div>
+          <div><h4>記念誌は、データベースで執筆の材料づくり</h4>
+          <p>データベースツールに一次資料を読み込ませ、文章を書く人に「執筆の材料」を提供。スムーズに書き進められます。</p>
+          <span class="tag">→ セミナー②</span></div>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4zM20 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg></div>
+          <div><h4>浮いた予算で、目を引く造本設計を</h4>
+          <p>デジタルツールで工数を減らし、その浮いた予算で、見る人の目を引く造本設計にしませんか？</p>
+          <span class="tag">→ セミナー③</span></div>
+        </div>
+      </div>
+      <div class="flow">
+        <div>デジタルで<br>工数削減<small>校正・索引・赤字・資料整理</small></div><i>▶</i>
+        <div>浮いた<br>予算<small>人件費を圧縮</small></div><i>▶</i>
+        <div class="goal">こだわりの<br>一冊へ<small>装丁・印刷・造本設計</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
