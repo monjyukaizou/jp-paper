@@ -160,15 +160,10 @@ svg.bubble{transform:scaleX(-1)}
 .steps h4{font-size:10.5pt;font-weight:900;margin-top:.8mm;letter-spacing:.04em}
 .steps p{font-size:8.4pt;line-height:1.6;margin-top:1mm}
 .back .msg{position:absolute;top:calc(var(--bleed) + 123mm);left:14mm;right:12mm;font-size:10.3pt;line-height:1.95;text-align:justify}
-.back .closing{position:absolute;top:calc(var(--bleed) + 155mm);left:0;right:0;text-align:center;font-family:"Yusei Magic",sans-serif;font-size:27pt;letter-spacing:.06em}
+.back .closing{position:absolute;top:calc(var(--bleed) + 163mm);left:0;right:0;text-align:center;font-family:"Yusei Magic",sans-serif;font-size:27pt;letter-spacing:.06em}
 .back .closing .ul{background:linear-gradient(transparent 68%, var(--yellow) 68%)}
-.back .gift{position:absolute;top:calc(var(--bleed) + 179mm);left:14mm;right:12mm;background:var(--cream);border-radius:2.5mm;padding:5mm 5mm 5mm 0;display:grid;grid-template-columns:33mm 1fr 30mm;gap:3mm;min-height:50mm}
-.back .ura{position:absolute;left:12mm;top:214mm;width:34mm;z-index:2}
-.back .ura-say{position:absolute;left:52mm;right:12mm;top:236mm;background:#fff;border:.4mm solid var(--ink);border-radius:5mm;padding:3mm 5mm;font-weight:900;font-size:14pt;letter-spacing:.04em;line-height:1.4;z-index:2}
-.back .ura-say::before{content:"";position:absolute;left:-4.2mm;top:3.5mm;border:2.2mm solid transparent;border-right:4mm solid var(--ink)}
-.back .ura-say::after{content:"";position:absolute;left:-3.4mm;top:3.9mm;border:1.8mm solid transparent;border-right:3.5mm solid #fff}
-.back .ura-say em{font-style:normal;color:var(--orange);font-size:16pt}
-.back .ura-say small{font-size:11pt;color:var(--orange);margin-left:1mm}
+.back .gift{position:absolute;top:calc(var(--bleed) + 195mm);left:14mm;right:12mm;background:var(--cream);border-radius:2.5mm;padding:5mm 5mm 5mm 0;display:grid;grid-template-columns:33mm 1fr 30mm;gap:3mm;min-height:50mm}
+.back .gift .man{position:absolute;left:0;bottom:0;width:31mm}
 .back .gift .catb{position:absolute;right:2mm;bottom:0;width:33mm}
 .back .gift .badge{position:absolute;top:-3.5mm;left:36mm;background:var(--orange);color:#fff;font-weight:700;font-size:9pt;padding:1mm 3.5mm;border-radius:4mm;letter-spacing:.12em}
 .mini{width:28mm;height:39mm;background:#fff;box-shadow:1mm 1.2mm 0 rgba(0,0,0,.15);position:relative;overflow:hidden}
@@ -218,6 +213,7 @@ svg.bubble{transform:scaleX(-1)}
 
     <div class="gift">
       <span class="badge">ご来場者プレゼント</span>
+      <img class="man" src="assets/man.png" alt="室長（キャラクター）">
       <img class="catb" src="assets/cat_book.png" alt="本を持つにゃお（キャラクター）">
       <div style="grid-column:2">
         <h3><small>印刷技術情報誌</small>『ブック印刷のコト』総集編を<br>もれなくプレゼントいたします</h3>
@@ -226,8 +222,6 @@ svg.bubble{transform:scaleX(-1)}
       </div>
     </div>
 
-    <img class="ura" src="assets/ura.png" alt="浦（キャラクター）">
-    <p class="ura-say">本づくりの裏側、<em>浦</em>がゼンブ話します<small>（実例もあるヨ）</small></p>
     <div class="footer-band"><span class="face"><svg class="cat"><use href="#cat"/></svg></span>
       <p>株式会社アイワード　<b>https://www.iword.co.jp</b></p></div>
   </div>
