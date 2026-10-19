@@ -115,6 +115,53 @@
   .host .apply b { color: var(--red); }
 
   .folio { position: absolute !important; bottom: 4mm; font-family: var(--sans); font-size: 6pt; color: #aaa; }
+
+  /* ---- v2 additions ---- */
+  .cover .when { margin: 14mm 0 0 34mm; }
+  .cover .sems { margin: 5mm 0 0 0; border-top: .3mm solid var(--ink); padding-top: 3.5mm; }
+  .cs { display: grid; grid-template-columns: 19mm 1fr; gap: 3mm; margin-bottom: 3.2mm; }
+  .cs .lbl { letter-spacing: .1em; padding: 0 1.2mm; text-align: center; height: fit-content; margin-top: .8mm; font-size: 7.5pt; }
+  .cs .hd { font-size: 11.6pt; font-weight: 900; line-height: 1.45; }
+  .cs .sb { font-size: 8.4pt; color: var(--sub); line-height: 1.5; margin-bottom: 1mm; }
+  .scene-head { line-height: 1; }
+  .scene-head .sc { font-family: var(--script-font); font-size: 60pt; color: var(--navy); }
+  .scene-head .sc small { font-family: var(--sans); font-size: 7.5pt; margin-left: 1.5mm; }
+  .scene-lead { font-size: 14.5pt; font-weight: 700; line-height: 1.6; margin-top: 4mm; }
+  .boxtitle { text-align: center; margin: 8mm 0 6mm; }
+  .boxtitle span { display: inline-block; border: .3mm solid var(--ink); outline: .3mm solid var(--ink); outline-offset: .8mm; background: #fff; font-family: var(--sans); font-size: 8.6pt; font-weight: 700; padding: .5mm 6mm; letter-spacing: .2em; }
+  .scene { display: grid; grid-template-columns: 12mm 1fr; gap: 3.5mm; padding: 4.6mm 0; height: 30mm; align-items: start; border-top: .25mm solid #c9ccd8; }
+  .scene:last-of-type { border-bottom: .25mm solid #c9ccd8; }
+  .scene .n { width: 12mm; height: 12mm; border-radius: 50%; background: #dfe2ea; color: var(--navy); display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 9pt; }
+  .after-p .scene .n { background: var(--navy); color: #fff; }
+  .scene h4 { font-size: 12pt; font-weight: 700; line-height: 1.45; }
+  .scene h4 i { font-style: normal; font-family: var(--sans); font-size: 6.8pt; font-weight: 700; color: #fff; background: var(--red); padding: 0 1.4mm; margin-left: 2mm; vertical-align: 1.2pt; }
+  .scene p { font-size: 9.8pt; line-height: 1.85; margin-top: .6mm; }
+  .happy { margin-top: 7mm; background: var(--navy); color: #fff; padding: 4.5mm 5mm; text-align: center; }
+  .happy b { font-size: 15pt; line-height: 1.55; display: block; }
+  .happy span { font-family: var(--sans); font-size: 8.4pt; display: block; margin-top: 1mm; }
+  .tt { width: 100%; border-collapse: collapse; margin-top: 2mm; }
+  .tt td { border-bottom: .25mm solid #c9ccd8; padding: 2.4mm 0; vertical-align: top; font-size: 8.6pt; line-height: 1.55; background: rgba(255,255,255,.7); }
+  .tt td:first-child { width: 25mm; font-family: var(--sans); font-weight: 700; font-size: 8.2pt; color: var(--navy); }
+  .tt b { font-size: 9.6pt; }
+  .tt .tools { margin-top: .8mm; }
+  .through2 { margin-top: 6mm; border: .4mm solid var(--navy); padding: 3mm 4mm; background: #fff; }
+  .through2 b { font-size: 11.5pt; color: var(--navy); line-height: 1.5; display: block; }
+  .through2 p { font-size: 8.6pt; line-height: 1.7; margin-top: .8mm; }
+  .through2 .flow { display: flex; gap: 1.5mm; align-items: center; margin-top: 1.6mm; font-family: var(--sans); font-size: 7.8pt; font-weight: 700; }
+  .through2 .flow span { flex: 1; background: var(--pale); text-align: center; padding: 1mm .5mm; line-height: 1.35; color: var(--navy); }
+  .through2 .flow span.goal { background: var(--navy); color: #fff; }
+  .through2 .flow i { font-style: normal; color: var(--red); }
+  .p4-greet { font-size: 9pt; line-height: 1.9; margin-top: 5mm; }
+  .gift2 { display: grid; grid-template-columns: 22mm 1fr; gap: 4mm; margin-top: 6mm; align-items: center; }
+  .gift2 .cover-ph { height: 27mm; border: .3mm dashed var(--sub); background: #fff; display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--sans); font-size: 5.8pt; color: var(--sub); line-height: 1.4; }
+  .gift2 b { font-size: 10.5pt; color: var(--navy); line-height: 1.5; display: block; }
+  .gift2 span { font-size: 8pt; }
+  .closing2 { text-align: center; margin-top: 10mm; }
+  .closing2 b { font-size: 21pt; font-weight: 900; letter-spacing: .06em; color: var(--navy); }
+  .closing2 b em { font-style: normal; color: var(--red); }
+  .host.v2 { bottom: 9mm; }
+  .host.v2 .addr { font-size: 7.9pt; line-height: 1.55; }
+  .host.v2 .apply { font-size: 7.6pt; padding: 1.4mm 2.5mm; }
 </style>
 </head>
 <body>
@@ -122,36 +169,36 @@
 <!-- ============ 外面：P4（裏表紙）｜P1（表紙） ============ -->
 <div class="sheet">
 
-  <!-- P4 会社の説明 -->
+  <!-- P4 セミナーのご案内・会社 -->
   <section class="panel">
-    <div class="bgscript" style="left:-4mm; top:4mm; font-size:62pt;">Book Making</div>
-    
+    <div class="bgscript" style="left:-4mm; top:2mm; font-size:56pt;">with Aiword</div>
+    <div class="rule-h" style="margin-top:12mm; margin-bottom:2mm"><b>セミナーのご案内</b><span>1本ずつでも、通しでもご参加いただけます</span></div>
+    <table class="tt">
+      <tr><td>セミナー①<br>10:30〜11:30</td><td><b>その校正作業、まだ目で追ってませんか？</b><br>差分検証・索引の自動抽出・オンライン赤字・原稿の事前整理を、4つの編集支援ツールで実演します。
+        <div class="tools"><span>Just Right!</span><span>Rev-Flow</span><span>Collate Pro</span><span>Hallmarker</span></div></td></tr>
+      <tr><td>セミナー②<br>13:30〜14:30</td><td><b>制作が大変な記念誌、受注しても大丈夫ですよ！</b><br>自社開発の「社史編集システム」で、資料のデータベース化から執筆材料の提供までをデモで紹介します。</td></tr>
+      <tr><td>セミナー③<br>15:30〜16:30</td><td><b>実物15冊が語る　こだわりの印刷と造本設計の全て</b><br>作品集・図録・写真集の実物を手に取りながら、用紙・加工・製本の選び方を解説します。</td></tr>
+    </table>
+    <div style="font-size:7pt; margin-top:1mm; text-align:right"><span class="todo">要確認：各セミナーの時間</span></div>
 
-    <div class="greet">
-      <h2>ごあいさつ</h2>
-      <p>平素より格別のお引き立てを賜り、厚く御礼申し上げます。</p>
-      <p>アイワードは、社史・記念誌から作品集・図録まで、本づくりのあらゆる工程に携わってまいりました。校正、改訂、記念誌の編集――こだわりたい部分ほど、時間が足りなくなる。その声にお応えするため、北海道立総合研究機構との共同研究による「社史編集システム」をはじめ、編集支援ツールの開発と活用を進めてまいりました。</p>
-      <p>本セミナーでは、その実例を3つのテーマでご紹介します。通しでお聞きいただければ、御社の本づくりのビジネスにきっとお役立ていただけます。一緒に本づくりをやりましょう。</p>
-      <p class="sign">2026年10月<br>株式会社アイワード <span class="todo">要確認：名義（社長名にするか）</span></p>
+    <div class="through2">
+      <b>3つのセミナーを通しで聞くと、御社のビジネスモデルにプラスになります。</b>
+      <div class="flow"><span>① 確認作業の<br>工数を減らす</span><i>›</i><span>② 大型の記念誌も<br>受注できる</span><i>›</i><span>③ 浮いた予算で<br>造本を提案</span><i>›</i><span class="goal">選ばれる<br>本づくりへ</span></div>
     </div>
 
-    <div class="gift">
-      <div class="cover-ph">『ブック印刷のコト』<br>合本版<br>表紙写真</div>
-      <div>
-        <h3>ご来場の方にもれなく<br>『ブック印刷のコト』合本版を進呈します。</h3>
-        <p>本づくりの基礎と、アイワードの実例をまとめた冊子です。</p>
-      </div>
+    <p class="p4-greet">アイワードは、社史・記念誌から作品集・図録まで、本づくりのあらゆる工程に携わってきました。自社開発のシステムと、多様なツールを使いこなすノウハウを、この一日でお伝えします。</p>
+
+    <div class="gift2">
+      <div class="cover-ph">『ブック印刷<br>のコト』<br>表紙写真</div>
+      <div><b>ご来場の方にもれなく『ブック印刷のコト』合本版を進呈します。</b><span>本づくりの基礎と、アイワードの実例をまとめた冊子です。</span></div>
     </div>
 
-    <div class="tagline">
-      <b>本づくりに、あたりまえを超えた　驚きと感動を。</b>
-      <p>綺麗に印刷して綺麗に製本する。アイワードの仕事は、その先にあります。<br>原稿の持つ「伝える力」を、より高めていく本づくり。</p>
-    </div>
+    <div class="closing2"><b><em>一緒に</em>本づくりをやりましょう。</b></div>
 
-    <div class="host">
+    <div class="host v2">
       <div class="top"><small>主催</small><b>株式会社アイワード</b></div>
-      <div class="addr">〒060-0033 札幌市中央区北3条東5丁目5番地91<br>電話 011-241-9341　FAX 011-207-6178<br>お問い合わせメール：take.sakai@iword.co.jp（酒井 剛之）<span class="todo">要確認</span></div>
-      <div class="apply"><b>お申し込み</b>　お電話・FAX・メールで、ご希望のセミナー番号（①②③）とご氏名・ご所属をお知らせください。<span class="todo">要確認：締切・申込URL</span></div>
+      <div class="addr">〒060-0033 札幌市中央区北3条東5丁目5番地91　電話 011-241-9341　FAX 011-207-6178<br>お問い合わせメール：take.sakai@iword.co.jp（酒井 剛之）<span class="todo">要確認</span></div>
+      <div class="apply"><b>お申し込み</b>　電話・FAX・メールで、ご希望のセミナー番号とご氏名・ご所属をお知らせください。<span class="todo">要確認：締切</span></div>
     </div>
     <div class="folio" style="left:13mm">4</div>
   </section>
@@ -159,27 +206,33 @@
   <!-- P1 表紙 -->
   <section class="panel cover">
     <div class="bgscript" style="left:-6mm; top:6mm; font-size:84pt;">Book</div>
-    <div class="bgscript" style="left:-4mm; top:72mm; font-size:84pt;">Making</div>
-    <div class="bgscript" style="left:30mm; top:206mm; font-size:84pt;">Seminar</div>
+    <div class="bgscript" style="left:-4mm; top:62mm; font-size:84pt;">Making</div>
+    <div class="bgscript" style="left:34mm; top:214mm; font-size:76pt;">Seminar</div>
 
-    <h1>編集工数を減らして、<br><em>こだわりの本作り</em><br>しませんか？</h1>
-    <p class="lead">記念誌・校正・特殊製本　3つのセミナー</p>
+    <h1>編集工数を減らして<br><em>こだわりの本作り</em><br>しませんか？</h1>
 
-    <div class="free">参加<br>無料</div>
+    <div class="free" style="top:98mm">参加<br>無料</div>
 
     <div class="when">
       <div class="row"><span class="lbl">日時</span>
         <div><div class="big">2026年<b>11</b>月<b>26</b>日（木）</div>
-        <div class="small">① 10:30〜11:30　② 13:30〜14:30　③ 15:30〜16:30</div></div></div>
+        <div class="small">10:00〜18:00（セミナー ① 10:30〜　② 13:30〜　③ 15:30〜）</div></div></div>
       <div class="row"><span class="lbl">会場</span>
         <div><div class="venue">日本教育会館 703号室</div>
-        <div class="small">東京都千代田区一ツ橋2丁目6-2<br>各回定員30名（先着順・事前申込制）</div></div></div>
+        <div class="small">東京都千代田区一ツ橋2丁目6-2</div></div></div>
     </div>
 
     <div class="sems">
-      <div class="item"><div class="t"><i>①</i>AI社史・記念誌のご提案セミナー</div><div class="s">その記念誌、1年で作れますか？</div></div>
-      <div class="item"><div class="t"><i>②</i>編集支援ソリューション セミナー</div><div class="s">その校正作業、まだ目で追ってませんか？</div></div>
-      <div class="item"><div class="t"><i>③</i>特殊製本の有用性（仮）</div><div class="s">実物15冊が語る、こだわり本作りの全て</div></div>
+      <div class="cs"><span class="lbl">セミナー①</span><div>
+        <div class="hd">その校正作業、まだ目で追ってませんか？</div>
+        <div class="sb">カタログ改版も、差分検証で機械の目がチェックします</div>
+        <div class="hd">デザイナーに負担をかけてませんか？</div>
+        <div class="sb">その原稿、レイアウト前に直せますよ</div></div></div>
+      <div class="cs"><span class="lbl">セミナー②</span><div>
+        <div class="hd">制作が大変な記念誌、受注しても大丈夫ですよ！</div>
+        <div class="sb">アイワードが培ったノウハウを入れ込んだAIを駆使して、システマチックに作成できます</div></div></div>
+      <div class="cs"><span class="lbl">セミナー③</span><div>
+        <div class="hd">実物15冊が語る　こだわりの印刷と造本設計の全て</div></div></div>
     </div>
 
     <div class="logo"><span class="mark">ロゴ<br>差替</span>株式会社アイワード</div>
@@ -187,91 +240,46 @@
   </section>
 </div>
 
-<!-- ============ 中面：P2（セミナー内容）｜P3（ビフォー・アフター） ============ -->
+<!-- ============ 中面：P2（Before）｜P3（After） ============ -->
 <div class="sheet">
 
-  <!-- P2 セミナー内容 -->
+  <!-- P2 Before -->
   <section class="panel">
-    <div class="bgscript" style="right:-10mm; top:150mm; font-size:70pt;">Seminar</div>
-    <div class="rule-h"><b>セミナー内容</b><span>1本ずつでも、通しでもご参加いただけます</span></div>
+    <div class="scene-head"><span class="sc">Before<small>ビフォー</small></span></div>
+    <p class="scene-lead">本づくりは、正確なものを作るのに<br>大変な時間と労力がかかります。</p>
+    <div class="boxtitle"><span>これまでの課題</span></div>
 
-    <div class="sem">
-      <div class="sem-head"><span class="no">セミナー①</span><span class="time">10:30〜11:30</span><span class="name">AI社史・記念誌のご提案セミナー</span></div>
-      <h3>制作が大変な記念誌も、アイワードのノウハウを入れ込んだAIで</h3>
-      <ul>
-        <li>自社開発の「社史編集システム」を、デモンストレーションを交えて紹介</li>
-        <li>過去資料のデータベース化から、AIによる事実の抽出・出典確認、目次案・粗原稿の生成まで</li>
-        <li>少人数でも大型案件に取り組める協業体制と、完成後も情報資産になるデジタルアーカイブ</li>
-        <li>8月の東京展では「リサーチ業務が半減する」との声をいただいた機能です</li>
-      </ul>
-    </div>
-
-    <div class="sem">
-      <div class="sem-head"><span class="no">セミナー②</span><span class="time">13:30〜14:30</span><span class="name">編集支援ソリューション セミナー</span></div>
-      <h3>その校正作業、まだ目で追ってませんか？</h3>
-      <ul>
-        <li>表記ゆれ・誤用の自動検出、オンラインの赤字指示・校正履歴の共有</li>
-        <li>索引作成支援、テキスト・画像の差分比較（図版内の文字と本文の照合も）</li>
-        <li>4つの編集支援ツールを、具体的な事例と操作画面で解説</li>
-      </ul>
-      <div class="tools"><span>Just Right!</span><span>Rev-Flow</span><span>Collate Pro</span><span>Hallmarker</span></div>
-    </div>
-
-    <div class="sem">
-      <div class="sem-head"><span class="no">セミナー③</span><span class="time">15:30〜16:30</span><span class="name">特殊製本の有用性（仮）</span></div>
-      <div class="pair">
-        <div>
-          <h3>実物15冊が語る　こだわり本作りの全て</h3>
-          <ul>
-            <li>作品集・図録・写真集の実物を、手に取りながら解説</li>
-            <li>用紙・印刷・特殊加工・製本の最新仕様と選び方</li>
-            <li>こだわりとコストを両立させる考え方</li>
-          </ul>
-        </div>
-        <img src="books.jpg" alt="紹介する本の実物">
-      </div>
-    </div>
-
-    <div class="through">
-      <b>通しで聞くと、御社のビジネスにプラスに。</b>
-      <span>① 大型の記念誌を受けられる　→　② 確認作業の工数を減らす　→　③ 付加価値の高い本を提案できる</span>
-    </div>
+    <div class="scene"><div class="n">1</div><div><h4>目でチェック、手で索引</h4>
+      <p>今までは人間が目でチェックをし、索引をアナログ的に手で拾ってマーカーをつけていました。</p></div></div>
+    <div class="scene"><div class="n">2</div><div><h4>改訂は、原著との差分を目で追う</h4>
+      <p>カタログ等の改訂も、原著との差分を目で見て追って調べていました。中には修正していない箇所まで手を加えられて、刷り直しになることも……</p></div></div>
+    <div class="scene"><div class="n">3</div><div><h4>ゲラは郵送、赤字は手で集約</h4>
+      <p>著者や複数の意思決定者に紙でゲラを郵送し、編集者が集約して赤字を取りまとめていました。中には転記ミスによってトラブルになることも……</p></div></div>
+    <div class="scene"><div class="n">4</div><div><h4>記念誌は、始める前から重い</h4>
+      <p>膨大な資料データを整理することになる記念誌は、仕事をする前からすでに精神的負担が……</p></div></div>
+    <div class="scene"><div class="n">5</div><div><h4>肝心の本に、予算が残らない</h4>
+      <p>大変な思いをして整理し作成したデータは、この段階ですでに人件費がかさみ、肝心の本そのものに予算を割けず、よくある見た目の本にしかなりません。</p></div></div>
     <div class="folio" style="left:13mm">2</div>
   </section>
 
-  <!-- P3 ビフォー・アフター -->
-  <section class="panel">
-    <div class="ba-title">
-      <div><div class="sc">Before<small>ビフォー</small></div><p>これまでの本づくりは、<br>こだわるほど手間が増えていました。</p></div>
-      <div><div class="sc">After<small>アフター</small></div><p>これからの本づくりは、<br>確認は機械に、こだわりは人に。</p></div>
-    </div>
+  <!-- P3 After -->
+  <section class="panel after-p">
+    <div class="scene-head"><span class="sc">After<small>アフター</small></span></div>
+    <p class="scene-lead">デジタルツールを使って、<br>工数を減らしましょう。</p>
+    <div class="boxtitle"><span>課題解決の道筋</span></div>
 
-    <div class="ba">
-      <div class="cell"><span class="k">記念誌</span><div class="q">その記念誌、1年で作れますか？</div><div class="d">膨大な過去資料の収集・解読・年表作成に、時間と労力の大半を費やしていました。</div></div>
-      <div class="arrow">▶</div>
-      <div class="cell after"><span class="k">社史編集システム</span><div class="q">資料をデジタル化すれば、見通しが早く立つ</div><div class="d">データベースを自動構築し、粗原稿まで作成。お客様は事実確認と推敲に専念できます。</div></div>
+    <div class="scene"><div class="n">1</div><div><h4>索引は、自動で抽出<i>セミナー①</i></h4>
+      <p>索引は、事前にマーカーしておけば自動的に抽出できます。</p></div></div>
+    <div class="scene"><div class="n">2</div><div><h4>変わった箇所が、デジタルでわかる<i>セミナー①</i></h4>
+      <p>改版するカタログも、どの部分が変わっているのかがデジタル上でわかるようになります。</p></div></div>
+    <div class="scene"><div class="n">3</div><div><h4>赤字が、そのまま修正指示に<i>セミナー①</i></h4>
+      <p>著者への赤字伺いが確定すると、その指示をそのまま印刷会社への修正指示にすることもできます。</p></div></div>
+    <div class="scene"><div class="n">4</div><div><h4>書き手に「材料」を渡せる<i>セミナー②</i></h4>
+      <p>記念誌等は、データベースツールに一次資料を読み込ませ、文章を書く人に「書くための材料」を提供。スムーズに執筆できるようになります。</p></div></div>
+    <div class="scene"><div class="n">5</div><div><h4>浮いた予算を、造本設計に<i>セミナー③</i></h4>
+      <p>工数を減らして浮いた予算で、人目を引くような造本設計に。</p></div></div>
 
-      <div class="cell"><span class="k">記念誌</span><div class="q">ちゃぶ台返し、まだ傷は浅いです。</div><div class="d">原稿の後で「事実の抜け漏れ」や「認識の違い」が見つかり、追加取材が必要に。</div></div>
-      <div class="arrow">▶</div>
-      <div class="cell after"><span class="k">構成案・出典確認</span><div class="q">早い段階で形にして、合意を取る</div><div class="d">目次案と出典付きの事実を先に共有し、終盤の大きな手戻りを防ぎます。</div></div>
-
-      <div class="cell"><span class="k">校正</span><div class="q">引き上げた最終データ、本当に最終ですか？</div><div class="d">版の違いを目で追って突き合わせ、見落としの不安が残っていました。</div></div>
-      <div class="arrow">▶</div>
-      <div class="cell after"><span class="k">差分比較</span><div class="q">変わった箇所だけを、データで示す</div><div class="d">テキストも画像も機械で比較。図版内の文字と本文の食い違いも見つけます。</div></div>
-
-      <div class="cell"><span class="k">翻訳・改訂</span><div class="q">改訂翻訳本、全部訳し直しますか？</div><div class="d">原著の改訂箇所がわからず、全体を見直すしかありませんでした。</div></div>
-      <div class="arrow">▶</div>
-      <div class="cell after"><span class="k">差分比較・用語辞書</span><div class="q">訳し直すのは、変わった所だけ</div><div class="d">旧版と改訂版の差分を抽出。専門用語は辞書に覚えさせ、表記ゆれも自動で検出します。</div></div>
-
-      <div class="cell"><span class="k">仕様</span><div class="q">その仕様、本当にベストですか？</div><div class="d">用紙や加工は、見本帳と経験だけで選ぶしかありませんでした。</div></div>
-      <div class="arrow">▶</div>
-      <div class="cell after"><span class="k">実物15冊</span><div class="q">実物を見て、触れて、選べる</div><div class="d">こだわりとコストを両立させた仕様を、実際の本で確かめられます。</div></div>
-    </div>
-
-    <div class="bubbles">
-      <div class="before"><span>膨大な<br>資料の解読</span><span>目で追う<br>校正</span><span>全部<br>訳し直し</span><span>終盤の<br>手戻り</span></div>
-      <div class="after"><span>スマートな<br>情報資産づくり</span><span>確認は<br>機械に</span><span>事実確認と<br>推敲に専念</span><span>こだわりを<br>実物で提案</span></div>
-    </div>
+    <div class="happy"><b>工数は減らして、こだわりは増やす。<br>関係者全員がハッピーな本づくりを。</b></div>
     <div class="folio" style="right:13mm">3</div>
   </section>
 </div>
