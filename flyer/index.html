@@ -155,8 +155,10 @@ svg.bubble{transform:scaleX(-1)}
 .back .msg{position:absolute;top:calc(var(--bleed) + 123mm);left:14mm;right:12mm;font-size:10.3pt;line-height:1.95;text-align:justify}
 .back .closing{position:absolute;top:calc(var(--bleed) + 153mm);left:0;right:0;text-align:center;font-family:"Yusei Magic",sans-serif;font-size:27pt;letter-spacing:.06em}
 .back .closing .ul{background:linear-gradient(transparent 68%, var(--yellow) 68%)}
-.back .gift{position:absolute;top:calc(var(--bleed) + 177mm);left:14mm;right:12mm;background:var(--cream);border-radius:2.5mm;padding:5mm;display:grid;grid-template-columns:28mm 1fr;gap:5mm}
-.back .gift .badge{position:absolute;top:-3.5mm;right:5mm;background:var(--orange);color:#fff;font-weight:700;font-size:9pt;padding:1mm 3.5mm;border-radius:4mm;letter-spacing:.12em}
+.back .gift{position:absolute;top:calc(var(--bleed) + 177mm);left:14mm;right:12mm;background:var(--cream);border-radius:2.5mm;padding:5mm 5mm 5mm 0;display:grid;grid-template-columns:33mm 1fr 30mm;gap:3mm;min-height:50mm}
+.back .gift .man{position:absolute;left:0;bottom:0;width:31mm}
+.back .gift .catb{position:absolute;right:2mm;bottom:0;width:33mm}
+.back .gift .badge{position:absolute;top:-3.5mm;left:36mm;background:var(--orange);color:#fff;font-weight:700;font-size:9pt;padding:1mm 3.5mm;border-radius:4mm;letter-spacing:.12em}
 .mini{width:28mm;height:39mm;background:#fff;box-shadow:1mm 1.2mm 0 rgba(0,0,0,.15);position:relative;overflow:hidden}
 .mini .t{position:absolute;top:2.5mm;left:2mm;right:2mm;font-family:"Yusei Magic";font-size:8.6pt;line-height:1}
 .mini .t small{display:block;font-family:"Zen Kaku Gothic New";font-size:3.6pt;color:var(--mustard);font-weight:900;letter-spacing:.2em;margin-bottom:1mm}
@@ -196,7 +198,7 @@ svg.bubble{transform:scaleX(-1)}
     <p class="lead-h">3つのセミナーは、<em>ひとつながり</em>。<br>通しで聞くと、本づくりの流れが見えてきます。</p>
     <div class="steps">
       <div><b>セミナー #1<span>10:30〜</span></b><h4>編集・校正</h4><p>機械の目と事前修正で、確認作業の時間を減らす</p></div>
-      <div><b>セミナー #2<span>13:30〜</span></b><h4>制作</h4><p>AIとノウハウで、手間のかかる記念誌も仕組みで作る</p></div>
+      <div><b>セミナー #2<span>13:30〜</span></b><h4>制作</h4><p>データベースとノウハウで、手間のかかる記念誌も仕組みで作る</p></div>
       <div><b>セミナー #3<span>15:30〜</span></b><h4>造本</h4><p>浮いた予算を、手に取りたくなる一冊に変える</p></div>
     </div>
     <p class="msg">工数を減らす「仕組み」と、浮いたコストを価値に変える「造本」。どちらか一方だけでは、本づくりは変わりません。#1から#3まで通してお聞きいただくことで、編集の効率化から仕上がりの品質まで、一冊の流れがつながります。人手と時間を、価値ある本に注ぎ込む。それが御社の新しい強みになります。</p>
@@ -204,8 +206,9 @@ svg.bubble{transform:scaleX(-1)}
 
     <div class="gift">
       <span class="badge">ご来場者プレゼント</span>
-      <div class="mini"><div class="t"><small>誰も教えてくれなかった</small>ブック印刷のコト</div><div class="b"><span>総集編</span></div></div>
-      <div>
+      <img class="man" src="assets/man.png" alt="室長（キャラクター）">
+      <img class="catb" src="assets/cat_book.png" alt="本を持つにゃお（キャラクター）">
+      <div style="grid-column:2">
         <h3><small>印刷技術情報誌</small>『ブック印刷のコト』総集編を<br>もれなくプレゼントいたします</h3>
         <div class="qs"><span>紙はなぜ焼けるの？</span><span>インキの匂いって？</span><span>ズレはどうして起きるの？</span></div>
         <p>本づくりにまつわる、あれこれの疑問を科学的に解説しています。</p>
@@ -259,7 +262,7 @@ svg.bubble{transform:scaleX(-1)}
       <li><span class="n">セミナー #1<small>10:30〜11:30</small></span>
         <span class="t">その校正作業、まだ目で追っていませんか？<small>カタログ改版（差分検証）を機械の目でチェックします</small>デザイナーに負担をかけていませんか？<small>その原稿、レイアウト前に直せますよ</small></span></li>
       <li><span class="n">セミナー #2<small>13:30〜14:30</small></span>
-        <span class="t">制作が大変な記念誌、受注しても大丈夫ですよ！<small>アイワードが培ったノウハウを入れ込んだAIを駆使して、システマチックに作成できます</small></span></li>
+        <span class="t">制作が大変な記念誌、受注しても大丈夫ですよ！<small>アイワードが培ったノウハウを入れ込んだデータベースを駆使して、システマチックに作成できます</small></span></li>
       <li><span class="n">セミナー #3<small>15:30〜16:30</small></span>
         <span class="t">実物15冊が語る　こだわりの印刷と造本設計のすべて</span></li>
     </ul>
