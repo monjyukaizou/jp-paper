@@ -1,0 +1,263 @@
+<title>セミナーチラシ赤字入れ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* レイアウト：上に固定ツールバー、下に紙面（チラシ画像＋描画レイヤー）を全幅で */
+:root{
+  --bg:#eceef1; --panel:#ffffff; --fg:#22262d; --muted:#6a707b; --line:#d5d9df;
+  --red:#d7261e; --blue:#1d5fd1; --accent:#d7261e; --chip:#f3f4f6;
+  --font:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#17191d; --panel:#22252b; --fg:#eceef2; --muted:#a2a8b3; --line:#3a3f48; --chip:#2c3038; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17191d; --panel:#22252b; --fg:#eceef2; --muted:#a2a8b3; --line:#3a3f48; --chip:#2c3038; color-scheme:dark}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:14px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--panel)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--panel);border-bottom:1px solid var(--line);
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.row{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.grp{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.grp>span{font-size:11px;color:var(--muted);letter-spacing:.08em;margin-right:2px}
+button{font:inherit;color:var(--fg);background:var(--chip);border:1px solid var(--line);border-radius:6px;padding:6px 10px;cursor:pointer;min-height:34px}
+button[aria-pressed="true"]{background:var(--fg);color:var(--panel);border-color:var(--fg)}
+button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.sw{width:22px;height:22px;border-radius:50%;display:inline-block;vertical-align:middle}
+.danger{color:var(--red)}
+.status{font-size:12px;color:var(--muted);margin-left:auto}
+.confirm{display:flex;gap:6px;align-items:center;font-size:12px}
+main{padding-block:16px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.hint{max-width:1100px;margin:0 auto 10px;color:var(--muted);font-size:12px;line-height:1.7}
+.stage{position:relative;max-width:1400px;margin:0 auto;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.18);line-height:0}
+.stage img{width:100%;max-width:100%;height:auto;display:block;user-select:none;-webkit-user-drag:none}
+canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+canvas.pan{touch-action:auto;pointer-events:none}
+.tin{position:absolute;z-index:3;line-height:1.3;font:inherit;font-size:15px;color:var(--red);background:#fff;border:1.5px solid var(--red);border-radius:4px;padding:3px 6px;min-width:160px}
+@media (prefers-reduced-motion:no-preference){button{transition:background .12s}}
+</style>
+
+<div class="bar">
+  <div class="row">
+    <div class="grp" role="group" aria-label="面"><span>面</span>
+      <button id="s1" aria-pressed="true">外面（裏表紙・表紙）</button>
+      <button id="s2" aria-pressed="false">中面</button>
+    </div>
+    <div class="grp" role="group" aria-label="道具"><span>道具</span>
+      <button id="tPen" aria-pressed="true">ペン</button>
+      <button id="tText" aria-pressed="false">文字</button>
+      <button id="tErase" aria-pressed="false">消しゴム</button>
+      <button id="tPan" aria-pressed="false">スクロール</button>
+    </div>
+    <div class="grp" role="group" aria-label="色"><span>色</span>
+      <button id="cRed" aria-pressed="true" aria-label="赤"><i class="sw" style="background:#d7261e"></i></button>
+      <button id="cBlue" aria-pressed="false" aria-label="青"><i class="sw" style="background:#1d5fd1"></i></button>
+    </div>
+    <div class="grp" role="group" aria-label="太さ"><span>太さ</span>
+      <button id="w1" aria-pressed="false">細</button>
+      <button id="w2" aria-pressed="true">中</button>
+      <button id="w3" aria-pressed="false">太</button>
+    </div>
+    <div class="grp">
+      <button id="undo">元に戻す</button>
+      <span id="clearWrap"><button id="clear" class="danger">この面を全消去</button></span>
+    </div>
+    <span class="status" id="status">接続中…</span>
+  </div>
+</div>
+
+<main>
+  <p class="hint">ペンで直接書き込めます。「文字」を選んで紙面をタップすると、その位置に修正指示を入力できます（Enterで確定）。消しゴムは消したい線や文字をタップ。書いた赤字は自動で保存され、Claudeが読み取って反映します。</p>
+  <div class="stage" id="stage">
+    <img id="img" src="preview-1.png" alt="チラシ外面（左：裏表紙、右：表紙）">
+    <canvas id="cv"></canvas>
+  </div>
+</main>
+
+<script>
+(function(){
+  var SHEETS = {1:{src:"preview-1.png",alt:"チラシ外面（左：裏表紙、右：表紙）"},2:{src:"preview-2.png",alt:"チラシ中面（左：Before、右：After）"}};
+  var COLORS = {red:"#d7261e", blue:"#1d5fd1"};
+  var WIDTHS = {1:2, 2:4, 3:8}; // 画像幅1600pxあたりの線幅
+  var st = {sheet:1, tool:"pen", color:"red", w:2, marks:[], mine:[], drawing:null};
+  var img = document.getElementById("img"), cv = document.getElementById("cv"), stage = document.getElementById("stage");
+  var ctx = cv.getContext("2d"), statusEl = document.getElementById("status");
+  var col = null;
+
+  function setStatus(t){ statusEl.textContent = t; }
+  function press(ids, on){ ids.forEach(function(id){ document.getElementById(id).setAttribute("aria-pressed", id===on ? "true":"false"); }); }
+
+  // ---- 描画 ----
+  function size(){
+    var r = stage.getBoundingClientRect(), d = window.devicePixelRatio || 1;
+    cv.width = Math.round(r.width*d); cv.height = Math.round(r.height*d);
+    draw();
+  }
+  function scale(){ return cv.width/1600; }
+  function drawMark(m){
+    var W = cv.width, H = cv.height, s = scale();
+    ctx.strokeStyle = ctx.fillStyle = COLORS[m.color] || COLORS.red;
+    if (m.type === "pen" && m.pts && m.pts.length){
+      ctx.lineWidth = (WIDTHS[m.w]||4)*s; ctx.lineCap = ctx.lineJoin = "round";
+      ctx.beginPath(); ctx.moveTo(m.pts[0][0]*W, m.pts[0][1]*H);
+      for (var i=1;i<m.pts.length;i++) ctx.lineTo(m.pts[i][0]*W, m.pts[i][1]*H);
+      if (m.pts.length===1) ctx.lineTo(m.pts[0][0]*W+0.1, m.pts[0][1]*H);
+      ctx.stroke();
+    } else if (m.type === "text"){
+      var fs = 26*s;
+      ctx.font = "700 "+fs+"px 'Zen Kaku Gothic New', sans-serif"; ctx.textBaseline = "top";
+      var lines = String(m.text||"").split("\n");
+      lines.forEach(function(l,i){
+        var x = m.x*W, y = m.y*H + i*fs*1.3, tw = ctx.measureText(l).width;
+        ctx.save(); ctx.fillStyle = "rgba(255,255,255,.85)"; ctx.fillRect(x-3*s, y-2*s, tw+6*s, fs*1.25); ctx.restore();
+        ctx.fillText(l, x, y);
+      });
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    st.marks.forEach(function(m){ if (m.sheet===st.sheet) drawMark(m); });
+    if (st.drawing) drawMark(st.drawing);
+  }
+  function pos(e){
+    var r = cv.getBoundingClientRect();
+    return [Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)), Math.min(1,Math.max(0,(e.clientY-r.top)/r.height))];
+  }
+  function r4(n){ return Math.round(n*10000)/10000; }
+
+  // ---- 保存 ----
+  function save(m){
+    m.t = Date.now();
+    if (!col){ m.id = "local"+m.t; st.marks.push(m); draw(); return; }
+    var ref = col.doc(); st.mine.push(ref.id);
+    setStatus("保存中…");
+    ref.set(m).then(function(){ setStatus("保存しました"); }, function(e){ setStatus("保存できませんでした（"+(e&&e.code||"error")+"）"); });
+  }
+  function remove(id){
+    if (!col){ st.marks = st.marks.filter(function(m){ return m.id!==id; }); draw(); return; }
+    setStatus("削除中…");
+    col.doc(id).delete().then(function(){ setStatus("削除しました"); }, function(){ setStatus("削除できませんでした"); });
+  }
+
+  // ---- 入力 ----
+  cv.addEventListener("pointerdown", function(e){
+    if (st.tool === "pan") return;
+    var p = pos(e);
+    if (st.tool === "pen"){
+      cv.setPointerCapture(e.pointerId);
+      st.drawing = {type:"pen", sheet:st.sheet, color:st.color, w:st.w, pts:[[r4(p[0]),r4(p[1])]]};
+      draw();
+    } else if (st.tool === "text"){
+      e.preventDefault(); openText(p);
+    } else if (st.tool === "erase"){
+      var hit = hitTest(p); if (hit) remove(hit.id);
+    }
+  });
+  cv.addEventListener("pointermove", function(e){
+    if (!st.drawing) return;
+    var p = pos(e), last = st.drawing.pts[st.drawing.pts.length-1];
+    if (Math.abs(p[0]-last[0])+Math.abs(p[1]-last[1]) < 0.0015) return;
+    st.drawing.pts.push([r4(p[0]),r4(p[1])]); draw();
+  });
+  function endStroke(){
+    if (!st.drawing) return;
+    var m = st.drawing; st.drawing = null;
+    if (!col) draw();
+    save(m);
+  }
+  cv.addEventListener("pointerup", endStroke);
+  cv.addEventListener("pointercancel", endStroke);
+
+  function hitTest(p){
+    var W = cv.width, H = cv.height, tol = 14*(window.devicePixelRatio||1), best = null;
+    for (var i=st.marks.length-1;i>=0;i--){
+      var m = st.marks[i]; if (m.sheet!==st.sheet) continue;
+      if (m.type==="pen"){
+        for (var j=0;j<m.pts.length;j++){
+          if (Math.hypot((m.pts[j][0]-p[0])*W,(m.pts[j][1]-p[1])*H) < tol) return m;
+        }
+      } else if (m.type==="text"){
+        var lines = String(m.text||"").split("\n"), fs = 26*scale();
+        ctx.font = "700 "+fs+"px 'Zen Kaku Gothic New', sans-serif";
+        var w = Math.max.apply(null, lines.map(function(l){ return ctx.measureText(l).width; }));
+        var x = m.x*W, y = m.y*H, px = p[0]*W, py = p[1]*H;
+        if (px>=x-tol && px<=x+w+tol && py>=y-tol && py<=y+lines.length*fs*1.3+tol) return m;
+      }
+    }
+    return best;
+  }
+
+  var tin = null;
+  function openText(p){
+    if (tin) tin.remove();
+    tin = document.createElement("textarea");
+    tin.className = "tin"; tin.id = "noteInput"; tin.rows = 1;
+    tin.style.left = (p[0]*100)+"%"; tin.style.top = (p[1]*100)+"%";
+    tin.setAttribute("aria-label","修正指示");
+    stage.appendChild(tin); tin.focus();
+    function commit(){
+      if (!tin) return;
+      var v = tin.value.trim(), el = tin; tin = null; el.remove();
+      if (v) save({type:"text", sheet:st.sheet, color:st.color, x:r4(p[0]), y:r4(p[1]), text:v});
+    }
+    tin.addEventListener("keydown", function(ev){
+      if (ev.key==="Enter" && !ev.shiftKey && !ev.isComposing){ ev.preventDefault(); commit(); }
+      if (ev.key==="Escape"){ var el=tin; tin=null; el.remove(); }
+    });
+    tin.addEventListener("blur", commit);
+  }
+
+  // ---- ツールバー ----
+  function bind(id, fn){ document.getElementById(id).addEventListener("click", fn); }
+  function setSheet(n){
+    st.sheet = n; press(["s1","s2"], "s"+n);
+    img.src = SHEETS[n].src; img.alt = SHEETS[n].alt;
+  }
+  bind("s1", function(){ setSheet(1); }); bind("s2", function(){ setSheet(2); });
+  function setTool(t, id){ st.tool = t; press(["tPen","tText","tErase","tPan"], id); cv.classList.toggle("pan", t==="pan"); }
+  bind("tPen", function(){ setTool("pen","tPen"); }); bind("tText", function(){ setTool("text","tText"); });
+  bind("tErase", function(){ setTool("erase","tErase"); }); bind("tPan", function(){ setTool("pan","tPan"); });
+  bind("cRed", function(){ st.color="red"; press(["cRed","cBlue"],"cRed"); });
+  bind("cBlue", function(){ st.color="blue"; press(["cRed","cBlue"],"cBlue"); });
+  bind("w1", function(){ st.w=1; press(["w1","w2","w3"],"w1"); });
+  bind("w2", function(){ st.w=2; press(["w1","w2","w3"],"w2"); });
+  bind("w3", function(){ st.w=3; press(["w1","w2","w3"],"w3"); });
+  bind("undo", function(){
+    var ids = st.marks.map(function(m){ return m.id; });
+    for (var i=st.mine.length-1;i>=0;i--){ if (ids.indexOf(st.mine[i])>=0){ var id = st.mine.splice(i,1)[0]; remove(id); return; } }
+    if (!col){ var own = st.marks.filter(function(m){ return m.sheet===st.sheet; }).pop(); if (own) remove(own.id); return; }
+    setStatus("この画面で書いたものはありません");
+  });
+  var clearWrap = document.getElementById("clearWrap");
+  function resetClear(){ clearWrap.innerHTML = '<button id="clear" class="danger">この面を全消去</button>'; bind("clear", askClear); }
+  function askClear(){
+    clearWrap.innerHTML = '<span class="confirm">この面の赤字をすべて消しますか？ <button id="clearYes" class="danger">消す</button><button id="clearNo">やめる</button></span>';
+    bind("clearYes", function(){
+      st.marks.filter(function(m){ return m.sheet===st.sheet; }).forEach(function(m){ remove(m.id); });
+      resetClear();
+    });
+    bind("clearNo", resetClear);
+  }
+  bind("clear", askClear);
+
+  img.addEventListener("load", size);
+  window.addEventListener("resize", size);
+  if (img.complete) size();
+
+  // ---- 共有ストア（Claudeが読み取る） ----
+  if (window.claude && window.claude.use){
+    window.claude.use("db").then(function(db){
+      if (!db){ setStatus("保存できません：サインインしてください（書き込みはこの画面だけ）"); return; }
+      col = db.collection("marks");
+      col.orderBy("t").onSnapshot(function(snap){
+        st.marks = snap.docs.map(function(d){ var o = Object.assign({}, d.data()); o.id = d.id; return o; });
+        draw();
+        setStatus(st.marks.length ? "赤字 "+st.marks.length+" 件（自動保存）" : "まだ赤字はありません");
+      }, function(e){ setStatus("同期が止まりました。再読み込みしてください（"+(e&&e.code||"error")+"）"); });
+    });
+  } else {
+    setStatus("保存できません（この画面だけで書けます）");
+  }
+})();
+</script>
