@@ -98,12 +98,12 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .cover .lab{position:absolute;top:calc(var(--bleed) + 109mm);left:47mm;color:#fff;font-family:"Klee One",cursive;font-size:12pt;letter-spacing:.1em;border-bottom:.3mm dashed rgba(255,255,255,.7);padding-bottom:1mm;z-index:2}
 .cover .lab span{color:var(--mustard)}
 .cover .vol span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:13pt;letter-spacing:.04em}
-.cover .sub{position:absolute;top:calc(var(--bleed) + 68mm);left:15mm;right:8mm;color:var(--ink);font-size:21pt;line-height:1.45;letter-spacing:.06em;font-weight:900;z-index:3}
+.cover .sub{position:absolute;top:calc(var(--bleed) + 66mm);left:44mm;right:8mm;color:var(--ink);font-size:21pt;line-height:1.45;letter-spacing:.06em;font-weight:900;z-index:3}
 .cover .sub em{font-style:normal;color:var(--orange)}
-.cover .bubble{position:absolute;top:112mm;right:9mm;width:48mm;height:30mm;z-index:4}
+.cover .bubble{position:absolute;top:174mm;right:9mm;width:48mm;height:30mm;z-index:4}
 .cover svg.bubble path{stroke:var(--ink);stroke-width:.4px;fill:#fff}
 svg.bubble{transform:scaleX(-1)}
-.cover .nyao{position:absolute;top:138mm;right:12mm;width:26mm;z-index:3}
+.cover .nyao{position:absolute;top:204mm;right:12mm;width:26mm;z-index:3}
 .cover .bubble span{position:absolute;inset:0 0 5mm;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Klee One",cursive;color:var(--ink);font-size:10.5pt;line-height:1.7;letter-spacing:.12em}
 .cover .when{position:absolute;left:15mm;right:16mm;top:149mm;color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:2mm;align-items:baseline}
 .cover .when dt{font-size:11pt;letter-spacing:.3em;border:.3mm solid rgba(255,255,255,.8);padding:.5mm 2mm}
@@ -111,15 +111,15 @@ svg.bubble{transform:scaleX(-1)}
 .cover .when .time{font-size:17pt;margin-left:3mm}
 .cover .when .date{font-size:34pt;font-weight:700;letter-spacing:.06em}
 .cover .when .date small{font-size:16pt}
-.cover .files{position:absolute;left:15mm;right:16mm;top:203mm;color:#fff;display:flex;flex-direction:column;gap:5mm;border-top:.3mm solid rgba(255,255,255,.5);padding-top:5mm}
+.cover .files{position:absolute;left:15mm;right:16mm;top:203mm;color:#fff;display:flex;flex-direction:column;gap:5mm;padding-top:5mm}
 .cover .files li{list-style:none;display:grid;grid-template-columns:31mm 1fr;align-items:baseline}
 .cover .files .n{font-size:10pt;letter-spacing:.14em;font-weight:500}
 .cover .files .n small{display:block;font-size:8pt;opacity:.8;letter-spacing:.06em;margin-top:.6mm}
 .cover .files .t{font-size:13.5pt;letter-spacing:.12em;line-height:1.55;font-weight:500}
 .cover .files .t small{display:block;font-size:9pt;margin-bottom:.8mm;letter-spacing:.04em;opacity:.85;font-weight:400}
 .cover .files .t small::before{content:"＜"}.cover .files .t small::after{content:"＞"}
-.cover .ura{position:absolute;top:93mm;left:11mm;width:27mm;z-index:4}
-.cover .ura-say{position:absolute;top:103mm;left:43mm;right:50mm;background:#fff;border:.4mm solid var(--ink);border-radius:5mm;padding:2.6mm 4mm;font-weight:900;font-size:12pt;letter-spacing:.02em;line-height:1.4;color:var(--ink);z-index:4;white-space:nowrap}
+.cover .ura{position:absolute;top:68mm;left:11mm;width:27mm;z-index:4}
+.cover .ura-say{position:absolute;top:94mm;left:44mm;right:40mm;background:#fff;border:.4mm solid var(--ink);border-radius:5mm;padding:2.6mm 4mm;font-weight:900;font-size:12pt;letter-spacing:.02em;line-height:1.4;color:var(--ink);z-index:4;white-space:nowrap}
 .cover .ura-say::before{content:"";position:absolute;left:-4.2mm;top:2.6mm;border:2.2mm solid transparent;border-right:4mm solid var(--ink)}
 .cover .ura-say::after{content:"";position:absolute;left:-3.4mm;top:3mm;border:1.8mm solid transparent;border-right:3.5mm solid #fff}
 .cover .ura-say em{font-style:normal;color:var(--orange);font-size:15pt}
@@ -155,7 +155,10 @@ svg.bubble{transform:scaleX(-1)}
 .after .cards{gap:3mm}.after .card{padding:3.3mm 5mm}.after .card p{margin-top:1mm;line-height:1.7}.after .card .tag{margin-top:1.2mm}
 .after .card .num{color:var(--orange)}
 .before .card h3{color:#4a4f58}
-.before .anno{position:absolute;left:16mm;bottom:calc(var(--bleed) + 27mm);transform:rotate(-4deg)}
+.before .anno{position:absolute;left:16mm;bottom:calc(var(--bleed) + 27mm);transform:rotate(-3deg);font-size:15pt;font-weight:600;color:var(--ink);padding:2.5mm 1mm}
+.inner .pop{position:absolute;z-index:3}
+.before .pop{left:97mm;top:56mm;width:27mm}
+.after .pop{left:100mm;top:75mm;width:27mm}
 .after .checkbox{position:absolute;left:12mm;right:16mm;bottom:calc(var(--bleed) + 26mm);background:#fff;border-left:2mm solid var(--violet);padding:4mm 5mm;display:grid;grid-template-columns:auto 1fr;gap:5mm;align-items:center;box-shadow:1mm 1mm 0 rgba(0,0,0,.06)}
 .flow{display:grid;grid-template-columns:1fr 6mm 1fr 6mm 1fr;align-items:center;text-align:center}
 .flow div{font-weight:900;font-size:10.5pt;line-height:1.4}
@@ -181,9 +184,9 @@ svg.bubble{transform:scaleX(-1)}
 .back .gift .man-say{position:absolute;left:35mm;bottom:4mm;width:82mm;background:#fff;border:.35mm solid var(--ink);border-radius:4mm;padding:2mm 3.5mm;font-size:9.5pt;line-height:1.5;font-weight:500;margin:0}
 .back .gift .man-say::before{content:"";position:absolute;left:-3.6mm;bottom:5mm;border:1.8mm solid transparent;border-right:3.4mm solid var(--ink)}
 .back .gift .man-say::after{content:"";position:absolute;left:-2.9mm;bottom:5.35mm;border:1.45mm solid transparent;border-right:3mm solid #fff}
-.back .gift .cat-say{position:absolute;right:40mm;top:22mm;background:#fff;border:.35mm solid var(--blue-d);border-radius:5mm;padding:2mm 4mm;font-family:"Klee One",cursive;font-size:10.5pt;line-height:1.55;color:var(--blue-d);margin:0}
-.back .gift .cat-say::before{content:"";position:absolute;right:-3.6mm;bottom:4mm;border:1.8mm solid transparent;border-left:3.4mm solid var(--blue-d)}
-.back .gift .cat-say::after{content:"";position:absolute;right:-2.9mm;bottom:4.35mm;border:1.45mm solid transparent;border-left:3mm solid #fff}
+.back .gift .cat-say{position:absolute;right:6mm;top:5mm;background:#fff;border:.35mm solid var(--blue-d);border-radius:5mm;padding:2mm 4mm;font-family:"Klee One",cursive;font-size:10.5pt;line-height:1.55;color:var(--blue-d);margin:0}
+.back .gift .cat-say::before{content:"";position:absolute;right:14mm;bottom:-3.6mm;border:1.8mm solid transparent;border-top:3.4mm solid var(--blue-d)}
+.back .gift .cat-say::after{content:"";position:absolute;right:14.35mm;bottom:-2.9mm;border:1.45mm solid transparent;border-top:3mm solid #fff}
 .back .gift .man{position:absolute;left:0;bottom:0;width:31mm}
 .back .gift .catb{position:absolute;right:3mm;bottom:-7mm;width:36mm;z-index:3}
 .back .gift .badge{position:absolute;top:-3.5mm;left:36mm;background:var(--orange);color:#fff;font-weight:700;font-size:9pt;padding:1mm 3.5mm;border-radius:4mm;letter-spacing:.12em}
@@ -289,7 +292,6 @@ svg.bubble{transform:scaleX(-1)}
         <span class="t">実物15冊が語る　こだわりの印刷と造本設計のすべて</span></li>
     </ul>
     <div class="co">株式会社<br><b>アイワード</b></div>
-    <span class="photo-note">写真差し替え推奨（本・紙の写真）</span>
   </div>
 </section>
 
@@ -300,6 +302,7 @@ svg.bubble{transform:scaleX(-1)}
   <div class="page left inner before">
     <div class="file-head"><span class="no">BEFORE</span><h2>「今までの本づくり」</h2></div>
     <div class="panel"></div>
+    <img class="pop" src="assets/cat_trouble.png" alt="困り顔のにゃお">
     <p class="lead">今までの本づくりは、<br>正確なものを作るのに<br><em>大変な時間と労力</em>が<br>かかりました。</p>
     <div class="sticky"><div class="q">“大変だった”</div><div class="big">4<small>つの理由</small></div>
       <div class="li">その1　目で追う校正・改訂</div><div class="li">その2　紙のゲラと赤字集約</div><div class="li">その3　膨大な資料整理</div><div class="li">その4　予算が本に回らない</div></div>
@@ -327,6 +330,7 @@ svg.bubble{transform:scaleX(-1)}
   <div class="page right inner after">
     <div class="file-head"><span class="no">AFTER</span><h2>「これからの本づくり」</h2></div>
     <div class="panel"></div>
+    <img class="pop" src="assets/cat_happy.png" alt="喜ぶにゃお">
     <p class="lead">人が目で追う労力は<br>極力かけず、<em>その分の費用を<br>装丁などの最終成果物</em>に<br>落とし込みます。</p>
     <div class="sticky"><div class="q">“ラクして良い本”</div><div class="big">4<small>つの工夫</small></div>
       <div class="li">その1　索引・差分をデジタルで</div><div class="li">その2　赤字＝修正指示に</div><div class="li">その3　資料はデータベースに</div><div class="li">その4　浮いた予算は造本へ</div></div>
