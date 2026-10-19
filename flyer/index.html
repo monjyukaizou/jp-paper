@@ -38,6 +38,10 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .file-head{position:absolute;top:calc(var(--bleed) + 10mm);left:0;right:0}
 .file-head .no{display:block;text-align:right;font-size:11pt;letter-spacing:.2em;font-weight:500;padding:0 16mm 1.5mm 0;border-bottom:.3mm solid #999}
 .page.left .file-head .no{padding-right:12mm}
+.inner .file-head .no,.inner .file-head h2{text-align:left;padding-right:0}
+.inner.left .file-head .no,.inner.left .file-head h2{padding-left:14mm}
+.inner.right .file-head .no,.inner.right .file-head h2{padding-left:12mm}
+.inner .file-head h2{margin-left:-2.5mm}
 .file-head h2{font-weight:500;font-size:25pt;letter-spacing:.22em;text-align:right;padding:2.5mm 14mm 3mm 0;border-bottom:.3mm solid #999}
 .page.left .file-head h2{padding-right:10mm}
 .panel{position:absolute;left:0;right:0;background:var(--blue)}
@@ -65,13 +69,16 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .cover .top{position:absolute;left:0;right:0;top:0;height:112mm;background:#fff}
 .cover .kicker{position:absolute;top:calc(var(--bleed) + 17mm);left:15mm;font-weight:900;font-size:13pt;letter-spacing:.55em;color:var(--mustard)}
 .cover h1{position:absolute;top:calc(var(--bleed) + 29mm);left:13mm;font-family:"Yusei Magic",sans-serif;font-weight:400;line-height:1}
-.cover h1 .l1{font-size:54pt;letter-spacing:.02em;position:relative}
+.cover h1 .l1{font-size:50pt;letter-spacing:.02em;position:relative;white-space:nowrap}
+.cover h1 .l1 .nokoto{font-size:40pt}
 .cover h1 .l1 .cmyk{position:absolute;top:-2.5mm;right:-1mm;display:flex;gap:.6mm}
 .cover h1 .l1 .cmyk span{width:2mm;height:2mm}
-.cover h1 .l2{display:block;font-size:40pt;margin:3mm 0 0 34mm;letter-spacing:.06em}
+.cover h1 .l2{display:block;font-size:44pt;margin:3mm 0 0 62mm;letter-spacing:.08em}
 .cover h1 .l2 em{font-style:normal;font-size:30pt;margin-right:1mm}
 .cover .stamp{position:absolute;top:calc(var(--bleed) + 12mm);right:15mm;width:31mm;text-align:center;font-family:"Klee One",cursive;font-size:8.5pt;line-height:1.4;border:.4mm solid #444;border-radius:50%;padding:5mm 1mm;transform:rotate(6deg)}
 .cover .stamp b{display:block;font-size:10.5pt}
+.cover .free{position:absolute;top:calc(var(--bleed) + 72mm);left:13mm;right:16mm;background:var(--orange);color:#fff;font-weight:900;font-size:21pt;letter-spacing:.12em;text-align:center;padding:2.2mm 0;border-radius:2mm;z-index:3}
+.cover .free i{font-style:normal;margin:0 1mm}
 .cover .photo{position:absolute;left:0;right:0;top:100mm;bottom:0;
   background:
     radial-gradient(120mm 80mm at 85% 55%, rgba(240,190,120,.55), transparent 70%),
@@ -105,9 +112,10 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .inner .panel{top:calc(var(--bleed) + 44mm);bottom:calc(var(--bleed) + 22mm)}
 .inner .lead{position:absolute;top:calc(var(--bleed) + 52mm);font-weight:900;font-size:17pt;line-height:1.6;letter-spacing:.06em}
 .inner .lead em{font-style:normal;color:var(--orange)}
-.page.left .lead{left:14mm;right:74mm}.page.right .lead{left:12mm;right:74mm}
-.inner .sticky{top:calc(var(--bleed) + 48mm);right:12mm;width:58mm;padding:4mm 4.5mm 3.5mm}
-.cards{position:absolute;top:calc(var(--bleed) + 104mm);display:flex;flex-direction:column;gap:3.5mm}
+.page.left .lead{left:14mm;right:84mm}.page.right .lead{left:12mm;right:84mm}
+.inner .sticky{top:calc(var(--bleed) + 38mm);right:11mm;width:70mm;padding:6mm 6mm 5mm}
+.inner .sticky .q{font-size:17pt}.inner .sticky .big{font-size:44pt}.inner .sticky .big small{font-size:16pt}.inner .sticky .li{font-size:10.5pt;margin-top:1.8mm}
+.cards{position:absolute;top:calc(var(--bleed) + 112mm);display:flex;flex-direction:column;gap:3.5mm}
 .page.left .cards{left:14mm;right:12mm}.page.right .cards{left:12mm;right:16mm}
 .card{background:#fff;border-radius:2.5mm;padding:4.5mm 5mm;display:grid;grid-template-columns:17mm 1fr;gap:4mm;align-items:start}
 .card .num{font-family:"Klee One",cursive;text-align:center;line-height:1.1;padding-top:.5mm}
@@ -134,8 +142,8 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .back .lead-h em{font-style:normal;color:var(--orange)}
 .steps{position:absolute;top:calc(var(--bleed) + 76mm);left:14mm;right:12mm;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm}
 .steps div{background:#fff;border-radius:2.5mm;padding:3mm 3.5mm}
-.steps b{font-size:9pt;letter-spacing:.12em;color:var(--orange);display:block}
-.steps b span{font-size:7.5pt;color:#333;margin-left:1.5mm;letter-spacing:.04em}
+.steps b{font-size:10pt;letter-spacing:.12em;color:var(--orange);display:block}
+.steps b span{font-size:12pt;color:#333;margin-left:2mm;letter-spacing:.02em;font-weight:900}
 .steps h4{font-size:10.5pt;font-weight:900;margin-top:.8mm;letter-spacing:.04em}
 .steps p{font-size:8.4pt;line-height:1.6;margin-top:1mm}
 .back .msg{position:absolute;top:calc(var(--bleed) + 123mm);left:14mm;right:12mm;font-size:10.3pt;line-height:1.95;text-align:justify}
@@ -181,9 +189,9 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
     <div class="panel"></div>
     <p class="lead-h">3つのセミナーは、<em>ひとつながり</em>。<br>通しで聞くと、本づくりの流れが見えてきます。</p>
     <div class="steps">
-      <div><b>SEMINAR #1<span>10:30〜</span></b><h4>編集・校正</h4><p>機械の目と事前修正で、確認作業の時間を減らす</p></div>
-      <div><b>SEMINAR #2<span>13:30〜</span></b><h4>制作</h4><p>AIとノウハウで、手間のかかる記念誌も仕組みで作る</p></div>
-      <div><b>SEMINAR #3<span>15:30〜</span></b><h4>造本</h4><p>浮いた予算を、手に取りたくなる一冊に変える</p></div>
+      <div><b>セミナー #1<span>10:30〜</span></b><h4>編集・校正</h4><p>機械の目と事前修正で、確認作業の時間を減らす</p></div>
+      <div><b>セミナー #2<span>13:30〜</span></b><h4>制作</h4><p>AIとノウハウで、手間のかかる記念誌も仕組みで作る</p></div>
+      <div><b>セミナー #3<span>15:30〜</span></b><h4>造本</h4><p>浮いた予算を、手に取りたくなる一冊に変える</p></div>
     </div>
     <p class="msg">工数を減らす「仕組み」と、浮いたコストを価値に変える「造本」。どちらか一方だけでは、本づくりは変わりません。#1から#3まで通してお聞きいただくことで、編集の効率化から仕上がりの品質まで、一冊の流れがつながります。人手と時間を、価値ある本に注ぎ込む。それが御社の新しい強みになります。</p>
     <p class="closing"><span class="ul">一緒に本づくりをやりましょう。</span></p>
@@ -207,9 +215,9 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
       </div>
       <div>
         <h4>お申込み・お問い合わせ</h4>
-        <span class="ph">TEL：000-000-0000</span><br>
-        <span class="ph">MAIL：xxxx@iword.co.jp</span><br>
-        <span class="ph">担当：〇〇　［QRコード配置］</span>
+        主催　<strong>株式会社アイワード</strong><br>
+        TEL：<strong>03-3239-3939</strong><br>
+        MAIL：<strong>tokyogyomu@iword.co.jp</strong>
       </div>
     </div>
     <div class="footer-band"><span class="face"><svg class="cat"><use href="#cat"/></svg></span>
@@ -223,7 +231,8 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
     <svg class="torn" viewBox="0 0 213 16" preserveAspectRatio="none"><path d="M0 0H213V7l-4 1.2-5-.6-6 1.4-4-.8-7 1.1-5-.4-6 1.3-5-.9-6 1-4-.3-7 1.4-5-.7-6 .9-4-.5-7 1.3-5-.6-5 1.1-6-.8-4 .7-7-.2-5 1.2-6-.9-4 .6-7 .1-5 1-6-.6-5 .9-4-.4-7 1.2-5-.5-6 .8-4-.2-6 1-5-.7-6 .9-5-.3-4 .8-7-.4-5 1-6-.6-4 .8H0z" fill="#fff"/></svg>
 
     <span class="kicker">アイワード東京セミナー</span>
-    <h1><span class="l1">ブック印刷<span class="cmyk"><span style="background:#00a0e9"></span><span style="background:#e4007f"></span><span style="background:#fff100"></span></span></span><span class="l2"><em>の</em>コトセミナー</span></h1>
+    <h1><span class="l1">ブック印刷<span class="nokoto">のコト</span><span class="cmyk"><span style="background:#00a0e9"></span><span style="background:#e4007f"></span><span style="background:#fff100"></span></span></span><span class="l2">セミナー</span></h1>
+    <p class="free"><span>入場無料</span><i>・</i><span>予約不要</span><i>・</i><span>飛び入り歓迎</span></p>
     <div class="stamp"><b>本づくり研究室の</b>出張セミナー<br>in TOKYO</div>
 
     <svg class="vol" viewBox="0 0 30 28"><path d="M15 1c6 0 9 2 11 5 3 4 3 9 1 13-2 5-7 8-12 8S5 25 3 20C1 15 1 9 4 5c2-3 6-4 11-4z" fill="#e9a63f"/><path d="M24 1l3-1-1 4z" fill="#e9a63f"/></svg>
@@ -247,7 +256,6 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
       <li><span class="n">SEMINAR #3<small>15:30〜16:30</small></span>
         <span class="t">実物15冊が語る　こだわりの印刷と造本設計のすべて</span></li>
     </ul>
-    <span class="gift-tag">ご来場の皆さまに『ブック印刷のコト』総集編をプレゼント</span>
     <div class="co">株式会社<br><b>アイワード</b></div>
     <span class="photo-note">写真差し替え推奨（本・紙の写真）</span>
   </div>
@@ -294,19 +302,19 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
       <div class="card"><div class="num"><small>その</small><b>1</b></div><div>
         <h3>索引は自動抽出、改版の差分もデジタルで</h3>
         <p>索引は事前にマーカーしておけば自動的に抽出。改版するカタログも、どの部分が変わっているのかデジタル上でわかります。</p>
-        <span class="tag">→ SEMINAR #1</span></div></div>
+        <span class="tag">→ セミナー #1</span></div></div>
       <div class="card"><div class="num"><small>その</small><b>2</b></div><div>
         <h3>赤字がそのまま修正指示に</h3>
         <p>著者への赤字伺いが確定すると、その指示をそのまま印刷会社への修正指示にすることもできます。</p>
-        <span class="tag">→ SEMINAR #1</span></div></div>
+        <span class="tag">→ セミナー #1</span></div></div>
       <div class="card"><div class="num"><small>その</small><b>3</b></div><div>
         <h3>記念誌は、データベースで執筆の材料づくり</h3>
         <p>データベースツールに一次資料を読み込ませ、文章を書く人に「執筆の材料」を提供。スムーズに書き進められます。</p>
-        <span class="tag">→ SEMINAR #2</span></div></div>
+        <span class="tag">→ セミナー #2</span></div></div>
       <div class="card"><div class="num"><small>その</small><b>4</b></div><div>
         <h3>浮いた予算で、目を引く造本設計を</h3>
         <p>デジタルツールで工数を減らし、その浮いた予算で、見る人の目を引く造本設計にしませんか？</p>
-        <span class="tag">→ SEMINAR #3</span></div></div>
+        <span class="tag">→ セミナー #3</span></div></div>
     </div>
     <div class="checkbox">
       <div class="check"><span class="c"><i></i>heck!</span></div>
