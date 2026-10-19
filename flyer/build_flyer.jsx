@@ -267,6 +267,7 @@ function main() {
     mkPS("スタンプ_大", "GH", 15, 22, 80, "オレンジ", Ce);
     mkPS("スタンプ_小", "GH", 11.5, 18, 40, "オレンジ", Ce);
     mkPS("表紙_注記左", "GR", 7, 0, 0, "白", Lf);
+    mkPS("表紙_研究所", "HA", 12, 0, 100, "白", Lf);
     mkPS("見出し_ラベル左", "GM", 11, 0, 200, "墨", Lf);
     mkPS("見出し_大左", "GM", 25, 0, 220, "墨", Lf);
     mkPS("表紙_吹き出し", "HA", 10.5, 18, 120, "白", Ce);
@@ -331,6 +332,7 @@ function main() {
     mkCS("時刻", {appliedFont: "GH", pointSize: 12, fillColor: "墨", tracking: 20});
     mkCS("タイトルのコト", {pointSize: 40});
     mkCS("太字", {appliedFont: "GB"});
+    mkCS("マスタード", {fillColor: "マスタード"});
     mkCS("仮テキスト", {fillColor: "オレンジ", underline: true});
 
     var p1 = doc.pages[0], p2 = doc.pages[1], p3 = doc.pages[2], p4 = doc.pages[3];
@@ -377,6 +379,8 @@ function main() {
 
     O(p1, [98, 13, 126, 43], C["マスタード"], {name: "バッジ"});
     T(p1, [98, 13, 126, 43], [["TOKYO", "表紙_バッジ"]], {vcenter: true});
+    T(p1, [106, 47, 113.5, 138], [["本づくり研究所の出張セミナー in TOKYO", "表紙_研究所"]], {cs: [["in TOKYO", "マスタード"]], name: "本づくり研究所の出張セミナー"});
+    L(p1, 114.3, 47, 114.3, 133, C["白"], 0.85, {dotted: true, opacity: 70});
 
     T(p1, [68, 15, 92, 198], [["編集工数を減らして、" + BR + "こだわりの本づくり、しませんか？", "表紙_サブ"]], {cs: [["こだわりの本づくり", "オレンジ強調"]], name: "サブタイトル"});
 

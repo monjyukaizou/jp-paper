@@ -86,6 +86,8 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
     linear-gradient(170deg,#2b211c 0%,#4a3426 45%,#8a5a34 80%,#b47a44 100%);}
 .cover .torn{position:absolute;left:0;top:96mm;width:213mm;height:16mm;z-index:1}
 .cover .vol{position:absolute;top:101mm;left:13mm;width:30mm;height:28mm;z-index:2}
+.cover .lab{position:absolute;top:calc(var(--bleed) + 109mm);left:47mm;color:#fff;font-family:"Klee One",cursive;font-size:12pt;letter-spacing:.1em;border-bottom:.3mm dashed rgba(255,255,255,.7);padding-bottom:1mm;z-index:2}
+.cover .lab span{color:var(--mustard)}
 .cover .vol span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:13pt;letter-spacing:.04em}
 .cover .sub{position:absolute;top:calc(var(--bleed) + 68mm);left:15mm;right:12mm;color:var(--ink);font-size:20pt;line-height:1.5;letter-spacing:.08em;font-weight:900;z-index:3}
 .cover .sub em{font-style:normal;color:var(--orange)}
@@ -236,6 +238,7 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 
     <svg class="vol" viewBox="0 0 30 28"><path d="M15 1c6 0 9 2 11 5 3 4 3 9 1 13-2 5-7 8-12 8S5 25 3 20C1 15 1 9 4 5c2-3 6-4 11-4z" fill="#e9a63f"/><path d="M24 1l3-1-1 4z" fill="#e9a63f"/></svg>
     <div class="vol"><span>TOKYO</span></div>
+    <p class="lab">本づくり研究所の出張セミナー <span>in TOKYO</span></p>
 
     <p class="sub">編集工数を減らして、<br><em>こだわりの本づくり</em>、しませんか？</p>
 
