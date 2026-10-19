@@ -384,11 +384,23 @@ function main() {
 
     T(p1, [68, 15, 92, 198], [["編集工数を減らして、" + BR + "こだわりの本づくり、しませんか？", "表紙_サブ"]], {cs: [["こだわりの本づくり", "オレンジ強調"]], name: "サブタイトル"});
 
-    O(p1, [111, 140, 135, 192], null, {stroke: C["白"], sw: 1.2});
+    O(p1, [114, 121, 138, 173], null, {stroke: C["白"], sw: 1.2});
     var tail = p1.polygons.add();
-    tail.paths[0].entirePath = [[156, 134.2], [161, 134.6], [155, 140]];
+    tail.paths[0].entirePath = [[157, 137.2], [152, 137.6], [158, 143]];
     tail.fillColor = NONE; tail.strokeColor = C["白"]; tail.strokeWeight = 1.2;
-    T(p1, [112, 142, 134, 190], [["なんだか、" + BR + "ぜんぶ聞きたいニャ", "表紙_吹き出し"]], {vcenter: true});
+    T(p1, [115, 123, 137, 171], [["なんだか、" + BR + "ぜんぶ聞きたいニャ", "表紙_吹き出し"]], {vcenter: true});
+    // キャラクター（にゃお）：スクリプトと同じフォルダに cat_nyao.png があれば自動で配置
+    var catFrame = R(p1, [116, 174, 158, 201], null, {name: "キャラクター（にゃお）"});
+    try {
+        var catFile = File(File($.fileName).parent + "/cat_nyao.png");
+        if (catFile.exists) {
+            catFrame.place(catFile);
+            catFrame.fit(FitOptions.PROPORTIONALLY);
+            catFrame.fit(FitOptions.CENTER_CONTENT);
+        } else {
+            catFrame.strokeColor = C["白"]; catFrame.strokeWeight = 0.5;
+        }
+    } catch (e) {}
     T(p1, [281, 15, 285, 110], [["写真差し替え推奨（本・紙の写真）", "表紙_注記左"]]);
 
     T(p1, [150, 15, 155.5, 28], [["日時", "表紙_ラベル"]], {stroke: C["白"], sw: 0.85, vcenter: true});

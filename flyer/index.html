@@ -91,7 +91,9 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .cover .vol span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:13pt;letter-spacing:.04em}
 .cover .sub{position:absolute;top:calc(var(--bleed) + 68mm);left:15mm;right:12mm;color:var(--ink);font-size:20pt;line-height:1.5;letter-spacing:.08em;font-weight:900;z-index:3}
 .cover .sub em{font-style:normal;color:var(--orange)}
-.cover .bubble{position:absolute;top:114mm;right:18mm;width:52mm;height:32mm;z-index:2}
+.cover .bubble{position:absolute;top:117mm;right:40mm;width:52mm;height:32mm;z-index:2}
+svg.bubble{transform:scaleX(-1)}
+.cover .nyao{position:absolute;top:119mm;right:12mm;width:27mm;z-index:2}
 .cover .bubble span{position:absolute;inset:0 0 5mm;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Klee One",cursive;color:#fff;font-size:10.5pt;line-height:1.7;letter-spacing:.12em}
 .cover .when{position:absolute;left:15mm;right:16mm;top:152mm;color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:2mm;align-items:baseline}
 .cover .when dt{font-size:9pt;letter-spacing:.3em;border:.3mm solid rgba(255,255,255,.8);padding:.5mm 2mm}
@@ -244,6 +246,7 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 
     <svg class="bubble" viewBox="0 0 46 28"><path d="M23 1.5C34 1.5 44 6 44 13s-9 11-19 11.5c-2 0-3.5 0-5-.3L17 27l.6-3.2C8 22.5 2 18.5 2 13 2 6 12 1.5 23 1.5z" fill="none" stroke="#fff" stroke-width=".45"/></svg>
     <div class="bubble"><span>なんだか、<br>ぜんぶ聞きたいニャ</span></div>
+    <img class="nyao" src="assets/cat_nyao.png" alt="にゃお（キャラクター）">
 
     <dl class="when">
       <dt>日時</dt><dd><span class="date">2026.11.26<small>（木）</small></span>　10:00〜18:00</dd>
