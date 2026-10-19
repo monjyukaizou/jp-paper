@@ -75,10 +75,10 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .cover h1 .l1 .cmyk span{width:2mm;height:2mm}
 .cover h1 .l2{display:block;font-size:44pt;margin:3mm 0 0 62mm;letter-spacing:.08em}
 .cover h1 .l2 em{font-style:normal;font-size:30pt;margin-right:1mm}
-.cover .stamp{position:absolute;top:calc(var(--bleed) + 12mm);right:15mm;width:31mm;text-align:center;font-family:"Klee One",cursive;font-size:8.5pt;line-height:1.4;border:.4mm solid #444;border-radius:50%;padding:5mm 1mm;transform:rotate(6deg)}
-.cover .stamp b{display:block;font-size:10.5pt}
-.cover .free{position:absolute;top:calc(var(--bleed) + 72mm);left:13mm;right:16mm;background:var(--orange);color:#fff;font-weight:900;font-size:21pt;letter-spacing:.12em;text-align:center;padding:2.2mm 0;border-radius:2mm;z-index:3}
-.cover .free i{font-style:normal;margin:0 1mm}
+.cover .stamp{position:absolute;top:calc(var(--bleed) + 8mm);right:12mm;width:46mm;height:46mm;border-radius:50%;border:1.1mm solid var(--orange);box-shadow:inset 0 0 0 1.2mm #fff,inset 0 0 0 1.6mm var(--orange);color:var(--orange);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6mm;font-weight:900;transform:rotate(-8deg);opacity:.92;z-index:3}
+.cover .stamp span{font-size:15pt;letter-spacing:.08em;line-height:1.2}
+.cover .stamp span:nth-child(2){border-top:.4mm solid var(--orange);border-bottom:.4mm solid var(--orange);padding:.6mm 2mm}
+.cover .stamp span:last-child{font-size:11.5pt;letter-spacing:.04em}
 .cover .photo{position:absolute;left:0;right:0;top:100mm;bottom:0;
   background:
     radial-gradient(120mm 80mm at 85% 55%, rgba(240,190,120,.55), transparent 70%),
@@ -87,16 +87,16 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .cover .torn{position:absolute;left:0;top:96mm;width:213mm;height:16mm;z-index:1}
 .cover .vol{position:absolute;top:101mm;left:13mm;width:30mm;height:28mm;z-index:2}
 .cover .vol span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:13pt;letter-spacing:.04em}
-.cover .sub{position:absolute;top:137mm;left:15mm;color:#fff;font-size:15pt;line-height:1.85;letter-spacing:.2em;font-weight:500}
-.cover .sub small{display:block;font-size:10.5pt;letter-spacing:.3em;opacity:.85}
-.cover .bubble{position:absolute;top:126mm;right:18mm;width:52mm;height:32mm;z-index:2}
+.cover .sub{position:absolute;top:calc(var(--bleed) + 68mm);left:15mm;right:12mm;color:var(--ink);font-size:20pt;line-height:1.5;letter-spacing:.08em;font-weight:900;z-index:3}
+.cover .sub em{font-style:normal;color:var(--orange)}
+.cover .bubble{position:absolute;top:114mm;right:18mm;width:52mm;height:32mm;z-index:2}
 .cover .bubble span{position:absolute;inset:0 0 5mm;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Klee One",cursive;color:#fff;font-size:10.5pt;line-height:1.7;letter-spacing:.12em}
-.cover .when{position:absolute;left:15mm;right:16mm;top:176mm;color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:2mm;align-items:baseline}
+.cover .when{position:absolute;left:15mm;right:16mm;top:152mm;color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:2mm;align-items:baseline}
 .cover .when dt{font-size:9pt;letter-spacing:.3em;border:.3mm solid rgba(255,255,255,.8);padding:.5mm 2mm}
 .cover .when dd{font-size:10.5pt;letter-spacing:.06em;line-height:1.5}
 .cover .when .date{font-size:21pt;font-weight:700;letter-spacing:.06em}
 .cover .when .date small{font-size:11pt}
-.cover .files{position:absolute;left:15mm;right:16mm;top:203mm;color:#fff;display:flex;flex-direction:column;gap:5mm;border-top:.3mm solid rgba(255,255,255,.5);padding-top:5mm}
+.cover .files{position:absolute;left:15mm;right:16mm;top:182mm;color:#fff;display:flex;flex-direction:column;gap:5mm;border-top:.3mm solid rgba(255,255,255,.5);padding-top:5mm}
 .cover .files li{list-style:none;display:grid;grid-template-columns:31mm 1fr;align-items:baseline}
 .cover .files .n{font-size:10pt;letter-spacing:.14em;font-weight:500}
 .cover .files .n small{display:block;font-size:8pt;opacity:.8;letter-spacing:.06em;margin-top:.6mm}
@@ -106,7 +106,7 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .cover .co{position:absolute;right:16mm;bottom:calc(var(--bleed) + 9mm);color:#fff;text-align:right;font-size:8pt;font-weight:700;line-height:1.5}
 .cover .co b{font-size:13pt;letter-spacing:.3em}
 .cover .gift-tag{position:absolute;left:15mm;bottom:calc(var(--bleed) + 9mm);color:#fff;font-size:8.5pt;border-bottom:.3mm dashed rgba(255,255,255,.7);padding-bottom:.8mm}
-.cover .photo-note{position:absolute;right:16mm;top:116mm;font-size:7pt;color:rgba(255,255,255,.75);border:.3mm dashed rgba(255,255,255,.6);padding:.6mm 1.5mm}
+.cover .photo-note{position:absolute;left:15mm;bottom:calc(var(--bleed) + 9mm);font-size:7pt;color:rgba(255,255,255,.75);border:.3mm dashed rgba(255,255,255,.6);padding:.6mm 1.5mm}
 
 /* ===== 中面 ===== */
 .inner .panel{top:calc(var(--bleed) + 44mm);bottom:calc(var(--bleed) + 22mm)}
@@ -232,13 +232,12 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 
     <span class="kicker">アイワード東京セミナー</span>
     <h1><span class="l1">ブック印刷<span class="nokoto">のコト</span><span class="cmyk"><span style="background:#00a0e9"></span><span style="background:#e4007f"></span><span style="background:#fff100"></span></span></span><span class="l2">セミナー</span></h1>
-    <p class="free"><span>入場無料</span><i>・</i><span>予約不要</span><i>・</i><span>飛び入り歓迎</span></p>
-    <div class="stamp"><b>本づくり研究室の</b>出張セミナー<br>in TOKYO</div>
+    <div class="stamp"><span>入場無料</span><span>予約不要</span><span>飛び入り歓迎</span></div>
 
     <svg class="vol" viewBox="0 0 30 28"><path d="M15 1c6 0 9 2 11 5 3 4 3 9 1 13-2 5-7 8-12 8S5 25 3 20C1 15 1 9 4 5c2-3 6-4 11-4z" fill="#e9a63f"/><path d="M24 1l3-1-1 4z" fill="#e9a63f"/></svg>
     <div class="vol"><span>TOKYO</span></div>
 
-    <p class="sub"><small>特集</small>編集工数を減らして<br>こだわりの本づくり、<br>しませんか？</p>
+    <p class="sub">編集工数を減らして、<br><em>こだわりの本づくり</em>、しませんか？</p>
 
     <svg class="bubble" viewBox="0 0 46 28"><path d="M23 1.5C34 1.5 44 6 44 13s-9 11-19 11.5c-2 0-3.5 0-5-.3L17 27l.6-3.2C8 22.5 2 18.5 2 13 2 6 12 1.5 23 1.5z" fill="none" stroke="#fff" stroke-width=".45"/></svg>
     <div class="bubble"><span>なんだか、<br>ぜんぶ聞きたいニャ</span></div>
