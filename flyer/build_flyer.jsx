@@ -272,7 +272,7 @@ function main() {
     var Lf = Justification.LEFT_ALIGN, Ce = Justification.CENTER_ALIGN, Ri = Justification.RIGHT_ALIGN, Ju = Justification.LEFT_JUSTIFIED;
 
     // ---- 段落スタイル ----
-    mkPS("表紙_キッカー", "GH", 13, 0, 550, "マスタード", Lf);
+    mkPS("表紙_キッカー", "GH", 13, 0, 220, "マスタード", Lf);
     mkPS("表紙_タイトル1", "BR", 50, 54, 20, "墨", Lf);
     mkPS("表紙_タイトル2", "BR", 44, 48, 80, "墨", Lf);
     mkPS("表紙_スタンプ大", "HA", 10.5, 14, 0, "墨", Ce);
@@ -377,7 +377,7 @@ function main() {
     torn.strokeColor = NONE;
     setName(torn, "破れ紙");
 
-    T(p1, [17, 15, 24, 160], [["アイワード東京セミナー", "表紙_キッカー"]]);
+    T(p1, [16, 15, 23, 150], [["本づくり研究所の出張セミナー in TOKYO", "表紙_キッカー"]], {name: "本づくり研究所の出張セミナー"});
     T(p1, [26, 13, 48, 150], [["ブック印刷のコト", "表紙_タイトル1"]], {cs: [["のコト", "タイトルのコト"]]});
     R(p1, [22, 126, 24, 128], C["シアン"]);
     R(p1, [22, 128.6, 24, 130.6], C["マゼンタ"]);
@@ -394,10 +394,6 @@ function main() {
     sg.transparencySettings.blendingSettings.opacity = 92;
     rot(sg, -8);
 
-    O(p1, [98, 13, 126, 43], C["マスタード"], {name: "バッジ"});
-    T(p1, [98, 13, 126, 43], [["TOKYO", "表紙_バッジ"]], {vcenter: true});
-    T(p1, [106, 47, 113.5, 138], [["本づくり研究所の出張セミナー in TOKYO", "表紙_研究所"]], {cs: [["in TOKYO", "マスタード"]], name: "本づくり研究所の出張セミナー"});
-    L(p1, 114.3, 47, 114.3, 133, C["白"], 0.85, {dotted: true, opacity: 70});
 
     T(p1, [69, 15, 96, 205], [["編集工数を減らして、" + BR + "こだわりの本づくり、しませんか？", "表紙_サブ"]], {cs: [["こだわりの本づくり", "オレンジ強調"]], name: "サブタイトル"});
 
