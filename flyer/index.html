@@ -89,19 +89,20 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .cover .lab{position:absolute;top:calc(var(--bleed) + 109mm);left:47mm;color:#fff;font-family:"Klee One",cursive;font-size:12pt;letter-spacing:.1em;border-bottom:.3mm dashed rgba(255,255,255,.7);padding-bottom:1mm;z-index:2}
 .cover .lab span{color:var(--mustard)}
 .cover .vol span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:13pt;letter-spacing:.04em}
-.cover .sub{position:absolute;top:calc(var(--bleed) + 68mm);left:15mm;right:12mm;color:var(--ink);font-size:20pt;line-height:1.5;letter-spacing:.08em;font-weight:900;z-index:3}
+.cover .sub{position:absolute;top:calc(var(--bleed) + 69mm);left:15mm;right:8mm;color:var(--ink);font-size:26pt;line-height:1.42;letter-spacing:.06em;font-weight:900;z-index:3}
 .cover .sub em{font-style:normal;color:var(--orange)}
-.cover .bubble{position:absolute;top:calc(var(--bleed) + 62mm);right:13mm;width:50mm;height:31mm;z-index:4}
+.cover .bubble{position:absolute;top:136mm;right:10mm;width:48mm;height:30mm;z-index:4}
 .cover svg.bubble path{stroke:var(--ink);stroke-width:.4px;fill:#fff}
 svg.bubble{transform:scaleX(-1)}
-.cover .nyao{position:absolute;top:98mm;right:10mm;width:28mm;z-index:3}
+.cover .nyao{position:absolute;top:165mm;right:12mm;width:26mm;z-index:3}
 .cover .bubble span{position:absolute;inset:0 0 5mm;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Klee One",cursive;color:var(--ink);font-size:10.5pt;line-height:1.7;letter-spacing:.12em}
 .cover .when{position:absolute;left:15mm;right:16mm;top:140mm;color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:2mm;align-items:baseline}
 .cover .when dt{font-size:11pt;letter-spacing:.3em;border:.3mm solid rgba(255,255,255,.8);padding:.5mm 2mm}
-.cover .when dd{font-size:13pt;letter-spacing:.04em;line-height:1.5;font-weight:700}
-.cover .when .date{font-size:28pt;font-weight:700;letter-spacing:.06em}
-.cover .when .date small{font-size:14pt}
-.cover .files{position:absolute;left:15mm;right:16mm;top:182mm;color:#fff;display:flex;flex-direction:column;gap:5mm;border-top:.3mm solid rgba(255,255,255,.5);padding-top:5mm}
+.cover .when dd{font-size:15pt;letter-spacing:.04em;line-height:1.45;font-weight:700}
+.cover .when .time{font-size:17pt;margin-left:3mm}
+.cover .when .date{font-size:34pt;font-weight:700;letter-spacing:.06em}
+.cover .when .date small{font-size:16pt}
+.cover .files{position:absolute;left:15mm;right:16mm;top:188mm;color:#fff;display:flex;flex-direction:column;gap:5mm;border-top:.3mm solid rgba(255,255,255,.5);padding-top:5mm}
 .cover .files li{list-style:none;display:grid;grid-template-columns:31mm 1fr;align-items:baseline}
 .cover .files .n{font-size:10pt;letter-spacing:.14em;font-weight:500}
 .cover .files .n small{display:block;font-size:8pt;opacity:.8;letter-spacing:.06em;margin-top:.6mm}
@@ -250,8 +251,8 @@ svg.bubble{transform:scaleX(-1)}
     <img class="nyao" src="assets/cat_nyao.png" alt="にゃお（キャラクター）">
 
     <dl class="when">
-      <dt>日時</dt><dd><span class="date">2026.11.26<small>（木）</small></span>　10:00〜18:00</dd>
-      <dt>会場</dt><dd>日本教育会館 703号室（東京都千代田区一ツ橋2丁目6−2）</dd>
+      <dt>日時</dt><dd><span class="date">2026.11.26<small>（木）</small></span><span class="time">10:00〜18:00</span></dd>
+      <dt>会場</dt><dd>日本教育会館 703号室<br>東京都千代田区一ツ橋2丁目6−2</dd>
     </dl>
 
     <ul class="files">
