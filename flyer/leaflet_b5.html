@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>本作りセミナー B5リーフレット</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700;900&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  /* B4（364×257mm）を二つ折りにしてB5。1枚目＝外面［P4｜P1］、2枚目＝中面［P2｜P3］ */
+  @page { size: 364mm 257mm; margin: 0; }
+  :root {
+    --ink: #222326;
+    --navy: #27335f;
+    --sub: #5f6170;
+    --rule: #e3e5ee;
+    --script: #c9cbe0;
+    --red: #d2433a;
+    --pale: #eef0f6;
+    --serif: "Noto Serif JP", "IPAMincho", serif;
+    --sans: "Noto Sans JP", "IPAGothic", sans-serif;
+    --script-font: "Pinyon Script", cursive;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #888; }
+  body { font-family: var(--serif); color: var(--ink); font-size: 8.6pt; line-height: 1.75;
+         -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .sheet { width: 364mm; height: 257mm; margin: 0 auto 10mm; display: grid; grid-template-columns: 182mm 182mm; page-break-after: always; background: #fff; }
+  @media print { html, body { background: none; } .sheet { margin: 0; } }
+  .panel { position: relative; overflow: hidden; padding: 13mm 13mm 11mm;
+           background: repeating-linear-gradient(to bottom, transparent 0 8.3mm, var(--rule) 8.3mm 8.6mm), #fff; }
+  .panel > * { position: relative; }
+  .bgscript { position: absolute !important; font-family: var(--script-font); color: var(--script); line-height: .78; pointer-events: none; white-space: nowrap; }
+  .todo { background: #fff3a8; color: #6b5300; font-family: var(--sans); font-size: 6.5pt; padding: 0 1mm; font-weight: 700; white-space: nowrap; }
+  .lbl { display: inline-block; border: .3mm solid var(--ink); font-family: var(--sans); font-size: 7.5pt; letter-spacing: .4em; padding: 0 1.5mm 0 2.2mm; line-height: 1.6; background: #fff; }
+  .h { font-family: var(--serif); font-weight: 700; color: var(--navy); }
+  .rule-h { display: flex; align-items: flex-end; gap: 3mm; border-bottom: .35mm solid var(--navy); padding-bottom: 1mm; margin-bottom: 9mm; }
+  .rule-h b { font-size: 15pt; color: var(--navy); }
+  .rule-h span { font-family: var(--sans); font-size: 7.4pt; color: var(--sub); margin-left: auto; }
+
+  /* ===== P1 表紙 ===== */
+  .cover h1 { font-weight: 900; font-size: 33pt; line-height: 1.4; text-align: right; margin-top: 12mm; letter-spacing: .02em; }
+  .cover h1 em { font-style: normal; color: var(--navy); }
+  .cover .lead { text-align: right; font-size: 10.5pt; color: var(--sub); margin-top: 3mm; }
+  .free { position: absolute !important; left: 13mm; top: 112mm; width: 26mm; height: 26mm; border-radius: 50%; background: var(--red); color: #fff;
+          display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--sans); font-weight: 700; font-size: 11pt; line-height: 1.3; letter-spacing: .1em; }
+  .when { margin: 20mm 0 0 34mm; }
+  .when .row { display: grid; grid-template-columns: 16mm 1fr; gap: 3mm; margin-bottom: 4mm; align-items: start; }
+  .when .row .lbl { margin-top: 1.4mm; text-align: center; }
+  .when .big { font-size: 11.5pt; font-weight: 700; line-height: 1.4; }
+  .when .big b { font-size: 25pt; }
+  .when .small { font-size: 8.8pt; color: var(--sub); line-height: 1.55; }
+  .when .venue { font-size: 14pt; font-weight: 700; line-height: 1.4; }
+  .sems { margin: 8mm 0 0 34mm; border-top: .3mm solid var(--ink); padding-top: 4mm; }
+  .sems .item { margin-bottom: 3.6mm; }
+  .sems .item .t { font-size: 12.5pt; font-weight: 700; line-height: 1.45; }
+  .sems .item .t i { font-style: normal; color: var(--red); margin-right: 1.5mm; }
+  .sems .item .s { font-size: 9pt; color: var(--sub); line-height: 1.45; }
+  .logo { position: absolute !important; right: 13mm; bottom: 11mm; display: flex; align-items: center; gap: 2mm; font-family: var(--sans); font-weight: 700; font-size: 13pt; color: var(--navy); }
+  .logo .mark { width: 11mm; height: 11mm; border: .4mm dashed var(--sub); font-size: 5pt; color: var(--sub); display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.1; font-weight: 500; }
+
+  /* ===== P2 セミナー内容 ===== */
+  .sem { margin-bottom: 10.5mm; }
+  .sem-head { display: flex; align-items: center; gap: 2.5mm; }
+  .sem-head .no { background: var(--navy); color: #fff; font-family: var(--sans); font-size: 8.5pt; font-weight: 700; padding: 0 2mm; letter-spacing: .1em; }
+  .sem-head .time { font-family: var(--sans); font-size: 9.5pt; font-weight: 700; }
+  .sem-head .name { font-family: var(--sans); font-size: 8pt; color: var(--sub); }
+  .sem h3 { font-size: 14.5pt; font-weight: 900; line-height: 1.45; margin: 1.8mm 0 1.6mm; }
+  .sem ul { list-style: none; }
+  .sem li { padding-left: 3.4mm; text-indent: -3.4mm; font-size: 9.4pt; line-height: 1.75; }
+  .sem li::before { content: "・"; }
+  .sem .pair { display: grid; grid-template-columns: 1fr 52mm; gap: 4mm; }
+  .sem .pair img { width: 100%; height: 38mm; object-fit: cover; object-position: center 40%; display: block; filter: brightness(1.08); margin-top: 1mm; }
+  .tools { display: flex; flex-wrap: wrap; gap: 1.2mm; margin-top: 1.2mm; }
+  .tools span { font-family: var(--sans); font-size: 8pt; border: .25mm solid var(--navy); color: var(--navy); padding: 0 1.6mm; background: #fff; }
+  .through { background: var(--navy); color: #fff; padding: 4.5mm 5mm; margin-top: 4mm; }
+  .through b { font-size: 12pt; display: block; line-height: 1.4; }
+  .through span { font-family: var(--sans); font-size: 8.4pt; line-height: 1.55; display: block; margin-top: .6mm; }
+
+  /* ===== P3 ビフォー・アフター ===== */
+  .ba-title { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .ba-title div { line-height: 1; }
+  .ba-title .sc { font-family: var(--script-font); font-size: 42pt; color: var(--navy); }
+  .ba-title .sc small { font-family: var(--sans); font-size: 6.5pt; margin-left: 1mm; }
+  .ba-title p { font-size: 10.5pt; font-weight: 700; line-height: 1.55; margin-top: 2mm; }
+  .ba { display: grid; grid-template-columns: 1fr 7mm 1fr; margin-top: 6mm; }
+  .ba .cell { padding: 3.4mm 0; border-top: .25mm solid #c9ccd8; }
+  .ba .cell .k { display: inline-block; font-family: var(--sans); font-size: 7.6pt; color: var(--sub); border: .25mm solid #b7bacb; padding: 0 1.5mm; margin-bottom: 1mm; background: #fff; }
+  .ba .cell .q { font-size: 10.3pt; font-weight: 700; line-height: 1.5; }
+  .ba .cell .d { font-size: 8.6pt; line-height: 1.6; color: var(--sub); margin-top: .6mm; }
+  .ba .after .q { color: var(--navy); }
+  .ba .arrow { display: flex; align-items: center; justify-content: center; color: var(--red); font-size: 13pt; border-top: .25mm solid #c9ccd8; }
+  .bubbles { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin-top: 8mm; }
+  .bubbles .before { display: flex; flex-wrap: nowrap; gap: 1.6mm; align-items: center; }
+  .bubbles .before span { width: 16.8mm; height: 16.8mm; border-radius: 50%; background: #dfe2ea; display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--sans); font-size: 7.4pt; line-height: 1.3; color: var(--navy); font-weight: 700; }
+  .bubbles .after { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm; align-content: center; }
+  .bubbles .after span { background: #dfe2ea; border-radius: 1.2mm; padding: 3mm 1.5mm; text-align: center; font-family: var(--sans); font-size: 7.6pt; line-height: 1.35; color: var(--navy); font-weight: 700; }
+
+  /* ===== P4 会社の説明 ===== */
+  .greet h2 { font-size: 13pt; font-weight: 700; margin-top: 22mm; }
+  .greet p { font-size: 9.4pt; line-height: 2.05; text-indent: 1em; margin-top: 1.2mm; }
+  .greet .sign { text-align: right; text-indent: 0; font-size: 9.2pt; margin-top: 1.5mm; line-height: 1.5; }
+  .gift { display: grid; grid-template-columns: 30mm 1fr; gap: 5mm; margin-top: 8mm; align-items: center; }
+  .gift .cover-ph { height: 40mm; border: .3mm dashed var(--sub); background: #fff; display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--sans); font-size: 6.5pt; color: var(--sub); line-height: 1.4; }
+  .gift h3 { font-size: 12pt; color: var(--navy); line-height: 1.45; }
+  .gift p { font-size: 8.8pt; line-height: 1.7; margin-top: 1mm; }
+  .tagline { margin-top: 8mm; }
+  .tagline b { font-size: 12pt; line-height: 1.5; display: block; }
+  .tagline p { font-size: 8.8pt; line-height: 1.75; margin-top: .6mm; }
+  .host { position: absolute !important; left: 13mm; right: 13mm; bottom: 11mm; }
+  .host .top { display: flex; align-items: center; gap: 3mm; border-bottom: .3mm solid var(--ink); padding-bottom: 1.2mm; }
+  .host .top small { font-family: var(--sans); font-size: 7.5pt; }
+  .host .top b { font-family: var(--sans); font-size: 11.5pt; color: var(--navy); }
+  .host .addr { font-size: 8.8pt; line-height: 1.65; margin-top: 1.4mm; }
+  .host .apply { margin-top: 2mm; background: var(--pale); padding: 2mm 3mm; font-family: var(--sans); font-size: 8.2pt; line-height: 1.5; }
+  .host .apply b { color: var(--red); }
+
+  .folio { position: absolute !important; bottom: 4mm; font-family: var(--sans); font-size: 6pt; color: #aaa; }
+</style>
+</head>
+<body>
+
+<!-- ============ 外面：P4（裏表紙）｜P1（表紙） ============ -->
+<div class="sheet">
+
+  <!-- P4 会社の説明 -->
+  <section class="panel">
+    <div class="bgscript" style="left:-4mm; top:4mm; font-size:62pt;">Book Making</div>
+    
+
+    <div class="greet">
+      <h2>ごあいさつ</h2>
+      <p>平素より格別のお引き立てを賜り、厚く御礼申し上げます。</p>
+      <p>アイワードは、社史・記念誌から作品集・図録まで、本づくりのあらゆる工程に携わってまいりました。校正、改訂、記念誌の編集――こだわりたい部分ほど、時間が足りなくなる。その声にお応えするため、北海道立総合研究機構との共同研究による「社史編集システム」をはじめ、編集支援ツールの開発と活用を進めてまいりました。</p>
+      <p>本セミナーでは、その実例を3つのテーマでご紹介します。通しでお聞きいただければ、御社の本づくりのビジネスにきっとお役立ていただけます。一緒に本づくりをやりましょう。</p>
+      <p class="sign">2026年10月<br>株式会社アイワード <span class="todo">要確認：名義（社長名にするか）</span></p>
+    </div>
+
+    <div class="gift">
+      <div class="cover-ph">『ブック印刷のコト』<br>合本版<br>表紙写真</div>
+      <div>
+        <h3>ご来場の方にもれなく<br>『ブック印刷のコト』合本版を進呈します。</h3>
+        <p>本づくりの基礎と、アイワードの実例をまとめた冊子です。</p>
+      </div>
+    </div>
+
+    <div class="tagline">
+      <b>本づくりに、あたりまえを超えた　驚きと感動を。</b>
+      <p>綺麗に印刷して綺麗に製本する。アイワードの仕事は、その先にあります。<br>原稿の持つ「伝える力」を、より高めていく本づくり。</p>
+    </div>
+
+    <div class="host">
+      <div class="top"><small>主催</small><b>株式会社アイワード</b></div>
+      <div class="addr">〒060-0033 札幌市中央区北3条東5丁目5番地91<br>電話 011-241-9341　FAX 011-207-6178<br>お問い合わせメール：take.sakai@iword.co.jp（酒井 剛之）<span class="todo">要確認</span></div>
+      <div class="apply"><b>お申し込み</b>　お電話・FAX・メールで、ご希望のセミナー番号（①②③）とご氏名・ご所属をお知らせください。<span class="todo">要確認：締切・申込URL</span></div>
+    </div>
+    <div class="folio" style="left:13mm">4</div>
+  </section>
+
+  <!-- P1 表紙 -->
+  <section class="panel cover">
+    <div class="bgscript" style="left:-6mm; top:6mm; font-size:84pt;">Book</div>
+    <div class="bgscript" style="left:-4mm; top:72mm; font-size:84pt;">Making</div>
+    <div class="bgscript" style="left:30mm; top:206mm; font-size:84pt;">Seminar</div>
+
+    <h1>編集工数を減らして、<br><em>こだわりの本作り</em><br>しませんか？</h1>
+    <p class="lead">記念誌・校正・特殊製本　3つのセミナー</p>
+
+    <div class="free">参加<br>無料</div>
+
+    <div class="when">
+      <div class="row"><span class="lbl">日時</span>
+        <div><div class="big">2026年<b>11</b>月<b>26</b>日（木）</div>
+        <div class="small">① 10:30〜11:30　② 13:30〜14:30　③ 15:30〜16:30</div></div></div>
+      <div class="row"><span class="lbl">会場</span>
+        <div><div class="venue">日本教育会館 703号室</div>
+        <div class="small">東京都千代田区一ツ橋2丁目6-2<br>各回定員30名（先着順・事前申込制）</div></div></div>
+    </div>
+
+    <div class="sems">
+      <div class="item"><div class="t"><i>①</i>AI社史・記念誌のご提案セミナー</div><div class="s">その記念誌、1年で作れますか？</div></div>
+      <div class="item"><div class="t"><i>②</i>編集支援ソリューション セミナー</div><div class="s">その校正作業、まだ目で追ってませんか？</div></div>
+      <div class="item"><div class="t"><i>③</i>特殊製本の有用性（仮）</div><div class="s">実物15冊が語る、こだわり本作りの全て</div></div>
+    </div>
+
+    <div class="logo"><span class="mark">ロゴ<br>差替</span>株式会社アイワード</div>
+    <div class="folio" style="right:13mm">1</div>
+  </section>
+</div>
+
+<!-- ============ 中面：P2（セミナー内容）｜P3（ビフォー・アフター） ============ -->
+<div class="sheet">
+
+  <!-- P2 セミナー内容 -->
+  <section class="panel">
+    <div class="bgscript" style="right:-10mm; top:150mm; font-size:70pt;">Seminar</div>
+    <div class="rule-h"><b>セミナー内容</b><span>1本ずつでも、通しでもご参加いただけます</span></div>
+
+    <div class="sem">
+      <div class="sem-head"><span class="no">セミナー①</span><span class="time">10:30〜11:30</span><span class="name">AI社史・記念誌のご提案セミナー</span></div>
+      <h3>制作が大変な記念誌も、アイワードのノウハウを入れ込んだAIで</h3>
+      <ul>
+        <li>自社開発の「社史編集システム」を、デモンストレーションを交えて紹介</li>
+        <li>過去資料のデータベース化から、AIによる事実の抽出・出典確認、目次案・粗原稿の生成まで</li>
+        <li>少人数でも大型案件に取り組める協業体制と、完成後も情報資産になるデジタルアーカイブ</li>
+        <li>8月の東京展では「リサーチ業務が半減する」との声をいただいた機能です</li>
+      </ul>
+    </div>
+
+    <div class="sem">
+      <div class="sem-head"><span class="no">セミナー②</span><span class="time">13:30〜14:30</span><span class="name">編集支援ソリューション セミナー</span></div>
+      <h3>その校正作業、まだ目で追ってませんか？</h3>
+      <ul>
+        <li>表記ゆれ・誤用の自動検出、オンラインの赤字指示・校正履歴の共有</li>
+        <li>索引作成支援、テキスト・画像の差分比較（図版内の文字と本文の照合も）</li>
+        <li>4つの編集支援ツールを、具体的な事例と操作画面で解説</li>
+      </ul>
+      <div class="tools"><span>Just Right!</span><span>Rev-Flow</span><span>Collate Pro</span><span>Hallmarker</span></div>
+    </div>
+
+    <div class="sem">
+      <div class="sem-head"><span class="no">セミナー③</span><span class="time">15:30〜16:30</span><span class="name">特殊製本の有用性（仮）</span></div>
+      <div class="pair">
+        <div>
+          <h3>実物15冊が語る　こだわり本作りの全て</h3>
+          <ul>
+            <li>作品集・図録・写真集の実物を、手に取りながら解説</li>
+            <li>用紙・印刷・特殊加工・製本の最新仕様と選び方</li>
+            <li>こだわりとコストを両立させる考え方</li>
+          </ul>
+        </div>
+        <img src="books.jpg" alt="紹介する本の実物">
+      </div>
+    </div>
+
+    <div class="through">
+      <b>通しで聞くと、御社のビジネスにプラスに。</b>
+      <span>① 大型の記念誌を受けられる　→　② 確認作業の工数を減らす　→　③ 付加価値の高い本を提案できる</span>
+    </div>
+    <div class="folio" style="left:13mm">2</div>
+  </section>
+
+  <!-- P3 ビフォー・アフター -->
+  <section class="panel">
+    <div class="ba-title">
+      <div><div class="sc">Before<small>ビフォー</small></div><p>これまでの本づくりは、<br>こだわるほど手間が増えていました。</p></div>
+      <div><div class="sc">After<small>アフター</small></div><p>これからの本づくりは、<br>確認は機械に、こだわりは人に。</p></div>
+    </div>
+
+    <div class="ba">
+      <div class="cell"><span class="k">記念誌</span><div class="q">その記念誌、1年で作れますか？</div><div class="d">膨大な過去資料の収集・解読・年表作成に、時間と労力の大半を費やしていました。</div></div>
+      <div class="arrow">▶</div>
+      <div class="cell after"><span class="k">社史編集システム</span><div class="q">資料をデジタル化すれば、見通しが早く立つ</div><div class="d">データベースを自動構築し、粗原稿まで作成。お客様は事実確認と推敲に専念できます。</div></div>
+
+      <div class="cell"><span class="k">記念誌</span><div class="q">ちゃぶ台返し、まだ傷は浅いです。</div><div class="d">原稿の後で「事実の抜け漏れ」や「認識の違い」が見つかり、追加取材が必要に。</div></div>
+      <div class="arrow">▶</div>
+      <div class="cell after"><span class="k">構成案・出典確認</span><div class="q">早い段階で形にして、合意を取る</div><div class="d">目次案と出典付きの事実を先に共有し、終盤の大きな手戻りを防ぎます。</div></div>
+
+      <div class="cell"><span class="k">校正</span><div class="q">引き上げた最終データ、本当に最終ですか？</div><div class="d">版の違いを目で追って突き合わせ、見落としの不安が残っていました。</div></div>
+      <div class="arrow">▶</div>
+      <div class="cell after"><span class="k">差分比較</span><div class="q">変わった箇所だけを、データで示す</div><div class="d">テキストも画像も機械で比較。図版内の文字と本文の食い違いも見つけます。</div></div>
+
+      <div class="cell"><span class="k">翻訳・改訂</span><div class="q">改訂翻訳本、全部訳し直しますか？</div><div class="d">原著の改訂箇所がわからず、全体を見直すしかありませんでした。</div></div>
+      <div class="arrow">▶</div>
+      <div class="cell after"><span class="k">差分比較・用語辞書</span><div class="q">訳し直すのは、変わった所だけ</div><div class="d">旧版と改訂版の差分を抽出。専門用語は辞書に覚えさせ、表記ゆれも自動で検出します。</div></div>
+
+      <div class="cell"><span class="k">仕様</span><div class="q">その仕様、本当にベストですか？</div><div class="d">用紙や加工は、見本帳と経験だけで選ぶしかありませんでした。</div></div>
+      <div class="arrow">▶</div>
+      <div class="cell after"><span class="k">実物15冊</span><div class="q">実物を見て、触れて、選べる</div><div class="d">こだわりとコストを両立させた仕様を、実際の本で確かめられます。</div></div>
+    </div>
+
+    <div class="bubbles">
+      <div class="before"><span>膨大な<br>資料の解読</span><span>目で追う<br>校正</span><span>全部<br>訳し直し</span><span>終盤の<br>手戻り</span></div>
+      <div class="after"><span>スマートな<br>情報資産づくり</span><span>確認は<br>機械に</span><span>事実確認と<br>推敲に専念</span><span>こだわりを<br>実物で提案</span></div>
+    </div>
+    <div class="folio" style="right:13mm">3</div>
+  </section>
+</div>
+
+</body>
+</html>
