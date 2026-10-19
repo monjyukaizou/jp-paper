@@ -284,6 +284,7 @@ function main() {
     mkPS("スタンプ_小", "GH", 11.5, 18, 40, "オレンジ", Ce);
     mkPS("表紙_注記左", "GR", 7, 0, 0, "白", Lf);
     mkPS("表紙_アクセス", "GR", 9, 14.5, 0, "白", Lf);
+    mkPS("浦_セリフ", "GH", 14, 0, 40, "墨", Lf);
     mkPS("表紙_問合せ見出し", "GH", 8.5, 0, 200, "オレンジ", Lf, {spaceAfter: "0.8mm"});
     mkPS("表紙_問合せ", "GB", 11, 17, 0, "墨", Lf, {tabList: [{position: "12mm", alignment: TabStopAlignment.LEFT_ALIGN}]});
     mkPS("表紙_問合せTEL", "GB", 15, 20, 40, "墨", Lf, {tabList: [{position: "12mm", alignment: TabStopAlignment.LEFT_ALIGN}]});
@@ -354,6 +355,8 @@ function main() {
     mkCS("タイトルのコト", {pointSize: 40});
     mkCS("太字", {appliedFont: "GB"});
     mkCS("マスタード", {fillColor: "マスタード"});
+    mkCS("浦_名前", {pointSize: 16, fillColor: "オレンジ"});
+    mkCS("浦_補足", {pointSize: 11, fillColor: "オレンジ"});
     mkCS("問合せ項目", {appliedFont: "GR", pointSize: 8.5, fillColor: "グレー濃", tracking: 0});
     mkCS("仮テキスト", {fillColor: "オレンジ", underline: true});
 
@@ -510,19 +513,26 @@ function main() {
             {inset: [3, 3.5, 2, 3.5], cs: [[steps[k][0].split("　")[1], "時刻"]]});
     }
     T(p4, [123, 11, 150, 198], [["工数を減らす「仕組み」と、浮いたコストを価値に変える「造本」。どちらか一方だけでは、本づくりは変わりません。#1から#3まで通してお聞きいただくことで、編集の効率化から仕上がりの品質まで、一冊の流れがつながります。人手と時間を、価値ある本に注ぎ込む。それが御社の新しい強みになります。", "裏_本文"]]);
-    R(p4, [170.5, 33, 175.5, 177], C["付箋"], {name: "マーカー"});
-    T(p4, [161, 0, 177, 210], [["一緒に本づくりをやりましょう。", "締め"]], {vcenter: true});
+    R(p4, [162.5, 33, 167.5, 177], C["付箋"], {name: "マーカー"});
+    T(p4, [153, 0, 169, 210], [["一緒に本づくりをやりましょう。", "締め"]], {vcenter: true});
 
-    R(p4, [195, 11, 243.5, 198], C["クリーム"], {radius: 2.5});
-    T(p4, [191.5, 47, 198.5, 90], [["ご来場者プレゼント", "バッジ"]], {fill: C["オレンジ"], vcenter: true, radius: 3.5});
-    placeImage(p4, [199.5, 11, 243.5, 42], "man.png", "キャラクター（室長）", C["罫線"]);
-    placeImage(p4, [216, 163, 243.5, 196], "cat_book.png", "キャラクター（本を持つにゃお）", C["罫線"]);
-    T(p4, [200, 47, 241, 162], [
+    R(p4, [179, 11, 227.5, 198], C["クリーム"], {radius: 2.5});
+    T(p4, [175.5, 47, 182.5, 90], [["ご来場者プレゼント", "バッジ"]], {fill: C["オレンジ"], vcenter: true, radius: 3.5});
+    placeImage(p4, [200, 163, 227.5, 196], "cat_book.png", "キャラクター（本を持つにゃお）", C["罫線"]);
+    T(p4, [184, 47, 225, 162], [
         ["印刷技術情報誌", "プレゼント_小"],
         ["『ブック印刷のコト』総集編を" + BR + "もれなくプレゼントいたします", "プレゼント_見出し"],
         ["紙はなぜ焼けるの？　インキの匂いって？　ズレはどうして起きるの？", "プレゼント_疑問"],
         ["本づくりにまつわる、あれこれの疑問を科学的に解説しています。", "プレゼント_本文"]]);
 
+    // 浦（キャラクター）と吹き出し
+    placeImage(p4, [211, 9, 276, 43], "ura.png", "キャラクター（浦）", C["罫線"]);
+    var saybox = R(p4, [233, 49, 248, 198], C["白"], {stroke: C["墨"], sw: 1.1, radius: 5});
+    var saytail = p4.polygons.add();
+    saytail.paths[0].entirePath = [[49.4, 237], [44.5, 239.5], [49.4, 242]];
+    saytail.fillColor = C["白"]; saytail.strokeColor = C["墨"]; saytail.strokeWeight = 1.1;
+    T(p4, [233, 49, 248, 198], [["本づくりの裏側、浦がゼンブ話します（実例もあるヨ）", "浦_セリフ"]],
+        {inset: [0, 5, 0, 5], vcenter: true, cs: [["浦", "浦_名前"], ["（実例もあるヨ）", "浦_補足"]], name: "浦のセリフ"});
     footer(p4, true, "株式会社アイワード　https://www.iword.co.jp", ["https://www.iword.co.jp"], null);
 
     // ---- 保存と結果報告 ----
