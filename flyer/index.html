@@ -5,310 +5,320 @@
 <title>ブック印刷のコトセミナー チラシ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=Klee+One:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 /*
   仕様：A3二つ折り（仕上がりA4）
   1枚目＝外面（左：裏表紙 p4／右：表紙 p1）
   2枚目＝中面（左：Before p2／右：After p3）
   用紙サイズ 426×303mm ＝ A3（420×297）＋塗り足し各3mm
+  デザイン：印刷技術情報誌『ブック印刷のコト』誌面に準拠
 */
 :root{
-  --paper:#f6f1e6;   /* 生成り */
-  --paper2:#ece4d2;
-  --ink:#1e2a44;     /* 紺 */
-  --ink2:#3a4560;
-  --shu:#b2452c;     /* 朱 */
-  --gold:#a2864a;
-  --gray:#6c6a64;
+  --ink:#232323;
+  --blue:#d6e4f1;     /* 淡いブルーの面 */
+  --blue-d:#5d82b5;   /* 手書き注釈の青 */
+  --orange:#e2622c;   /* 見出しのオレンジ */
+  --mustard:#e9a63f;  /* Vol.バッジ */
+  --violet:#5755a5;   /* Check! */
+  --yellow:#f7ee95;   /* 付箋 */
+  --cream:#f3efe7;
+  --gray:#8b8f96;
   --bleed:3mm;
 }
 @page{size:426mm 303mm;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#888}
-body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.sheet{width:426mm;height:303mm;position:relative;overflow:hidden;background:var(--paper);display:flex;page-break-after:always;margin:0 auto 10mm}
+body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet{width:426mm;height:303mm;position:relative;overflow:hidden;background:#fff;display:flex;page-break-after:always;margin:0 auto 10mm}
 @media print{.sheet{margin:0}}
-/* 1ページ分（塗り足し込み 213×303mm、内側に安全域） */
 .page{width:213mm;height:303mm;position:relative;overflow:hidden}
-.page .safe{position:absolute;top:calc(var(--bleed) + 12mm);bottom:calc(var(--bleed) + 12mm)}
-.page.left .safe{left:calc(var(--bleed) + 14mm);right:12mm}
-.page.right .safe{left:12mm;right:calc(var(--bleed) + 14mm)}
-.serif{font-family:"Noto Serif JP",serif}
-/* 中央の折り位置 */
-.fold{position:absolute;left:213mm;top:0;bottom:0;width:0;border-left:.2mm dashed rgba(30,42,68,.0)}
-.screen-only .fold{border-left-color:rgba(30,42,68,.25)}
+
+/* ===== 誌面共通パーツ ===== */
+.file-head{position:absolute;top:calc(var(--bleed) + 10mm);left:0;right:0}
+.file-head .no{display:block;text-align:right;font-size:11pt;letter-spacing:.2em;font-weight:500;padding:0 16mm 1.5mm 0;border-bottom:.3mm solid #999}
+.page.left .file-head .no{padding-right:12mm}
+.file-head h2{font-weight:500;font-size:25pt;letter-spacing:.22em;text-align:right;padding:2.5mm 14mm 3mm 0;border-bottom:.3mm solid #999}
+.page.left .file-head h2{padding-right:10mm}
+.panel{position:absolute;left:0;right:0;background:var(--blue)}
+.sticky{position:absolute;background:var(--yellow);padding:5mm 5mm 4mm;transform:rotate(4deg);box-shadow:1mm 1.5mm 0 rgba(0,0,0,.08);font-family:"Klee One",cursive;z-index:2}
+.sticky::before{content:"";position:absolute;top:-3mm;left:50%;width:10mm;height:6mm;margin-left:-5mm;background:#9a7d5e;opacity:.85;transform:rotate(-4deg)}
+.sticky .q{font-size:14pt}
+.sticky .big{font-size:34pt;line-height:1;margin:1mm 0 0 2mm}
+.sticky .big small{font-size:13pt;margin-left:1mm}
+.sticky .li{font-size:8.6pt;white-space:nowrap;border-bottom:.3mm solid var(--blue-d);margin-top:1.2mm;padding-bottom:.3mm}
+.anno{font-family:"Klee One",cursive;color:var(--blue-d);font-size:10pt;line-height:1.55}
+.anno.dot{border-top:.5mm dotted var(--blue-d);border-bottom:.5mm dotted var(--blue-d);padding:1.5mm 0}
+.footer-band{position:absolute;left:0;right:0;bottom:var(--bleed);height:16mm;background:var(--cream);display:flex;align-items:center;gap:4mm;padding-left:14mm}
+.footer-band .face{width:11mm;height:11mm;border-radius:50%;background:#f6e9a4;display:flex;align-items:center;justify-content:center;flex:none}
+.footer-band p{font-size:10pt;color:var(--blue-d);line-height:1.45}
+.footer-band p b{font-size:12pt;font-weight:700}
+.footer-band::after{content:"";position:absolute;left:30mm;right:0;bottom:3mm;border-bottom:.3mm solid #c9c3b7}
+.page-no{position:absolute;bottom:calc(var(--bleed) + 19mm);font-size:9pt;font-weight:700}
+.page.left .page-no{left:14mm}.page.right .page-no{right:16mm}
+.cat{width:7mm;height:7mm}
+.check .c{display:inline-flex;align-items:center;font-weight:900;font-size:30pt;color:var(--violet);letter-spacing:-.02em;line-height:1}
+.check .c i{width:15mm;height:15mm;border-radius:50%;border:3.2mm solid var(--violet);border-right-color:transparent;display:inline-block;margin-right:-1mm;transform:rotate(-45deg)}
+.ph{background:#fff3ef;outline:.3mm dashed var(--orange);padding:0 1mm;color:#9a3a14}
 
 /* ===== 表紙 ===== */
-.cover{background:var(--ink);color:var(--paper)}
-.cover::before{content:"";position:absolute;inset:0;background:
-  repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 7mm);}
-.cover .band{position:absolute;left:0;right:0;top:0;height:calc(var(--bleed) + 8mm);background:var(--shu)}
-.cover .safe{display:flex;flex-direction:column}
-.cover .label{font-size:9.5pt;letter-spacing:.35em;color:var(--gold);margin-top:6mm}
-.cover h1{font-family:"Noto Serif JP",serif;font-weight:900;font-size:50pt;line-height:1.18;letter-spacing:.04em;margin-top:5mm}
-.cover h1 .small{display:block;font-size:22pt;letter-spacing:.2em;font-weight:700;color:var(--paper2)}
-.cover h1 .koto{color:#fff;border-bottom:1.6mm solid var(--shu)}
-.cover .sub{font-family:"Noto Serif JP",serif;font-size:16pt;font-weight:700;line-height:1.6;margin-top:7mm;padding-left:5mm;border-left:1.2mm solid var(--gold)}
-.cover .when{margin-top:12mm;display:grid;grid-template-columns:20mm 1fr;row-gap:2.5mm;font-size:10pt;align-items:baseline}
-.cover .when dt{font-size:8.5pt;color:var(--ink);background:var(--gold);text-align:center;padding:.6mm 0;letter-spacing:.2em}
-.cover .when dd{padding-left:4mm;line-height:1.5}
-.cover .when .date{font-family:"Noto Serif JP",serif;font-size:19pt;font-weight:900;letter-spacing:.02em}
+.cover .top{position:absolute;left:0;right:0;top:0;height:112mm;background:#fff}
+.cover .kicker{position:absolute;top:calc(var(--bleed) + 17mm);left:15mm;font-weight:900;font-size:13pt;letter-spacing:.55em;color:var(--mustard)}
+.cover h1{position:absolute;top:calc(var(--bleed) + 29mm);left:13mm;font-family:"Yusei Magic",sans-serif;font-weight:400;line-height:1}
+.cover h1 .l1{font-size:54pt;letter-spacing:.02em;position:relative}
+.cover h1 .l1 .cmyk{position:absolute;top:-2.5mm;right:-1mm;display:flex;gap:.6mm}
+.cover h1 .l1 .cmyk span{width:2mm;height:2mm}
+.cover h1 .l2{display:block;font-size:40pt;margin:3mm 0 0 34mm;letter-spacing:.06em}
+.cover h1 .l2 em{font-style:normal;font-size:30pt;margin-right:1mm}
+.cover .stamp{position:absolute;top:calc(var(--bleed) + 12mm);right:15mm;width:31mm;text-align:center;font-family:"Klee One",cursive;font-size:8.5pt;line-height:1.4;border:.4mm solid #444;border-radius:50%;padding:5mm 1mm;transform:rotate(6deg)}
+.cover .stamp b{display:block;font-size:10.5pt}
+.cover .photo{position:absolute;left:0;right:0;top:100mm;bottom:0;
+  background:
+    radial-gradient(120mm 80mm at 85% 55%, rgba(240,190,120,.55), transparent 70%),
+    radial-gradient(90mm 60mm at 15% 85%, rgba(200,130,60,.5), transparent 70%),
+    linear-gradient(170deg,#2b211c 0%,#4a3426 45%,#8a5a34 80%,#b47a44 100%);}
+.cover .torn{position:absolute;left:0;top:96mm;width:213mm;height:16mm;z-index:1}
+.cover .vol{position:absolute;top:101mm;left:13mm;width:30mm;height:28mm;z-index:2}
+.cover .vol span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:13pt;letter-spacing:.04em}
+.cover .sub{position:absolute;top:137mm;left:15mm;color:#fff;font-size:15pt;line-height:1.85;letter-spacing:.2em;font-weight:500}
+.cover .sub small{display:block;font-size:10.5pt;letter-spacing:.3em;opacity:.85}
+.cover .bubble{position:absolute;top:126mm;right:18mm;width:52mm;height:32mm;z-index:2}
+.cover .bubble span{position:absolute;inset:0 0 5mm;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Klee One",cursive;color:#fff;font-size:10.5pt;line-height:1.7;letter-spacing:.12em}
+.cover .when{position:absolute;left:15mm;right:16mm;top:176mm;color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:2mm;align-items:baseline}
+.cover .when dt{font-size:9pt;letter-spacing:.3em;border:.3mm solid rgba(255,255,255,.8);padding:.5mm 2mm}
+.cover .when dd{font-size:10.5pt;letter-spacing:.06em;line-height:1.5}
+.cover .when .date{font-size:21pt;font-weight:700;letter-spacing:.06em}
 .cover .when .date small{font-size:11pt}
-.cover .seminars{margin-top:auto;display:flex;flex-direction:column;gap:2.6mm}
-.sem{background:var(--paper);color:var(--ink);display:grid;grid-template-columns:23mm 1fr;min-height:24mm}
-.sem .no{background:var(--shu);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:"Noto Serif JP",serif}
-.sem .no b{font-size:22pt;line-height:1}
-.sem .no span{font-size:8pt;margin-top:1mm;letter-spacing:.05em}
-.sem .no em{font-style:normal;font-size:7pt;letter-spacing:.2em;opacity:.85}
-.sem .body{padding:2.6mm 4mm}
-.sem h3{font-family:"Noto Serif JP",serif;font-size:12.5pt;line-height:1.4;font-weight:900}
-.sem h3 + h3{margin-top:1.6mm}
-.sem p{font-size:8.8pt;color:var(--ink2);line-height:1.5;margin-top:.6mm}
-.sem p::before{content:"＜";}.sem p::after{content:"＞"}
-.cover .co{margin-top:4mm;display:flex;justify-content:space-between;align-items:flex-end;font-size:8pt;color:var(--paper2)}
-.cover .co strong{font-family:"Noto Serif JP",serif;font-size:13pt;color:#fff;letter-spacing:.15em}
+.cover .files{position:absolute;left:15mm;right:16mm;top:203mm;color:#fff;display:flex;flex-direction:column;gap:5mm;border-top:.3mm solid rgba(255,255,255,.5);padding-top:5mm}
+.cover .files li{list-style:none;display:grid;grid-template-columns:31mm 1fr;align-items:baseline}
+.cover .files .n{font-size:10pt;letter-spacing:.14em;font-weight:500}
+.cover .files .n small{display:block;font-size:8pt;opacity:.8;letter-spacing:.06em;margin-top:.6mm}
+.cover .files .t{font-size:13.5pt;letter-spacing:.12em;line-height:1.55;font-weight:500}
+.cover .files .t small{display:block;font-size:9pt;margin-bottom:.8mm;letter-spacing:.04em;opacity:.85;font-weight:400}
+.cover .files .t small::before{content:"＜"}.cover .files .t small::after{content:"＞"}
+.cover .co{position:absolute;right:16mm;bottom:calc(var(--bleed) + 9mm);color:#fff;text-align:right;font-size:8pt;font-weight:700;line-height:1.5}
+.cover .co b{font-size:13pt;letter-spacing:.3em}
+.cover .gift-tag{position:absolute;left:15mm;bottom:calc(var(--bleed) + 9mm);color:#fff;font-size:8.5pt;border-bottom:.3mm dashed rgba(255,255,255,.7);padding-bottom:.8mm}
+.cover .photo-note{position:absolute;right:16mm;top:116mm;font-size:7pt;color:rgba(255,255,255,.75);border:.3mm dashed rgba(255,255,255,.6);padding:.6mm 1.5mm}
 
-/* ===== 中面共通 ===== */
-.inner .kicker{display:inline-block;font-family:"Noto Serif JP",serif;font-weight:900;font-size:30pt;letter-spacing:.08em;line-height:1}
-.inner .kicker small{font-size:10pt;letter-spacing:.3em;margin-left:3mm;vertical-align:middle}
-.inner h2{font-family:"Noto Serif JP",serif;font-weight:900;font-size:17pt;line-height:1.55;margin-top:6mm;letter-spacing:.02em}
-.inner .safe{display:flex;flex-direction:column}
-.cards{margin-top:8mm;display:flex;flex-direction:column;justify-content:space-between;flex:1;gap:5mm}
-.before .cards{margin-bottom:16mm}.after .cards{margin-bottom:36mm}
-.card{display:grid;grid-template-columns:24mm 1fr;gap:5mm;align-items:center;padding:6mm 5mm;border-radius:1.5mm;flex:1}
-.card .ico{width:24mm;height:24mm;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.card .ico svg{width:14mm;height:14mm}
-.card h4{font-family:"Noto Serif JP",serif;font-size:13.5pt;font-weight:900;line-height:1.4}
-.card p{font-size:10pt;line-height:1.8;margin-top:2mm;text-align:justify}
-.card .tag{display:inline-block;font-size:8.5pt;padding:.3mm 2mm;margin-top:2mm;border-radius:5mm;letter-spacing:.05em}
-
-/* Before */
-.before{background:var(--paper2)}
-.before .kicker{color:var(--gray)}
-.before h2{color:var(--ink2)}
-.before .card{background:rgba(255,255,255,.55);border:.3mm solid #cfc5ae}
-.before .card .ico{background:#d8cfbb}
-.before .card .ico svg{stroke:#6c6a64}
-.before .card h4{color:var(--ink2)}
-.before .card p{color:#4c4a45}
-.before .sigh{position:absolute;left:0;right:0;bottom:0;font-family:"Noto Serif JP",serif;font-size:11pt;color:var(--gray);text-align:center;letter-spacing:.1em;border-top:.3mm solid #cfc5ae;padding-top:4mm}
-
-/* After */
-.after{background:var(--paper)}
-.after .kicker{color:var(--shu)}
-.after h2{color:var(--ink)}
-.after .card{background:#fff;border:.3mm solid #e3d9c3;box-shadow:0 .6mm 0 #e3d9c3}
-.after .card .ico{background:var(--ink)}
-.after .card .ico svg{stroke:#fff}
-.after .card h4{color:var(--ink)}
-.after .card p{color:#2e3445}
-.after .card .tag{background:var(--shu);color:#fff}
-.flow{position:absolute;left:0;right:0;bottom:0;background:var(--ink);color:var(--paper);padding:5mm 6mm;display:grid;grid-template-columns:1fr 8mm 1fr 8mm 1fr;align-items:center;text-align:center}
-.flow div{font-family:"Noto Serif JP",serif;font-weight:700;font-size:10.5pt;line-height:1.45}
-.flow div small{display:block;font-family:"Noto Sans JP";font-weight:400;font-size:7.5pt;color:var(--paper2);margin-top:1mm}
-.flow i{font-style:normal;color:var(--gold);font-size:14pt}
-.flow .goal{color:#fff;border:.4mm solid var(--gold);padding:2mm 1mm}
-/* 中央の矢印（折り目をまたぐ） */
-.bridge{position:absolute;left:213mm;top:43mm;transform:translateX(-50%);width:18mm;height:18mm;border-radius:50%;background:var(--shu);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13pt;z-index:3;font-weight:900;box-shadow:0 0 0 1.5mm var(--paper)}
+/* ===== 中面 ===== */
+.inner .panel{top:calc(var(--bleed) + 44mm);bottom:calc(var(--bleed) + 22mm)}
+.inner .lead{position:absolute;top:calc(var(--bleed) + 52mm);font-weight:900;font-size:17pt;line-height:1.6;letter-spacing:.06em}
+.inner .lead em{font-style:normal;color:var(--orange)}
+.page.left .lead{left:14mm;right:74mm}.page.right .lead{left:12mm;right:74mm}
+.inner .sticky{top:calc(var(--bleed) + 48mm);right:12mm;width:58mm;padding:4mm 4.5mm 3.5mm}
+.cards{position:absolute;top:calc(var(--bleed) + 104mm);display:flex;flex-direction:column;gap:3.5mm}
+.page.left .cards{left:14mm;right:12mm}.page.right .cards{left:12mm;right:16mm}
+.card{background:#fff;border-radius:2.5mm;padding:4.5mm 5mm;display:grid;grid-template-columns:17mm 1fr;gap:4mm;align-items:start}
+.card .num{font-family:"Klee One",cursive;text-align:center;line-height:1.1;padding-top:.5mm}
+.card .num small{display:block;font-size:9pt}
+.card .num b{font-size:24pt;font-weight:600}
+.card h3{font-size:12.5pt;font-weight:900;line-height:1.45;letter-spacing:.03em}
+.card p{font-size:9.6pt;line-height:1.8;margin-top:1.4mm;text-align:justify}
+.card .tag{display:inline-block;margin-top:1.8mm;font-size:8.5pt;font-weight:700;color:#fff;background:var(--orange);border-radius:4mm;padding:.4mm 3mm;letter-spacing:.06em}
+.before .card .num{color:var(--gray)}
+.after .cards{gap:3mm}.after .card{padding:3.3mm 5mm}.after .card p{margin-top:1mm;line-height:1.7}.after .card .tag{margin-top:1.2mm}
+.after .card .num{color:var(--orange)}
+.before .card h3{color:#4a4f58}
+.before .anno{position:absolute;left:16mm;bottom:calc(var(--bleed) + 27mm);transform:rotate(-4deg)}
+.after .checkbox{position:absolute;left:12mm;right:16mm;bottom:calc(var(--bleed) + 26mm);background:#fff;border-left:2mm solid var(--violet);padding:4mm 5mm;display:grid;grid-template-columns:auto 1fr;gap:5mm;align-items:center;box-shadow:1mm 1mm 0 rgba(0,0,0,.06)}
+.flow{display:grid;grid-template-columns:1fr 6mm 1fr 6mm 1fr;align-items:center;text-align:center}
+.flow div{font-weight:900;font-size:10.5pt;line-height:1.4}
+.flow div small{display:block;font-weight:400;font-size:7.5pt;color:#555;margin-top:.8mm}
+.flow i{font-style:normal;color:var(--orange);font-size:12pt}
+.flow .goal{color:var(--orange);border:.4mm solid var(--orange);border-radius:2mm;padding:1.5mm .5mm}
 
 /* ===== 裏表紙 ===== */
-.back{background:var(--paper)}
-.back .safe{display:flex;flex-direction:column}
-.back .msg-label{font-size:9pt;letter-spacing:.35em;color:var(--gold)}
-.back h2{font-family:"Noto Serif JP",serif;font-weight:900;font-size:21pt;line-height:1.55;margin-top:3mm}
-.back h2 em{font-style:normal;color:var(--shu)}
-.steps{margin-top:8mm;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:.4mm solid var(--ink)}
-.steps div{padding:3.5mm 3mm;border-right:.4mm solid var(--ink);position:relative}
-.steps div:last-child{border-right:0}
-.steps b{display:block;font-family:"Noto Serif JP",serif;color:var(--shu);font-size:16pt;line-height:1}
-.steps span{display:block;font-size:7.5pt;color:var(--gray);margin-top:1mm;letter-spacing:.1em}
-.steps p{font-size:9.5pt;line-height:1.6;margin-top:1.6mm;font-weight:500}
-.back .lead{font-size:10.5pt;line-height:1.95;margin-top:7mm;text-align:justify}
-.back .closing{font-family:"Noto Serif JP",serif;font-weight:900;font-size:27pt;color:var(--ink);text-align:center;margin-top:11mm;letter-spacing:.06em}
-.back .closing::after{content:"";display:block;width:24mm;height:1mm;background:var(--shu);margin:3.5mm auto 0}
-.gift{margin-top:14mm;background:var(--ink);color:var(--paper);display:grid;grid-template-columns:30mm 1fr;gap:5mm;padding:5mm;position:relative}
-.gift .badge{position:absolute;top:-4mm;left:5mm;background:var(--shu);color:#fff;font-size:8.5pt;font-weight:700;padding:1mm 3mm;letter-spacing:.15em}
-.gift .book{width:30mm;height:40mm;background:linear-gradient(90deg,#8d2f1c 0 2.5mm,var(--shu) 2.5mm);color:#fff;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font-family:"Noto Serif JP",serif;font-weight:900;font-size:11pt;letter-spacing:.15em;box-shadow:1.5mm 1.5mm 0 rgba(0,0,0,.3)}
-.gift h3{font-family:"Noto Serif JP",serif;font-size:13pt;line-height:1.45;margin-top:2mm}
-.gift h3 small{display:block;font-size:8.5pt;font-weight:500;color:var(--gold);letter-spacing:.1em}
-.gift ul{list-style:none;margin-top:2.5mm;display:flex;flex-wrap:wrap;gap:1.5mm}
-.gift li{font-size:8pt;border:.3mm solid var(--gold);padding:.5mm 2mm;border-radius:4mm}
-.gift p{font-size:9pt;line-height:1.6;margin-top:2mm;color:var(--paper2)}
-.info{margin-top:auto;border-top:.4mm solid var(--ink);padding-top:4mm;display:grid;grid-template-columns:1.2fr 1fr;gap:5mm;font-size:8.8pt;line-height:1.6}
-.info h4{font-size:8.5pt;letter-spacing:.2em;color:var(--shu);margin-bottom:1mm}
-.info strong{font-family:"Noto Serif JP",serif;font-size:10.5pt}
-.ph{background:#fde7e1;outline:.3mm dashed var(--shu);padding:0 1mm}
-.co-foot{margin-top:3mm;display:flex;justify-content:space-between;align-items:baseline}
-.co-foot strong{font-family:"Noto Serif JP",serif;font-size:14pt;letter-spacing:.15em}
-.co-foot span{font-size:7.5pt;color:var(--gray)}
+.back .panel{top:calc(var(--bleed) + 44mm);height:73mm}
+.back .lead-h{position:absolute;top:calc(var(--bleed) + 51mm);left:14mm;right:12mm;font-weight:900;font-size:17pt;line-height:1.55;letter-spacing:.06em}
+.back .lead-h em{font-style:normal;color:var(--orange)}
+.steps{position:absolute;top:calc(var(--bleed) + 76mm);left:14mm;right:12mm;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm}
+.steps div{background:#fff;border-radius:2.5mm;padding:3mm 3.5mm}
+.steps b{font-size:9pt;letter-spacing:.12em;color:var(--orange);display:block}
+.steps b span{font-size:7.5pt;color:#333;margin-left:1.5mm;letter-spacing:.04em}
+.steps h4{font-size:10.5pt;font-weight:900;margin-top:.8mm;letter-spacing:.04em}
+.steps p{font-size:8.4pt;line-height:1.6;margin-top:1mm}
+.back .msg{position:absolute;top:calc(var(--bleed) + 123mm);left:14mm;right:12mm;font-size:10.3pt;line-height:1.95;text-align:justify}
+.back .closing{position:absolute;top:calc(var(--bleed) + 153mm);left:0;right:0;text-align:center;font-family:"Yusei Magic",sans-serif;font-size:27pt;letter-spacing:.06em}
+.back .closing .ul{background:linear-gradient(transparent 68%, var(--yellow) 68%)}
+.back .gift{position:absolute;top:calc(var(--bleed) + 177mm);left:14mm;right:12mm;background:var(--cream);border-radius:2.5mm;padding:5mm;display:grid;grid-template-columns:28mm 1fr;gap:5mm}
+.back .gift .badge{position:absolute;top:-3.5mm;right:5mm;background:var(--orange);color:#fff;font-weight:700;font-size:9pt;padding:1mm 3.5mm;border-radius:4mm;letter-spacing:.12em}
+.mini{width:28mm;height:39mm;background:#fff;box-shadow:1mm 1.2mm 0 rgba(0,0,0,.15);position:relative;overflow:hidden}
+.mini .t{position:absolute;top:2.5mm;left:2mm;right:2mm;font-family:"Yusei Magic";font-size:8.6pt;line-height:1}
+.mini .t small{display:block;font-family:"Zen Kaku Gothic New";font-size:3.6pt;color:var(--mustard);font-weight:900;letter-spacing:.2em;margin-bottom:1mm}
+.mini .b{position:absolute;left:0;right:0;top:12mm;bottom:0;background:linear-gradient(170deg,#2b211c,#8a5a34 70%,#b47a44)}
+.mini .b span{position:absolute;bottom:2.5mm;left:2mm;color:#fff;font-size:5pt;font-weight:700;letter-spacing:.15em}
+.back .gift h3{font-size:12.5pt;font-weight:900;line-height:1.5}
+.back .gift h3 small{display:block;font-size:8.5pt;color:var(--blue-d);font-weight:700;letter-spacing:.1em}
+.back .gift .qs{display:flex;flex-wrap:wrap;gap:1.5mm;margin-top:2.5mm}
+.back .gift .qs span{font-family:"Klee One",cursive;font-size:9pt;background:#fff;border:.3mm solid var(--blue-d);color:var(--blue-d);border-radius:4mm;padding:.3mm 2.5mm}
+.back .gift p{font-size:8.8pt;line-height:1.6;margin-top:2mm}
+.back .info{position:absolute;left:14mm;right:12mm;bottom:calc(var(--bleed) + 25mm);display:grid;grid-template-columns:1.25fr 1fr;gap:6mm;font-size:8.6pt;line-height:1.6;border-top:.3mm solid #999;padding-top:3.5mm}
+.back .info h4{font-size:8.5pt;letter-spacing:.25em;color:var(--orange);margin-bottom:.8mm}
+.back .info strong{font-size:10.5pt}
 </style>
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- 汎用ねこアイコン（誌面キャラクターの差し替え位置） -->
+    <symbol id="cat" viewBox="0 0 40 40">
+      <path d="M7 34c-2-6-1-13 2-17L7 4l9 7c3-1 6-1 8 0l9-7-2 13c3 4 4 11 2 17z" fill="#8f949c"/>
+      <ellipse cx="15" cy="22" rx="3" ry="3.6" fill="#fff"/><ellipse cx="25" cy="22" rx="3" ry="3.6" fill="#fff"/>
+      <circle cx="15.5" cy="22.5" r="1.8" fill="#222"/><circle cx="25.5" cy="22.5" r="1.8" fill="#222"/>
+      <path d="M18.5 27.5l1.5 1 1.5-1" stroke="#222" stroke-width=".9" fill="none"/>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- ============ 1枚目：外面（左＝裏表紙 / 右＝表紙） ============ -->
 <section class="sheet">
+
   <!-- 裏表紙 p4 -->
   <div class="page left back">
-    <div class="safe">
-      <div class="msg-label">MESSAGE</div>
-      <h2>3つのセミナーは、<br><em>ひとつながりの本づくり</em>です。</h2>
-      <div class="steps">
-        <div><b>①</b><span>編集・校正</span><p>機械の目と事前修正で、確認作業の時間を減らす</p></div>
-        <div><b>②</b><span>制作</span><p>AIとノウハウで、手間のかかる記念誌も仕組みで作る</p></div>
-        <div><b>③</b><span>造本</span><p>浮いた予算を、手に取りたくなる一冊に変える</p></div>
-      </div>
-      <p class="lead">
-        工数を減らす「仕組み」と、浮いたコストを価値に変える「造本」。どちらか一方では、本づくりは変わりません。①から③まで通してお聞きいただくことで、編集の効率化から仕上がりの品質まで、一冊の流れが見えてきます。人手と時間を価値ある本に注ぎ込む。それが、御社の新しい強みになります。
-      </p>
-      <p class="closing">一緒に本づくりをやりましょう。</p>
-
-      <div class="gift">
-        <span class="badge">ご来場者プレゼント</span>
-        <div class="book">ブック印刷のコト</div>
-        <div>
-          <h3><small>印刷技術情報誌</small>『ブック印刷のコト』総集編を<br>もれなくプレゼントいたします</h3>
-          <ul><li>紙はなぜ焼けるのか？</li><li>インキの匂いって？</li><li>ズレはどうして起きるの？</li></ul>
-          <p>本づくりにまつわる、あれこれの疑問を科学的に解説しています。</p>
-        </div>
-      </div>
-
-      <div class="info">
-        <div>
-          <h4>会場</h4>
-          <strong>日本教育会館 703号室</strong><br>
-          東京都千代田区一ツ橋2丁目6−2<br>
-          都営新宿線・三田線、東京メトロ半蔵門線「神保町」駅 A8出口 徒歩約3分<br>
-          東京メトロ東西線「竹橋」駅 北の丸公園側出口 徒歩約5分
-        </div>
-        <div>
-          <h4>お申込み・お問い合わせ</h4>
-          <span class="ph">TEL：000-000-0000</span><br>
-          <span class="ph">MAIL：xxxx@iword.co.jp</span><br>
-          <span class="ph">担当：〇〇</span><br>
-          <span class="ph">［QRコード配置スペース］</span>
-        </div>
-      </div>
-      <div class="co-foot"><strong>株式会社アイワード</strong><span>https://iword.co.jp/</span></div>
+    <div class="file-head"><span class="no">MESSAGE</span><h2>「3つでひとつの本づくり」</h2></div>
+    <div class="panel"></div>
+    <p class="lead-h">3つのセミナーは、<em>ひとつながり</em>。<br>通しで聞くと、本づくりの流れが見えてきます。</p>
+    <div class="steps">
+      <div><b>SEMINAR #1<span>10:30〜</span></b><h4>編集・校正</h4><p>機械の目と事前修正で、確認作業の時間を減らす</p></div>
+      <div><b>SEMINAR #2<span>13:30〜</span></b><h4>制作</h4><p>AIとノウハウで、手間のかかる記念誌も仕組みで作る</p></div>
+      <div><b>SEMINAR #3<span>15:30〜</span></b><h4>造本</h4><p>浮いた予算を、手に取りたくなる一冊に変える</p></div>
     </div>
+    <p class="msg">工数を減らす「仕組み」と、浮いたコストを価値に変える「造本」。どちらか一方だけでは、本づくりは変わりません。#1から#3まで通してお聞きいただくことで、編集の効率化から仕上がりの品質まで、一冊の流れがつながります。人手と時間を、価値ある本に注ぎ込む。それが御社の新しい強みになります。</p>
+    <p class="closing"><span class="ul">一緒に本づくりをやりましょう。</span></p>
+
+    <div class="gift">
+      <span class="badge">ご来場者プレゼント</span>
+      <div class="mini"><div class="t"><small>誰も教えてくれなかった</small>ブック印刷のコト</div><div class="b"><span>総集編</span></div></div>
+      <div>
+        <h3><small>印刷技術情報誌</small>『ブック印刷のコト』総集編を<br>もれなくプレゼントいたします</h3>
+        <div class="qs"><span>紙はなぜ焼けるの？</span><span>インキの匂いって？</span><span>ズレはどうして起きるの？</span></div>
+        <p>本づくりにまつわる、あれこれの疑問を科学的に解説しています。</p>
+      </div>
+    </div>
+
+    <div class="info">
+      <div>
+        <h4>会場</h4>
+        <strong>日本教育会館 703号室</strong><br>
+        東京都千代田区一ツ橋2丁目6−2<br>
+        都営新宿線・三田線、東京メトロ半蔵門線「神保町」駅 A8出口 徒歩約3分／東京メトロ東西線「竹橋」駅 徒歩約5分
+      </div>
+      <div>
+        <h4>お申込み・お問い合わせ</h4>
+        <span class="ph">TEL：000-000-0000</span><br>
+        <span class="ph">MAIL：xxxx@iword.co.jp</span><br>
+        <span class="ph">担当：〇〇　［QRコード配置］</span>
+      </div>
+    </div>
+    <div class="footer-band"><span class="face"><svg class="cat"><use href="#cat"/></svg></span>
+      <p>株式会社アイワード　<b>https://www.iword.co.jp</b></p></div>
   </div>
 
   <!-- 表紙 p1 -->
   <div class="page right cover">
-    <div class="band"></div>
-    <div class="safe">
-      <div class="label">IWORD SEMINAR IN TOKYO</div>
-      <h1><span class="small">ブック印刷の</span><span class="koto">コト</span>セミナー</h1>
-      <p class="sub">編集工数を減らして<br>こだわりの本づくり、しませんか？</p>
+    <div class="top"></div>
+    <div class="photo"></div>
+    <svg class="torn" viewBox="0 0 213 16" preserveAspectRatio="none"><path d="M0 0H213V7l-4 1.2-5-.6-6 1.4-4-.8-7 1.1-5-.4-6 1.3-5-.9-6 1-4-.3-7 1.4-5-.7-6 .9-4-.5-7 1.3-5-.6-5 1.1-6-.8-4 .7-7-.2-5 1.2-6-.9-4 .6-7 .1-5 1-6-.6-5 .9-4-.4-7 1.2-5-.5-6 .8-4-.2-6 1-5-.7-6 .9-5-.3-4 .8-7-.4-5 1-6-.6-4 .8H0z" fill="#fff"/></svg>
 
-      <dl class="when">
-        <dt>日時</dt>
-        <dd><span class="date">2026.11.26<small>（木）</small></span><br>10:00〜18:00</dd>
-        <dt>会場</dt>
-        <dd>日本教育会館 703号室<br>東京都千代田区一ツ橋2丁目6−2</dd>
-      </dl>
+    <span class="kicker">アイワード東京セミナー</span>
+    <h1><span class="l1">ブック印刷<span class="cmyk"><span style="background:#00a0e9"></span><span style="background:#e4007f"></span><span style="background:#fff100"></span></span></span><span class="l2"><em>の</em>コトセミナー</span></h1>
+    <div class="stamp"><b>本づくり研究室の</b>出張セミナー<br>in TOKYO</div>
 
-      <div class="seminars">
-        <div class="sem">
-          <div class="no"><em>SEMINAR</em><b>①</b><span>10:30–11:30</span></div>
-          <div class="body">
-            <h3>その校正作業、まだ目で追っていませんか？</h3>
-            <p>カタログ改版（差分検証）を機械の目でチェックします</p>
-            <h3>デザイナーに負担をかけていませんか？</h3>
-            <p>その原稿、レイアウト前に直せますよ</p>
-          </div>
-        </div>
-        <div class="sem">
-          <div class="no"><em>SEMINAR</em><b>②</b><span>13:30–14:30</span></div>
-          <div class="body">
-            <h3>制作が大変な記念誌、受注しても大丈夫ですよ！</h3>
-            <p>アイワードが培ったノウハウを入れ込んだAIを駆使して、システマチックに作成できます</p>
-          </div>
-        </div>
-        <div class="sem">
-          <div class="no"><em>SEMINAR</em><b>③</b><span>15:30–16:30</span></div>
-          <div class="body">
-            <h3>実物15冊が語る<br>こだわりの印刷と造本設計のすべて</h3>
-          </div>
-        </div>
-      </div>
-      <div class="co"><span>ご来場の皆さまに『ブック印刷のコト』総集編をプレゼント</span><strong>IWORD</strong></div>
-    </div>
+    <svg class="vol" viewBox="0 0 30 28"><path d="M15 1c6 0 9 2 11 5 3 4 3 9 1 13-2 5-7 8-12 8S5 25 3 20C1 15 1 9 4 5c2-3 6-4 11-4z" fill="#e9a63f"/><path d="M24 1l3-1-1 4z" fill="#e9a63f"/></svg>
+    <div class="vol"><span>TOKYO</span></div>
+
+    <p class="sub"><small>特集</small>編集工数を減らして<br>こだわりの本づくり、<br>しませんか？</p>
+
+    <svg class="bubble" viewBox="0 0 46 28"><path d="M23 1.5C34 1.5 44 6 44 13s-9 11-19 11.5c-2 0-3.5 0-5-.3L17 27l.6-3.2C8 22.5 2 18.5 2 13 2 6 12 1.5 23 1.5z" fill="none" stroke="#fff" stroke-width=".45"/></svg>
+    <div class="bubble"><span>なんだか、<br>ぜんぶ聞きたいニャ</span></div>
+
+    <dl class="when">
+      <dt>日時</dt><dd><span class="date">2026.11.26<small>（木）</small></span>　10:00〜18:00</dd>
+      <dt>会場</dt><dd>日本教育会館 703号室（東京都千代田区一ツ橋2丁目6−2）</dd>
+    </dl>
+
+    <ul class="files">
+      <li><span class="n">SEMINAR #1<small>10:30〜11:30</small></span>
+        <span class="t">その校正作業、まだ目で追っていませんか？<small>カタログ改版（差分検証）を機械の目でチェックします</small>デザイナーに負担をかけていませんか？<small>その原稿、レイアウト前に直せますよ</small></span></li>
+      <li><span class="n">SEMINAR #2<small>13:30〜14:30</small></span>
+        <span class="t">制作が大変な記念誌、受注しても大丈夫ですよ！<small>アイワードが培ったノウハウを入れ込んだAIを駆使して、システマチックに作成できます</small></span></li>
+      <li><span class="n">SEMINAR #3<small>15:30〜16:30</small></span>
+        <span class="t">実物15冊が語る　こだわりの印刷と造本設計のすべて</span></li>
+    </ul>
+    <span class="gift-tag">ご来場の皆さまに『ブック印刷のコト』総集編をプレゼント</span>
+    <div class="co">株式会社<br><b>アイワード</b></div>
+    <span class="photo-note">写真差し替え推奨（本・紙の写真）</span>
   </div>
 </section>
 
 <!-- ============ 2枚目：中面（左＝Before / 右＝After） ============ -->
 <section class="sheet">
-  <div class="bridge">▶</div>
 
   <!-- 中面1 Before p2 -->
   <div class="page left inner before">
-    <div class="safe">
-      <span class="kicker">BEFORE<small>これまでの本づくり</small></span>
-      <h2>今までの本づくりは、正確なものを作るのに<br>大変な時間と労力がかかりました。</h2>
-      <div class="cards">
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5 21 21"/></svg></div>
-          <div><h4>目で追う校正・索引・改訂</h4>
-          <p>人間が目でチェックをし、索引はアナログ的に手で拾ってマーカーをつけていました。カタログ等の改訂も、原著との差分を目で追って調べていました。中には修正していない箇所まで手を加えられ、刷り直しになることも…。</p></div>
-        </div>
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="6" width="18" height="12"/><path d="m3 7 9 6 9-6"/></svg></div>
-          <div><h4>紙のゲラ郵送と赤字の取りまとめ</h4>
-          <p>著者や複数の意思決定者に紙でゲラを郵送し、編集者が集約して赤字を取りまとめていました。中には転記ミスによってトラブルになることも…。</p></div>
-        </div>
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 4h10l6 6v10H4z"/><path d="M14 4v6h6M8 14h8M8 17h5"/></svg></div>
-          <div><h4>膨大な資料に向き合う記念誌</h4>
-          <p>膨大な資料データを整理することになる記念誌は、仕事を始める前からすでに精神的な負担が…。</p></div>
-        </div>
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M9 10h5a2 2 0 0 1 0 4H9"/></svg></div>
-          <div><h4>人件費がかさみ、本に予算が回らない</h4>
-          <p>大変な思いをして整理・作成したデータは、この段階ですでに人件費がかさみ、肝心の本そのものに予算を割けず、よくある見た目の本にしかなりませんでした。</p></div>
-        </div>
-      </div>
-      <p class="sigh">手間をかけたのに、仕上がりは「よくある本」。</p>
+    <div class="file-head"><span class="no">BEFORE</span><h2>「今までの本づくり」</h2></div>
+    <div class="panel"></div>
+    <p class="lead">今までの本づくりは、<br>正確なものを作るのに<br><em>大変な時間と労力</em>が<br>かかりました。</p>
+    <div class="sticky"><div class="q">“大変だった”</div><div class="big">4<small>つの理由</small></div>
+      <div class="li">その1　目で追う校正・改訂</div><div class="li">その2　紙のゲラと赤字集約</div><div class="li">その3　膨大な資料整理</div><div class="li">その4　予算が本に回らない</div></div>
+    <div class="cards">
+      <div class="card"><div class="num"><small>その</small><b>1</b></div><div>
+        <h3>目で追う校正・索引・改訂</h3>
+        <p>人間が目でチェックをし、索引はアナログ的に手で拾ってマーカーをつけていました。カタログ等の改訂も、原著との差分を目で追って調べていました。中には修正していない箇所まで手を加えられ、刷り直しになることも…。</p></div></div>
+      <div class="card"><div class="num"><small>その</small><b>2</b></div><div>
+        <h3>紙のゲラ郵送と赤字の取りまとめ</h3>
+        <p>著者や複数の意思決定者に紙でゲラを郵送し、編集者が集約して赤字を取りまとめていました。中には転記ミスによってトラブルになることも…。</p></div></div>
+      <div class="card"><div class="num"><small>その</small><b>3</b></div><div>
+        <h3>膨大な資料に向き合う記念誌</h3>
+        <p>膨大な資料データを整理することになる記念誌は、仕事を始める前からすでに精神的な負担が…。</p></div></div>
+      <div class="card"><div class="num"><small>その</small><b>4</b></div><div>
+        <h3>人件費がかさみ、本に予算が回らない</h3>
+        <p>大変な思いをして整理・作成したデータは、この段階ですでに人件費がかさみ、肝心の本そのものに予算を割けず、よくある見た目の本にしかなりませんでした。</p></div></div>
     </div>
+    <p class="anno dot">手間をかけたのに、仕上がりは「よくある本」…。</p>
+    <span class="page-no">2</span>
+    <div class="footer-band"><span class="face"><svg class="cat"><use href="#cat"/></svg></span>
+      <p>本づくりは<b>見えない手間</b>が多い！　その手間、<b>減らせる</b>かもしれません</p></div>
   </div>
 
   <!-- 中面2 After p3 -->
   <div class="page right inner after">
-    <div class="safe">
-      <span class="kicker">AFTER<small>これからの本づくり</small></span>
-      <h2>これからの本づくりは、人が目で追うような労力を<br>極力かけず、その分の費用を装丁などの<br>最終成果物に落とし込みます。</h2>
-      <div class="cards">
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="4" width="8" height="16"/><rect x="13" y="4" width="8" height="16"/><path d="M15 9h4M15 13h4"/></svg></div>
-          <div><h4>索引は自動抽出、改版の差分もデジタルで</h4>
-          <p>索引は事前にマーカーしておけば自動的に抽出。改版するカタログも、どの部分が変わっているのかデジタル上でわかります。</p>
-          <span class="tag">→ セミナー①</span></div>
-        </div>
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/></svg></div>
-          <div><h4>赤字がそのまま修正指示に</h4>
-          <p>著者への赤字伺いが確定すると、その指示をそのまま印刷会社への修正指示にすることもできます。</p>
-          <span class="tag">→ セミナー①</span></div>
-        </div>
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></div>
-          <div><h4>記念誌は、データベースで執筆の材料づくり</h4>
-          <p>データベースツールに一次資料を読み込ませ、文章を書く人に「執筆の材料」を提供。スムーズに書き進められます。</p>
-          <span class="tag">→ セミナー②</span></div>
-        </div>
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4zM20 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg></div>
-          <div><h4>浮いた予算で、目を引く造本設計を</h4>
-          <p>デジタルツールで工数を減らし、その浮いた予算で、見る人の目を引く造本設計にしませんか？</p>
-          <span class="tag">→ セミナー③</span></div>
-        </div>
-      </div>
+    <div class="file-head"><span class="no">AFTER</span><h2>「これからの本づくり」</h2></div>
+    <div class="panel"></div>
+    <p class="lead">人が目で追う労力は<br>極力かけず、<em>その分の費用を<br>装丁などの最終成果物</em>に<br>落とし込みます。</p>
+    <div class="sticky"><div class="q">“ラクして良い本”</div><div class="big">4<small>つの工夫</small></div>
+      <div class="li">その1　索引・差分をデジタルで</div><div class="li">その2　赤字＝修正指示に</div><div class="li">その3　資料はデータベースに</div><div class="li">その4　浮いた予算は造本へ</div></div>
+    <div class="cards">
+      <div class="card"><div class="num"><small>その</small><b>1</b></div><div>
+        <h3>索引は自動抽出、改版の差分もデジタルで</h3>
+        <p>索引は事前にマーカーしておけば自動的に抽出。改版するカタログも、どの部分が変わっているのかデジタル上でわかります。</p>
+        <span class="tag">→ SEMINAR #1</span></div></div>
+      <div class="card"><div class="num"><small>その</small><b>2</b></div><div>
+        <h3>赤字がそのまま修正指示に</h3>
+        <p>著者への赤字伺いが確定すると、その指示をそのまま印刷会社への修正指示にすることもできます。</p>
+        <span class="tag">→ SEMINAR #1</span></div></div>
+      <div class="card"><div class="num"><small>その</small><b>3</b></div><div>
+        <h3>記念誌は、データベースで執筆の材料づくり</h3>
+        <p>データベースツールに一次資料を読み込ませ、文章を書く人に「執筆の材料」を提供。スムーズに書き進められます。</p>
+        <span class="tag">→ SEMINAR #2</span></div></div>
+      <div class="card"><div class="num"><small>その</small><b>4</b></div><div>
+        <h3>浮いた予算で、目を引く造本設計を</h3>
+        <p>デジタルツールで工数を減らし、その浮いた予算で、見る人の目を引く造本設計にしませんか？</p>
+        <span class="tag">→ SEMINAR #3</span></div></div>
+    </div>
+    <div class="checkbox">
+      <div class="check"><span class="c"><i></i>heck!</span></div>
       <div class="flow">
-        <div>デジタルで<br>工数削減<small>校正・索引・赤字・資料整理</small></div><i>▶</i>
+        <div>デジタルで<br>工数削減<small>校正・索引・赤字・資料</small></div><i>▶</i>
         <div>浮いた<br>予算<small>人件費を圧縮</small></div><i>▶</i>
         <div class="goal">こだわりの<br>一冊へ<small>装丁・印刷・造本設計</small></div>
       </div>
     </div>
+    <span class="page-no">3</span>
+    <div class="footer-band"><span class="face"><svg class="cat"><use href="#cat"/></svg></span>
+      <p>工数は<b>デジタル</b>で減らして、予算は<b>本そのもの</b>に使うんだニャ</p></div>
   </div>
 </section>
 
