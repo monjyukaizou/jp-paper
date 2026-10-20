@@ -100,31 +100,31 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .cover .vol span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:13pt;letter-spacing:.04em}
 .cover .sub{position:absolute;top:calc(var(--bleed) + 66mm);left:44mm;right:8mm;color:var(--ink);font-size:21pt;line-height:1.45;letter-spacing:.06em;font-weight:900;z-index:3}
 .cover .sub em{font-style:normal;color:var(--orange)}
-.cover .bubble{position:absolute;top:174mm;right:9mm;width:48mm;height:30mm;z-index:4}
+.cover .bubble{position:absolute;top:152mm;right:9mm;width:48mm;height:30mm;z-index:4}
 .cover svg.bubble path{stroke:var(--ink);stroke-width:.4px;fill:#fff}
 svg.bubble{transform:scaleX(-1)}
-.cover .nyao{position:absolute;top:204mm;right:12mm;width:26mm;z-index:3}
+.cover .nyao{position:absolute;top:182mm;right:12mm;width:26mm;z-index:3}
 .cover .bubble span{position:absolute;inset:0 0 5mm;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Klee One",cursive;color:var(--ink);font-size:10.5pt;line-height:1.7;letter-spacing:.12em}
-.cover .when{position:absolute;left:15mm;right:16mm;top:149mm;color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:2mm;align-items:baseline}
+.cover .when{position:absolute;left:15mm;right:16mm;top:124mm;color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:2mm;align-items:baseline}
 .cover .when dt{font-size:11pt;letter-spacing:.3em;border:.3mm solid rgba(255,255,255,.8);padding:.5mm 2mm}
 .cover .when dd{font-size:15pt;letter-spacing:.04em;line-height:1.45;font-weight:700}
 .cover .when .time{font-size:17pt;margin-left:3mm}
 .cover .when .date{font-size:34pt;font-weight:700;letter-spacing:.06em}
 .cover .when .date small{font-size:16pt}
-.cover .files{position:absolute;left:15mm;right:16mm;top:203mm;color:#fff;display:flex;flex-direction:column;gap:5mm;padding-top:5mm}
+.cover .files{position:absolute;left:15mm;right:16mm;top:181mm;color:#fff;display:flex;flex-direction:column;gap:7mm;padding-top:5mm}
 .cover .files li{list-style:none;display:grid;grid-template-columns:31mm 1fr;align-items:baseline}
 .cover .files .n{font-size:10pt;letter-spacing:.14em;font-weight:500}
 .cover .files .n small{display:block;font-size:8pt;opacity:.8;letter-spacing:.06em;margin-top:.6mm}
 .cover .files .t{font-size:13.5pt;letter-spacing:.12em;line-height:1.55;font-weight:500}
 .cover .files .t small{display:block;font-size:9pt;margin-bottom:.8mm;letter-spacing:.04em;opacity:.85;font-weight:400}
 .cover .files .t small::before{content:"＜"}.cover .files .t small::after{content:"＞"}
-.cover .ura{position:absolute;top:68mm;left:11mm;width:27mm;z-index:4}
+.cover .ura{position:absolute;top:61mm;left:9mm;width:31mm;z-index:4;-webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent 100%);mask-image:linear-gradient(to bottom,#000 82%,transparent 100%)}
 .cover .ura-say{position:absolute;top:94mm;left:44mm;right:40mm;background:#fff;border:.4mm solid var(--ink);border-radius:5mm;padding:2.6mm 4mm;font-weight:900;font-size:12pt;letter-spacing:.02em;line-height:1.4;color:var(--ink);z-index:4;white-space:nowrap}
 .cover .ura-say::before{content:"";position:absolute;left:-4.2mm;top:2.6mm;border:2.2mm solid transparent;border-right:4mm solid var(--ink)}
 .cover .ura-say::after{content:"";position:absolute;left:-3.4mm;top:3mm;border:1.8mm solid transparent;border-right:3.5mm solid #fff}
 .cover .ura-say em{font-style:normal;color:var(--orange);font-size:15pt}
 .cover .ura-say small{font-size:10pt;color:var(--orange);margin-left:.5mm}
-.cover .access{position:absolute;top:182mm;left:35mm;right:58mm;color:#fff;font-size:9pt;line-height:1.6;opacity:.92}
+.cover .access{position:absolute;top:157mm;left:35mm;right:58mm;color:#fff;font-size:9pt;line-height:1.6;opacity:.92}
 .cover .contact{position:absolute;left:15mm;right:52mm;bottom:calc(var(--bleed) + 8mm);background:rgba(255,255,255,.94);color:var(--ink);border-radius:2mm;padding:3mm 4mm;display:grid;grid-template-columns:auto 1fr;column-gap:4mm;row-gap:.5mm;align-items:baseline}
 .cover .contact h4{grid-column:1/-1;font-size:8.5pt;letter-spacing:.2em;color:var(--orange);font-weight:900}
 .cover .contact dt{font-size:8.5pt;color:#555}
@@ -268,7 +268,7 @@ svg.bubble{transform:scaleX(-1)}
     <div class="stamp"><span>入場無料</span><span>予約不要</span><span>飛び入り歓迎</span></div>
 
 
-    <p class="sub">編集工数を減らして、<br><em>こだわりの本づくり</em>、しませんか？</p>
+    <p class="sub">編集工数を減らして、<br><em>こだわりの本づくり</em>しませんか？</p>
 
     <svg class="bubble" viewBox="0 0 46 28"><path d="M23 1.5C34 1.5 44 6 44 13s-9 11-19 11.5c-2 0-3.5 0-5-.3L17 27l.6-3.2C8 22.5 2 18.5 2 13 2 6 12 1.5 23 1.5z" fill="none" stroke="#fff" stroke-width=".45"/></svg>
     <div class="bubble"><span>なんだか、<br>ぜんぶ聞きたいニャ</span></div>
@@ -279,7 +279,7 @@ svg.bubble{transform:scaleX(-1)}
       <dt>会場</dt><dd>日本教育会館 703号室<br>東京都千代田区一ツ橋2丁目6−2</dd>
     </dl>
 
-    <img class="ura" src="assets/ura.png" alt="浦（キャラクター）">
+    <img class="ura" src="assets/man.png" alt="浦（キャラクター）">
     <p class="ura-say">本づくりの裏側、<em>浦</em>がゼンブ話します<small>（実例もあるヨ）</small></p>
     <p class="access">都営新宿線・三田線、東京メトロ半蔵門線「神保町」駅 A8出口 徒歩約3分<br>東京メトロ東西線「竹橋」駅 徒歩約5分</p>
 
