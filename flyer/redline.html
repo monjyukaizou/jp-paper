@@ -30,7 +30,7 @@ button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .confirm{display:flex;gap:6px;align-items:center;font-size:12px}
 main{padding-block:16px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .hint{max-width:1100px;margin:0 auto 10px;color:var(--muted);font-size:12px;line-height:1.7}
-.stage{position:relative;max-width:1400px;margin:0 auto;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.18);line-height:0}
+.stage{position:relative;max-width:800px;margin:0 auto;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.18);line-height:0}
 .stage img{width:100%;max-width:100%;height:auto;display:block;user-select:none;-webkit-user-drag:none}
 canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
 canvas.pan{touch-action:auto;pointer-events:none}
@@ -41,8 +41,8 @@ canvas.pan{touch-action:auto;pointer-events:none}
 <div class="bar">
   <div class="row">
     <div class="grp" role="group" aria-label="面"><span>面</span>
-      <button id="s1" aria-pressed="true">外面（裏表紙・表紙）</button>
-      <button id="s2" aria-pressed="false">中面</button>
+      <button id="s1" aria-pressed="true">表面</button>
+      <button id="s2" aria-pressed="false">裏面</button>
     </div>
     <div class="grp" role="group" aria-label="道具"><span>道具</span>
       <button id="tPen" aria-pressed="true">ペン</button>
@@ -70,17 +70,17 @@ canvas.pan{touch-action:auto;pointer-events:none}
 <main>
   <p class="hint">ペンで直接書き込めます。「文字」を選んで紙面をタップすると、その位置に修正指示を入力できます（Enterで確定）。消しゴムは消したい線や文字をタップ。書いた赤字は自動で保存され、Claudeが読み取って反映します。</p>
   <div class="stage" id="stage">
-    <img id="img" src="preview-1.png" alt="チラシ外面（左：裏表紙、右：表紙）">
+    <img id="img" src="preview-1.png" alt="チラシ表面">
     <canvas id="cv"></canvas>
   </div>
 </main>
 
 <script>
 (function(){
-  var SHEETS = {1:{src:"preview-1.png",alt:"チラシ外面（左：裏表紙、右：表紙）"},2:{src:"preview-2.png",alt:"チラシ中面（左：Before、右：After）"}};
+  var SHEETS = {1:{src:"preview-1.png",alt:"チラシ表面"},2:{src:"preview-2.png",alt:"チラシ裏面（セミナー概要・プレゼント）"}};
   var COLORS = {red:"#d7261e", blue:"#1d5fd1"};
   var WIDTHS = {1:2, 2:4, 3:8}; // 画像幅1600pxあたりの線幅
-  var ROUND = 12; // 校正回数：前の回の赤字は表示しない
+  var ROUND = 13; // 校正回数：前の回の赤字は表示しない
   var st = {sheet:1, tool:"pen", color:"red", w:2, marks:[], mine:[], drawing:null};
   var img = document.getElementById("img"), cv = document.getElementById("cv"), stage = document.getElementById("stage");
   var ctx = cv.getContext("2d"), statusEl = document.getElementById("status");
@@ -95,7 +95,7 @@ canvas.pan{touch-action:auto;pointer-events:none}
     cv.width = Math.round(r.width*d); cv.height = Math.round(r.height*d);
     draw();
   }
-  function scale(){ return cv.width/1600; }
+  function scale(){ return cv.width/800; }
   function drawMark(m){
     var W = cv.width, H = cv.height, s = scale();
     ctx.strokeStyle = ctx.fillStyle = COLORS[m.color] || COLORS.red;

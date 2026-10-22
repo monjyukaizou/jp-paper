@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ブック印刷のコト 東京展 チラシ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=Klee+One:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/*
+  仕様：A4片面×2（表・裏）
+  用紙サイズ 216×303mm ＝ A4（210×297）＋塗り足し各3mm
+  デザイン：前版（A3二つ折り）のテイストを継承／原稿：松谷さんWord版
+*/
+:root{
+  --ink:#232323;
+  --blue:#d6e4f1;
+  --blue-d:#5d82b5;
+  --orange:#e2622c;
+  --mustard:#e9a63f;
+  --yellow:#f7ee95;
+  --cream:#f3efe7;
+  --gray:#8b8f96;
+  --bleed:3mm;
+}
+@page{size:216mm 303mm;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#888}
+body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet{width:216mm;height:303mm;position:relative;overflow:hidden;background:#fff;page-break-after:always;margin:0 auto 10mm}
+@media print{.sheet{margin:0}}
+.ph{background:#fff3ef;outline:.3mm dashed var(--orange);padding:0 1mm;color:#9a3a14}
+
+/* ===== 表面 ===== */
+.front .logo{position:absolute;top:calc(var(--bleed) + 11mm);left:12mm;width:112mm}
+.front .tenji{position:absolute;top:calc(var(--bleed) + 31mm);left:126mm;font-family:"Yusei Magic",sans-serif;font-size:46pt;line-height:1;letter-spacing:.06em;white-space:nowrap}
+.front .guide{position:absolute;top:calc(var(--bleed) + 35mm);left:14mm;font-weight:900;font-size:16pt;letter-spacing:.08em;line-height:1.3}
+.front .guide span{background:linear-gradient(transparent 62%, var(--yellow) 62%)}
+.front .stamp{position:absolute;top:calc(var(--bleed) + 6mm);right:9mm;width:38mm;height:38mm;border-radius:50%;border:1mm solid var(--orange);box-shadow:inset 0 0 0 1.1mm #fff,inset 0 0 0 1.5mm var(--orange);color:var(--orange);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1mm;font-weight:900;transform:rotate(-8deg);opacity:.92;z-index:3}
+.front .stamp span{font-size:15pt;letter-spacing:.08em;line-height:1.2}
+.front .stamp span:first-child{border-bottom:.4mm solid var(--orange);padding-bottom:1mm}
+.front .presen{position:absolute;top:calc(var(--bleed) + 49mm);left:8mm;width:47mm;-webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 99%);mask-image:linear-gradient(to bottom,#000 80%,transparent 99%)}
+.front .sub{position:absolute;top:calc(var(--bleed) + 58mm);left:62mm;right:10mm;background:#fff;border:.5mm solid var(--ink);border-radius:6mm;padding:4.5mm 6mm;font-weight:900;font-size:19pt;line-height:1.5;letter-spacing:.04em}
+.front .sub em{font-style:normal;color:var(--orange)}
+.front .sub::before{content:"";position:absolute;left:-5.2mm;top:9mm;border:2.6mm solid transparent;border-right:4.8mm solid var(--ink)}
+.front .sub::after{content:"";position:absolute;left:-4.1mm;top:9.5mm;border:2.1mm solid transparent;border-right:4.2mm solid #fff}
+.front .intro{position:absolute;top:calc(var(--bleed) + 96mm);left:14mm;right:12mm;font-size:9.4pt;line-height:1.85;text-align:justify;letter-spacing:.02em}
+.front .intro p+p{margin-top:.6mm}
+.front .photo{position:absolute;left:0;right:0;top:140mm;height:113mm;
+  background:
+    radial-gradient(120mm 80mm at 85% 55%, rgba(240,190,120,.55), transparent 70%),
+    radial-gradient(90mm 60mm at 15% 85%, rgba(200,130,60,.5), transparent 70%),
+    linear-gradient(170deg,#2b211c 0%,#4a3426 45%,#8a5a34 80%,#b47a44 100%);}
+.front .torn{position:absolute;left:0;top:136mm;width:216mm;height:12mm;z-index:1}
+.front .photo-note{position:absolute;right:12mm;top:239mm;font-size:7.5pt;color:rgba(255,255,255,.8);border:.3mm dashed rgba(255,255,255,.6);padding:.6mm 2mm}
+.front .sticky{position:absolute;top:154mm;left:13mm;width:132mm;background:var(--yellow);padding:5mm 6mm 4.5mm;transform:rotate(-2deg);box-shadow:1mm 1.5mm 0 rgba(0,0,0,.18);z-index:2}
+.front .sticky::before{content:"";position:absolute;top:-3mm;left:50%;width:12mm;height:6mm;margin-left:-6mm;background:#9a7d5e;opacity:.85;transform:rotate(3deg)}
+.front .sticky h3{font-family:"Klee One",cursive;font-weight:600;font-size:13.5pt;line-height:1.5;letter-spacing:.02em}
+.front .sticky h3 em{font-style:normal;color:var(--orange)}
+.front .sticky p{font-size:8.6pt;line-height:1.75;margin-top:1.8mm}
+.front .when{position:absolute;left:14mm;right:12mm;top:200mm;color:#fff;display:grid;grid-template-columns:auto 1fr;column-gap:5mm;row-gap:2mm;align-items:baseline;z-index:2}
+.front .when dt{font-size:11pt;letter-spacing:.3em;border:.3mm solid rgba(255,255,255,.8);padding:.5mm 2mm}
+.front .when dd{font-size:15pt;letter-spacing:.04em;line-height:1.45;font-weight:700}
+.front .when .date{font-size:32pt;font-weight:700;letter-spacing:.06em}
+.front .when .date small{font-size:15pt}
+.front .when .time{font-size:17pt;margin-left:3mm}
+.front .when .addr{display:block;font-size:10pt;font-weight:500;margin-top:.5mm}
+.front .when .acc{display:block;font-size:8.6pt;font-weight:400;opacity:.92;letter-spacing:.02em}
+.contact-band{position:absolute;left:0;right:0;bottom:0;height:calc(var(--bleed) + 47mm);background:var(--cream);padding:5mm 12mm 0 14mm;border-top:1.2mm solid var(--orange)}
+.contact-band h4{font-size:10pt;font-weight:900;letter-spacing:.25em;color:var(--orange)}
+.contact-band .org{font-size:13pt;font-weight:900;margin-top:2.5mm;letter-spacing:.04em}
+.contact-band .org small{font-size:9pt;color:var(--gray);font-weight:500;margin-right:3mm;letter-spacing:.1em}
+.contact-band .adr{font-size:9pt;margin-top:1mm}
+.contact-band dl{display:grid;grid-template-columns:auto auto auto 1fr;column-gap:3mm;align-items:baseline;margin-top:2mm}
+.contact-band dt{font-size:9pt;color:var(--gray);letter-spacing:.1em}
+.contact-band dd{font-size:11.5pt;font-weight:700}
+.contact-band dd.tel{font-size:22pt;font-weight:900;letter-spacing:.04em;margin-right:6mm}
+.contact-band .iw{position:absolute;right:12mm;top:7mm;width:44mm;mix-blend-mode:multiply}
+
+/* ===== 裏面 ===== */
+.back .file-head{position:absolute;top:calc(var(--bleed) + 10mm);left:0;right:0}
+.back .file-head .no{display:block;font-size:11pt;letter-spacing:.2em;font-weight:500;padding:0 0 1.5mm 14mm;border-bottom:.3mm solid #999}
+.back .file-head h2{font-weight:500;font-size:25pt;letter-spacing:.22em;padding:2.5mm 0 3mm 11.5mm;border-bottom:.3mm solid #999}
+.back .nyao{position:absolute;top:calc(var(--bleed) + 6mm);right:12mm;width:20mm;z-index:3}
+.back .nyao-say{position:absolute;top:calc(var(--bleed) + 17mm);right:35mm;background:#fff;border:.35mm solid var(--blue-d);border-radius:5mm;padding:1.5mm 4mm;font-family:"Klee One",cursive;font-size:10pt;color:var(--blue-d);z-index:3;white-space:nowrap}
+.back .nyao-say::before{content:"";position:absolute;right:-3.6mm;top:2.2mm;border:1.8mm solid transparent;border-left:3.4mm solid var(--blue-d)}
+.back .nyao-say::after{content:"";position:absolute;right:-2.9mm;top:2.55mm;border:1.45mm solid transparent;border-left:3mm solid #fff}
+.back .panel{position:absolute;left:0;right:0;top:calc(var(--bleed) + 41mm);height:115mm;background:var(--blue)}
+.back .cards{position:absolute;top:calc(var(--bleed) + 46mm);left:12mm;right:12mm;display:flex;flex-direction:column;gap:3.5mm}
+.card{background:#fff;border-radius:2.5mm;padding:4mm 5mm;display:grid;grid-template-columns:26mm 1fr;gap:5mm;align-items:start}
+.card .num{font-family:"Klee One",cursive;text-align:center;line-height:1.1;color:var(--orange)}
+.card .num b{font-size:24pt;font-weight:600}
+.card .num small{font-size:11pt}
+.card .num .tm{display:block;margin-top:2mm;font-family:"Zen Kaku Gothic New";font-size:8.5pt;font-weight:700;color:#fff;background:var(--orange);border-radius:4mm;padding:.5mm 0;letter-spacing:.02em}
+.card h3{font-size:14pt;font-weight:900;line-height:1.4;letter-spacing:.03em}
+.card h3 small{font-size:10.5pt;margin-left:1mm}
+.card p{font-size:9.2pt;line-height:1.75;margin-top:1.5mm;text-align:justify}
+.back .gift{position:absolute;left:0;right:0;bottom:0;top:calc(var(--bleed) + 160mm);background:var(--cream);border-top:1.2mm solid var(--orange)}
+.back .gift .badge{position:absolute;top:-4mm;left:14mm;background:var(--orange);color:#fff;font-weight:700;font-size:10pt;padding:1.2mm 4mm;border-radius:4mm;letter-spacing:.12em}
+.back .gift h3{position:absolute;top:6mm;left:14mm;right:44mm;font-size:15pt;font-weight:900;line-height:1.45}
+.back .gift h3 small{display:block;font-size:9pt;color:var(--blue-d);font-weight:700;letter-spacing:.1em}
+.back .gift h3 em{font-style:normal;color:var(--orange)}
+.back .gift .man{position:absolute;left:8mm;top:26mm;width:27mm}
+.back .gift .man-say{position:absolute;left:39mm;right:12mm;top:28mm;background:#fff;border:.35mm solid var(--ink);border-radius:4mm;padding:2.5mm 4mm;font-size:8.8pt;line-height:1.7;text-align:justify}
+.back .gift .man-say::before{content:"";position:absolute;left:-3.6mm;top:8mm;border:1.8mm solid transparent;border-right:3.4mm solid var(--ink)}
+.back .gift .man-say::after{content:"";position:absolute;left:-2.9mm;top:8.35mm;border:1.45mm solid transparent;border-right:3mm solid #fff}
+.back .gift .catb{position:absolute;right:8mm;top:-2mm;width:30mm;z-index:3}
+.back .gift .lineup{position:absolute;left:12mm;right:12mm;top:62mm;display:grid;grid-template-columns:repeat(3,1fr);column-gap:4mm;row-gap:4mm}
+.vol{display:grid;grid-template-columns:22mm 1fr;gap:2.5mm;align-items:start}
+.vol img{width:22mm;box-shadow:.8mm 1mm 0 rgba(0,0,0,.15);display:block}
+.vol b{display:block;font-size:8.6pt;font-weight:900;line-height:1.35;margin-bottom:1mm}
+.vol b span{display:inline-block;background:var(--mustard);color:#fff;font-size:7.5pt;padding:0 1.5mm;border-radius:2mm;margin-right:1mm}
+.vol.sp b span{background:var(--blue-d)}
+.vol li{list-style:none;font-size:7.2pt;line-height:1.45;padding-left:.2mm}
+.vol li i{font-style:normal;color:var(--orange);font-weight:700;margin-right:.8mm}
+</style>
+</head>
+<body>
+
+<!-- ============ 表面 ============ -->
+<section class="sheet front">
+  <img class="logo" src="assets/logo_bookinsatsu.png" alt="ブック印刷のコト">
+  <span class="tenji">東京展</span>
+  <div class="stamp"><span>入場無料</span><span>予約不要</span></div>
+  <p class="guide"><span>こだわりの書籍展示とセミナーのご案内</span></p>
+
+  <img class="presen" src="assets/presen.png" alt="メガネの熱血プレゼン男子">
+  <p class="sub">編集にかかる時間とコストを減らして、<br><em>こだわりの本づくり</em>をしませんか？</p>
+
+  <div class="intro">
+    <p>本づくり専門印刷会社として60年、アイワードは書籍の企画、編集、情報処理、データベース制作、製版、印刷、製本のあらゆる分野からお手伝いしてきました。</p>
+    <p>このたび、当社が作成してきましたこだわりの製品を展示し、アイワードが独自に開発したシステムや汎用アプリを運用するノウハウなど、本づくりにかかわるセミナーを行います。</p>
+    <p>書籍展示の見学のみの方も歓迎しておりますので、お気軽にお越しください。</p>
+  </div>
+
+  <div class="photo"></div>
+  <svg class="torn" viewBox="0 0 216 12" preserveAspectRatio="none"><path d="M0 0H216V5l-4 1.2-5-.6-6 1.4-4-.8-7 1.1-5-.4-6 1.3-5-.9-6 1-4-.3-7 1.4-5-.7-6 .9-4-.5-7 1.3-5-.6-5 1.1-6-.8-4 .7-7-.2-5 1.2-6-.9-4 .6-7 .1-5 1-6-.6-5 .9-4-.4-7 1.2-5-.5-6 .8-4-.2-6 1-5-.7-6 .9-5-.3-4 .8-7-.4-5 1-6-.6-7 .8H0z" fill="#fff"/></svg>
+  <span class="photo-note">写真が入ります（展示風景・こだわりの本など）</span>
+  <div class="sticky">
+    <h3>「作業」はデジタルでスマートに。<br>「本づくり」は<em>もっとクリエイティブに</em>。</h3>
+    <p>最新のオンライン校正から、資料の自動データベース化、そして心を奪う「こだわりの造本」の裏側まで。効率化と品質向上を両立させる、これからの本づくりに出会う3つの特別セミナー＆展示会。</p>
+  </div>
+
+  <dl class="when">
+    <dt>日時</dt><dd><span class="date">2026.11.26<small>（木）</small></span><span class="time">10:00〜18:00</span></dd>
+    <dt>会場</dt><dd>日本教育会館 703号室<span class="addr">東京都千代田区一ツ橋2丁目6−2</span><span class="acc">都営新宿線・三田線、東京メトロ半蔵門線「神保町」駅 A1出口 徒歩約5分</span></dd>
+  </dl>
+
+  <div class="contact-band">
+    <h4>お問い合わせ</h4>
+    <p class="org"><small>主催</small>株式会社アイワード 東京営業部</p>
+    <p class="adr">〒101-0065 東京都千代田区西神田2丁目4番3号 高岡ビル</p>
+    <dl>
+      <dt>TEL</dt><dd class="tel">03-3239-3939</dd>
+      <dt>MAIL</dt><dd><span class="ph">〓〓〓〓〓@iword.co.jp</span></dd>
+    </dl>
+    <img class="iw" src="assets/logo_iword.png" alt="株式会社アイワード">
+  </div>
+</section>
+
+<!-- ============ 裏面 ============ -->
+<section class="sheet back">
+  <div class="file-head"><span class="no">SEMINAR</span><h2>セミナーの概要</h2></div>
+  <p class="nyao-say">なんだか、ぜんぶ聞きたいニャ</p>
+  <img class="nyao" src="assets/cat_nyao.png" alt="にゃお">
+
+  <div class="panel"></div>
+  <div class="cards">
+    <div class="card"><div class="num"><small>第</small><b>1</b><small>回</small><span class="tm">10:30〜11:30</span></div><div>
+      <h3>「編集支援ソリューション」<small>紹介セミナー</small></h3>
+      <p>人の手による熟練の編集作業は、長年デジタルに置き換えることが難しい分野でしたが、近年はオンラインを活用した校正も増えてきています。今回は、当社で導入している最新の運用事例をご紹介します。</p></div></div>
+    <div class="card"><div class="num"><small>第</small><b>2</b><small>回</small><span class="tm">13:30〜14:30</span></div><div>
+      <h3>「社史編集システム」<small>紹介セミナー</small></h3>
+      <p>社史編集は過去の資料を分析・整理することから始まる事業です。アイワードでは過去の資料のデータベースを自動で作成できるシステムを開発しました。システムの運用と、社史の他にも水平展開できる事例について解説します。</p></div></div>
+    <div class="card"><div class="num"><small>第</small><b>3</b><small>回</small><span class="tm">15:30〜16:30</span></div><div>
+      <h3>「こだわりの本」<small>紹介セミナー</small></h3>
+      <p>今年の造本装丁コンクールで受賞した2作品を含む、こだわりの本を多数展示し、担当したプリンティングディレクターが、コンセプトから実際の作り方まで、1冊ずつ解説します。</p></div></div>
+  </div>
+
+  <div class="gift">
+    <span class="badge">ご来場者プレゼント</span>
+    <h3><small>印刷技術情報誌</small>『ブック印刷のコト <em>Re:Edit</em>』を<br>もれなくプレゼントいたします！</h3>
+    <img class="catb" src="assets/cat_book.png" alt="本を持つにゃお">
+    <img class="man" src="assets/man.png" alt="室長">
+    <p class="man-say">『ブック印刷のコト』は、お客さまや社員の「なぜ？」という疑問から生まれた、印刷や製本の詳細な技術を、完成品の特徴を交えながらわかりやすく解説している技術情報誌です。このたび、これまでに発行した全6冊に新たな要素を加え、1冊に集約した総集編『Re:Edit』を制作いたしました。ぜひ会場へ足をお運びいただき、実際にお手にとってご覧いただけますと幸いです。</p>
+
+    <div class="lineup">
+      <div class="vol"><img src="assets/vol1.png" alt="Vol.1"><div><b><span>Vol.1</span>紙ざんまい</b><ul>
+        <li><i>#1</i>おじぎしちゃうチラシ</li><li><i>#2</i>表紙ってちょっと短いの？</li><li><i>#3</i>大事な本が黄ばんじゃった！</li></ul></div></div>
+      <div class="vol"><img src="assets/vol2.png" alt="Vol.2"><div><b><span>Vol.2</span>インサツとインキのイー関係</b><ul>
+        <li><i>#4</i>光に当たっても色褪せない</li><li><i>#5</i>新しい本のに・お・い</li><li><i>番外編</i>印刷機を見に行くの巻 オフセットを知ろう！</li></ul></div></div>
+      <div class="vol"><img src="assets/vol3.png" alt="Vol.3"><div><b><span>Vol.3</span>奥が深くてオモシロイ製本</b><ul>
+        <li><i>#6</i>ピッタリしすぎて出てこない</li><li><i>#7</i>すぐ閉じちゃう本</li><li><i>#8</i>ズ、ズレてる見開き</li></ul></div></div>
+      <div class="vol"><img src="assets/vol4.png" alt="Vol.4"><div><b><span>Vol.4</span>室長の秘密ノート大公開 特殊加工のあれこれ</b><ul>
+        <li>PPの種類とUV厚盛印刷／箔押し／トムソン型での抜き加工／本のカバーかけ／表紙から小口へつながる印刷</li></ul></div></div>
+      <div class="vol"><img src="assets/vol5.png" alt="Vol.5"><div><b><span>Vol.5</span>紙はサイコロで決めない</b><ul>
+        <li><i>#9</i>ページによって印刷のツヤが違う！？</li><li><i>#10</i>厚いのに透ける紙</li><li><i>番外編</i>バシっとくんの会社へ行くの巻 スリーブの目の向きってどっち？</li></ul></div></div>
+      <div class="vol sp"><img src="assets/special.png" alt="特別編"><div><b><span>特別編</span>書籍に必要なISBNってなに？</b></div></div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
