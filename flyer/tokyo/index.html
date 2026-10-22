@@ -46,14 +46,11 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 .front .sub::after{content:"";position:absolute;left:-4.1mm;top:9.5mm;border:2.1mm solid transparent;border-right:4.2mm solid #fff}
 .front .intro{position:absolute;top:calc(var(--bleed) + 96mm);left:14mm;right:12mm;font-size:9.4pt;line-height:1.85;text-align:justify;letter-spacing:.02em}
 .front .intro p+p{margin-top:.6mm}
-.front .photo{position:absolute;left:0;right:0;top:140mm;height:113mm;
-  background:
-    radial-gradient(120mm 80mm at 85% 55%, rgba(240,190,120,.55), transparent 70%),
-    radial-gradient(90mm 60mm at 15% 85%, rgba(200,130,60,.5), transparent 70%),
-    linear-gradient(170deg,#2b211c 0%,#4a3426 45%,#8a5a34 80%,#b47a44 100%);}
+.front .photo{position:absolute;left:0;right:0;top:140mm;height:113mm;background:url(assets/photo.jpg) center 40%/cover no-repeat}
+.front .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(35,25,20,0) 30%,rgba(35,25,20,.55) 50%,rgba(35,25,20,.9) 72%)}
 .front .torn{position:absolute;left:0;top:136mm;width:216mm;height:12mm;z-index:1}
 .front .photo-note{position:absolute;right:12mm;top:239mm;font-size:7.5pt;color:rgba(255,255,255,.8);border:.3mm dashed rgba(255,255,255,.6);padding:.6mm 2mm}
-.front .sticky{position:absolute;top:154mm;left:13mm;width:132mm;background:var(--yellow);padding:5mm 6mm 4.5mm;transform:rotate(-2deg);box-shadow:1mm 1.5mm 0 rgba(0,0,0,.18);z-index:2}
+.front .sticky{position:absolute;top:150mm;left:12mm;width:112mm;background:var(--yellow);padding:5mm 6mm 4.5mm;transform:rotate(-2deg);box-shadow:1mm 1.5mm 0 rgba(0,0,0,.18);z-index:2}
 .front .sticky::before{content:"";position:absolute;top:-3mm;left:50%;width:12mm;height:6mm;margin-left:-6mm;background:#9a7d5e;opacity:.85;transform:rotate(3deg)}
 .front .sticky h3{font-family:"Klee One",cursive;font-weight:600;font-size:13.5pt;line-height:1.5;letter-spacing:.02em}
 .front .sticky h3 em{font-style:normal;color:var(--orange)}
@@ -135,8 +132,7 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
 
   <div class="photo"></div>
   <svg class="torn" viewBox="0 0 216 12" preserveAspectRatio="none"><path d="M0 0H216V5l-4 1.2-5-.6-6 1.4-4-.8-7 1.1-5-.4-6 1.3-5-.9-6 1-4-.3-7 1.4-5-.7-6 .9-4-.5-7 1.3-5-.6-5 1.1-6-.8-4 .7-7-.2-5 1.2-6-.9-4 .6-7 .1-5 1-6-.6-5 .9-4-.4-7 1.2-5-.5-6 .8-4-.2-6 1-5-.7-6 .9-5-.3-4 .8-7-.4-5 1-6-.6-7 .8H0z" fill="#fff"/></svg>
-  <span class="photo-note">写真が入ります（展示風景・こだわりの本など）</span>
-  <div class="sticky">
+    <div class="sticky">
     <h3>「作業」はデジタルでスマートに。<br>「本づくり」は<em>もっとクリエイティブに</em>。</h3>
     <p>最新のオンライン校正から、資料の自動データベース化、そして心を奪う「こだわりの造本」の裏側まで。効率化と品質向上を両立させる、これからの本づくりに出会う3つの特別セミナー＆展示会。</p>
   </div>
@@ -152,7 +148,7 @@ body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);-webkit-print
     <p class="adr">〒101-0065 東京都千代田区西神田2丁目4番3号 高岡ビル</p>
     <dl>
       <dt>TEL</dt><dd class="tel">03-3239-3939</dd>
-      <dt>MAIL</dt><dd><span class="ph">〓〓〓〓〓@iword.co.jp</span></dd>
+      <dt>MAIL</dt><dd>info@iword.co.jp</dd>
     </dl>
     <img class="iw" src="assets/logo_iword.png" alt="株式会社アイワード">
   </div>
