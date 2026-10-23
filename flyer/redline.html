@@ -80,7 +80,7 @@ canvas.pan{touch-action:auto;pointer-events:none}
   var SHEETS = {1:{src:"preview-1.png",alt:"チラシ表面"},2:{src:"preview-2.png",alt:"チラシ裏面（セミナー概要・プレゼント）"}};
   var COLORS = {red:"#d7261e", blue:"#1d5fd1"};
   var WIDTHS = {1:2, 2:4, 3:8}; // 画像幅1600pxあたりの線幅
-  var ROUND = 13; // 校正回数：前の回の赤字は表示しない
+  var ROUND = 14; // 校正回数：前の回の赤字は表示しない
   var st = {sheet:1, tool:"pen", color:"red", w:2, marks:[], mine:[], drawing:null};
   var img = document.getElementById("img"), cv = document.getElementById("cv"), stage = document.getElementById("stage");
   var ctx = cv.getContext("2d"), statusEl = document.getElementById("status");
