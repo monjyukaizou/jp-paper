@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ブック印刷のコト Re:Edit 表紙（仮）</title>
+<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=Klee+One:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* 『ブック印刷のコト Re:Edit』表紙の仮デザイン（A4縦・仕上がりサイズ） */
+:root{--ink:#232323;--orange:#e2622c;--mustard:#e9a63f;--yellow:#f7ee95}
+@page{size:210mm 297mm;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);background:#888;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.cover{width:210mm;height:297mm;position:relative;overflow:hidden;background:#fff}
+.kicker{position:absolute;top:13mm;left:13mm;font-size:10pt;font-weight:900;letter-spacing:.5em;color:var(--mustard)}
+.logo{position:absolute;top:19mm;left:10mm;width:132mm}
+.re{position:absolute;top:36mm;left:144mm;font-family:"Yusei Magic",sans-serif;font-size:26pt;color:var(--orange);letter-spacing:.02em;z-index:3}
+.mascot{position:absolute;top:8mm;right:10mm;width:26mm;opacity:.9}
+.photo{position:absolute;left:0;right:0;top:58mm;bottom:0;
+  background:
+    radial-gradient(110mm 80mm at 70% 45%, rgba(250,205,140,.6), transparent 70%),
+    radial-gradient(90mm 70mm at 15% 90%, rgba(210,140,70,.55), transparent 70%),
+    linear-gradient(170deg,#2b211c 0%,#4a3426 40%,#8a5a34 78%,#b47a44 100%)}
+.torn{position:absolute;left:0;top:52mm;width:210mm;height:12mm;z-index:2}
+.badge{position:absolute;top:57mm;left:11mm;width:25mm;height:25mm;border-radius:50%;background:var(--orange);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;line-height:1.05;z-index:4;box-shadow:.6mm .8mm 0 rgba(0,0,0,.2)}
+.badge b{font-size:13pt;letter-spacing:.02em}
+.badge small{font-size:6.5pt;letter-spacing:.2em;margin-top:.8mm}
+.toku{position:absolute;top:88mm;left:14mm;color:#fff;font-family:"Klee One",cursive;z-index:4;text-shadow:0 0 2mm rgba(0,0,0,.4)}
+.toku small{display:block;font-size:10pt;letter-spacing:.3em}
+.toku p{font-size:17pt;line-height:1.7;letter-spacing:.12em;margin-top:1mm}
+/* 既刊6冊を散らして置く */
+.books{position:absolute;inset:0;z-index:3}
+.books img{position:absolute;width:46mm;box-shadow:1.5mm 2.5mm 3mm rgba(0,0,0,.45)}
+.bubble{position:absolute;top:96mm;right:14mm;width:50mm;height:30mm;z-index:5}
+.bubble span{position:absolute;inset:0 0 5mm;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Klee One",cursive;color:#fff;font-size:10pt;line-height:1.6;letter-spacing:.1em}
+.new{position:absolute;left:12mm;top:232mm;background:var(--yellow);padding:2.2mm 4mm;transform:rotate(-3deg);font-family:"Klee One",cursive;font-size:11pt;z-index:5;box-shadow:.8mm 1.2mm 0 rgba(0,0,0,.25)}
+.new em{font-style:normal;color:var(--orange);font-weight:600}
+.files{position:absolute;left:14mm;bottom:12mm;color:#fff;font-size:7.6pt;line-height:1.75;letter-spacing:.06em;z-index:5;columns:2;column-gap:8mm;width:140mm}
+.files li{list-style:none;break-inside:avoid}
+.files i{font-style:normal;font-size:6.5pt;opacity:.8;margin-right:1.5mm}
+.qr{position:absolute;right:12mm;bottom:14mm;width:13mm;height:13mm;background:#fff;z-index:5;display:flex;align-items:center;justify-content:center;font-size:5pt;color:#999}
+.url{position:absolute;right:12mm;bottom:9mm;color:#fff;font-size:5.5pt;z-index:5}
+</style>
+</head>
+<body>
+<div class="cover">
+  <span class="kicker">誰も教えてくれなかった</span>
+  <img class="logo" src="assets/logo_bookinsatsu.png" alt="ブック印刷のコト">
+  <span class="re">Re:Edit</span>
+  <img class="mascot" src="assets/cat_book.png" alt="">
+
+  <div class="photo"></div>
+  <svg class="torn" viewBox="0 0 210 12" preserveAspectRatio="none"><path d="M0 0H210V4l-5 1.6-6-.8-5 1.4-7-1-4 1.2-6-.5-5 1.5-6-1-4 .8-7-.3-5 1.4-6-.8-5 1.1-5-.6-6 1.3-4-.9-7 1.2-5-.4-6 1-4-.7-7 1.4-5-.6-6 .9-4-.2-7 1.1-5-.8-5 1.2-6-.5-4 .9-7-.4-5 1.3-6-.7-5 1-6-.3-4 .8-6-.6-5 1.2-5-.5-6 .9-5-.6V0z" fill="#fff"/></svg>
+
+  <div class="badge"><b>Re:Edit</b><small>総集編</small></div>
+  <div class="toku"><small>特集</small><p>ぜんぶ、まとめて<br>もう一度。</p></div>
+
+  <div class="books">
+    <img src="assets/vol1.png" style="left:20mm;top:132mm;transform:rotate(-14deg)" alt="">
+    <img src="assets/vol2.png" style="left:58mm;top:120mm;transform:rotate(-4deg)" alt="">
+    <img src="assets/vol3.png" style="left:100mm;top:126mm;transform:rotate(7deg)" alt="">
+    <img src="assets/vol4.png" style="left:142mm;top:140mm;transform:rotate(15deg)" alt="">
+    <img src="assets/vol5.png" style="left:42mm;top:168mm;transform:rotate(5deg)" alt="">
+    <img src="assets/special.png" style="left:86mm;top:164mm;transform:rotate(-8deg)" alt="">
+  </div>
+
+  <svg class="bubble" viewBox="0 0 46 28"><path d="M23 1.5C34 1.5 44 6 44 13s-9 11-19 11.5c-2 0-3.5 0-5-.3L12 27l3-3.8C7 21.5 2 17.5 2 13 2 6 12 1.5 23 1.5z" fill="none" stroke="#fff" stroke-width=".45"/></svg>
+  <div class="bubble"><span>6冊ぶん、<br>1冊になったニャ</span></div>
+
+  <p class="new">＋ 新たな追加記事　<em>紙づくりのあれこれ</em></p>
+
+  <ul class="files">
+    <li><i>Vol.1</i>紙ざんまい</li>
+    <li><i>Vol.2</i>インサツとインキのイー関係</li>
+    <li><i>Vol.3</i>奥が深くてオモシロイ製本</li>
+    <li><i>Vol.4</i>特殊加工のあれこれ</li>
+    <li><i>Vol.5</i>紙はサイコロで決めない</li>
+    <li><i>特別編</i>書籍に必要なISBNってなに？</li>
+  </ul>
+  <div class="qr">QR</div>
+  <span class="url">https://www.iword.co.jp</span>
+</div>
+</body>
+</html>
